@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMLAPTOP - Komunitas Mahasiswa</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">SAMLAPTOP</div>
+            <nav class="nav">
+                <div class="nav-item active" onclick="showSection('beranda')">Beranda</div>
+                <div class="nav-item" onclick="showSection('artikel')">Artikel</div>
+                <div class="nav-item" onclick="showSection('komunitas')">Komunitas</div>
+                <div class="nav-item" onclick="showSection('teknisi')">Teknisi</div>
+                <div class="nav-item" onclick="showSection('reseller')">Reseller</div>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" width="24" height="24"></i>
+            </button>
+            <div class="user-menu">
+                <div class="points-badge">
+                    <i data-lucide="target" width="16" height="16"></i>
+                    250 Poin
+                </div>
+                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="mobile-nav-item active" onclick="showSection('beranda'); toggleMobileMenu();">Beranda</div>
+                <div class="mobile-nav-item" onclick="showSection('artikel'); toggleMobileMenu();">Artikel</div>
+                <div class="mobile-nav-item" onclick="showSection('komunitas'); toggleMobileMenu();">Komunitas</div>
+                <div class="mobile-nav-item" onclick="showSection('teknisi'); toggleMobileMenu();">Teknisi</div>
+                <div class="mobile-nav-item" onclick="showSection('reseller'); toggleMobileMenu();">Reseller</div>
+            </div>
+        </header>
+
+        <div id="beranda-section" class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Solusi Laptop untuk Mahasiswa</h1>
+                    <p class="hero-subtitle">
+                        Komunitas mahasiswa saling membantu dalam perawatan, troubleshooting, dan konsultasi laptop. 
+                        Dapatkan poin dan tukarkan dengan free troubleshooting!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('konsultasi')">
+                            🚀 Konsultasi Sekarang
+                        </button>
+                        <button class="btn btn-secondary hero-btn" onclick="showSection('artikel')">
+                            📚 Lihat Artikel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">5.000+</div>
+                    <div class="stat-label">Mahasiswa</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number">1.200+</div>
+                    <div class="stat-label">Troubleshoot Berhasil</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-number">800+</div>
+                    <div class="stat-label">Diskusi Aktif</div>
+                </div>
+            </div>
+
+            <!-- Why Join Section -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    ✨ Kenapa Bergabung dengan SAMLAPTOP?
+                </h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔧</div>
+                        <div class="benefit-text">
+                            <h3>Akses teknisi mahasiswa terpercaya</h3>
+                            <p>Dapatkan bantuan dari sesama mahasiswa yang sudah berpengalaman</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💬</div>
+                        <div class="benefit-text">
+                            <h3>Forum diskusi aktif dan suportif</h3>
+                            <p>Bertanya dan berbagi pengalaman dengan komunitas yang solid</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎁</div>
+                        <div class="benefit-text">
+                            <h3>Sistem poin dan reward menarik</h3>
+                            <p>Dapatkan poin dari aktivitas dan tukar dengan layanan gratis</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📚</div>
+                        <div class="benefit-text">
+                            <h3>Artikel dan panduan perawatan laptop</h3>
+                            <p>Akses panduan lengkap perawatan dan tips troubleshooting</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌐</div>
+                        <div class="benefit-text">
+                            <h3>Konsultasi dan troubleshooting remote</h3>
+                            <p>Bantuan teknis jarak jauh tanpa perlu keluar kampus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rewards Section (moved down) -->
+            <div class="rewards-section">
+                <div class="rewards-title">
+                    💎 Reward yang Bisa Ditukar
+                </div>
+                <div class="reward-items">
+                    <div class="reward-item" onclick="openModal('redeem')">
+                        <div style="font-size: 24px; margin-bottom: 8px;">🛠️</div>
+                        <div style="font-weight: 600; color: #2d3748;">Troubleshoot Remote</div>
+                        <div style="color: #718096; font-size: 12px;">150 Poin</div>
+                    </div>
+                    <div class="reward-item" onclick="openModal('redeem')">
+                        <div style="font-size: 24px; margin-bottom: 8px;">💬</div>
+                        <div style="font-weight: 600; color: #2d3748;">Konsultasi Premium</div>
+                        <div style="color: #718096; font-size: 12px;">200 Poin</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        🔥 Diskusi Terbaru di Komunitas
+                    </div>
+                    
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">AR</div>
+                            <div class="user-info">
+                                <div class="username">Ahmad Rizky</div>
+                                <div class="user-major">Teknik Informatika - UI</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">3 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">Cara mengatasi laptop overheating saat gaming</div>
+                        <div class="discussion-preview">Laptop ASUS ROG saya sering panas banget saat main Valorant dan coding. Sudah coba bersihin kipas tapi masih sama...</div>
+                        <div class="discussion-stats">
+                            <div class="stat-item">💬 24 Balasan</div>
+                            <div class="stat-item">👍 145 Suka</div>
+                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">SW</div>
+                            <div class="user-info">
+                                <div class="username">Sari Wulandari</div>
+                                <div class="user-major">Desain Komunikasi Visual - ITB</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">5 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">Review laptop terbaik untuk desain grafis 2024</div>
+                        <div class="discussion-preview">Sedang cari laptop untuk kuliah DKV, budget 10-15 juta. Butuh yang kuat buat Adobe Photoshop, Illustrator, dan Premiere Pro...</div>
+                        <div class="discussion-stats">
+                            <div class="stat-item">💬 15 Balasan</div>
+                            <div class="stat-item">👍 98 Suka</div>
+                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">DS</div>
+                            <div class="user-info">
+                                <div class="username">Dito Setiawan</div>
+                                <div class="user-major">Ekonomi - UGM</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">8 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">Tips merawat battery laptop biar awet</div>
+                        <div class="discussion-preview">Battery laptop saya cepat banget habis, baru 1 tahun udah harus selalu dicharger. Ada tips merawat battery laptop agar tetap awet dan tahan lama?</div>
+                        <div class="discussion-stats">
+                            <div class="stat-item">💬 32 Balasan</div>
+                            <div class="stat-item">👍 210 Suka</div>
+                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-title">
+                        ⚡ Aksi Cepat
+                    </div>
+                    
+                    <div class="service-card" onclick="openModal('konsultasi')">
+                        <div class="service-icon" style="background: linear-gradient(45deg, #48bb78, #38a169);">💬</div>
+                        <div class="service-title">Konsultasi Laptop</div>
+                        <div class="service-desc">Chat langsung dengan teknisi mahasiswa berpengalaman</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openModal('troubleshoot')">
+                        <div class="service-icon" style="background: linear-gradient(45deg, #ed8936, #dd6b20);">🛠️</div>
+                        <div class="service-title">Remote Troubleshoot</div>
+                        <div class="service-desc">Bantuan teknis jarak jauh untuk masalah laptop</div>
+                    </div>
+                    
+                    <div class="service-card" onclick="openModal('tracking')">
+                        <div class="service-icon" style="background: linear-gradient(45deg, #667eea, #764ba2);">📍</div>
+                        <div class="service-title">Lacak Status</div>
+                        <div class="service-desc">Pantau progress perbaikan laptop Anda</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" onclick="showSection('artikel')">
+                    <div class="service-icon" style="background: linear-gradient(45deg, #4299e1, #3182ce);">📚</div>
+                    <div class="service-title">Artikel & Tips</div>
+                    <div class="service-desc">Panduan lengkap perawatan dan troubleshooting laptop untuk mahasiswa</div>
+                </div>
+                
+                <div class="service-card" onclick="showSection('teknisi')">
+                    <div class="service-icon" style="background: linear-gradient(45deg, #38b2ac, #319795);">👨‍🔧</div>
+                    <div class="service-title">Daftar Teknisi</div>
+                    <div class="service-desc">Jaringan teknisi mahasiswa terverifikasi di seluruh Indonesia</div>
+                </div>
+                
+                <div class="service-card" onclick="showSection('reseller')">
+                    <div class="service-icon" style="background: linear-gradient(45dd, #805ad5, #6b46c1);">🏪</div>
+                    <div class="service-title">Reseller Terpercaya</div>
+                    <div class="service-desc">Daftar reseller laptop dengan harga khusus mahasiswa</div>
+                </div>
+                
+                <div class="service-card" onclick="showSection('komunitas')">
+                    <div class="service-icon" style="background: linear-gradient(45deg, #f56565, #e53e3e);">👥</div>
+                    <div class="service-title">Komunitas</div>
+                    <div class="service-desc">Bergabung dengan komunitas mahasiswa pecinta teknologi</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section lainnya akan ditambahkan di sini -->
+        <div id="artikel-section" class="section" style="display: none;">
+            <div class="content-section">
+                <div class="section-title">📚 Artikel & Tips</div>
+                <p>Bagian artikel akan dikembangkan...</p>
+            </div>
+        </div>
+
+        <div id="komunitas-section" class="section" style="display: none;">
+            <div class="content-section">
+                <div class="section-title">👥 Komunitas</div>
+                <p>Bagian komunitas akan dikembangkan...</p>
+            </div>
+        </div>
+
+        <div id="teknisi-section" class="section" style="display: none;">
+            <div class="content-section">
+                <div class="section-title">👨‍🔧 Daftar Teknisi</div>
+                <p>Bagian teknisi akan dikembangkan...</p>
+            </div>
+        </div>
+
+        <div id="reseller-section" class="section" style="display: none;">
+            <div class="content-section">
+                <div class="section-title">🏪 Reseller</div>
+                <p>Bagian reseller akan dikembangkan...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openModal('chat')">💬</div>
+
+    <!-- Modal Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Email/NIM</label>
+                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Masukkan password">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
+            <p style="text-align: center; margin-top: 15px; color: #718096;">
+                Belum punya akun? <a href="#" style="color: #667eea;">Daftar di sini</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal Konsultasi -->
+    <div id="konsultasi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('konsultasi')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Konsultasi Laptop</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input" placeholder="Masukkan nama lengkap">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Universitas/Kampus</label>
+                <input type="text" class="form-input" placeholder="Nama kampus">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Masalah Laptop</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan masalah yang dialami..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tipe Konsultasi</label>
+                <select class="form-select">
+                    <option>Chat (Gratis - 50 Poin)</option>
+                    <option>Video Call (Premium - 200 Poin)</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Mulai Konsultasi</button>
+        </div>
+    </div>
+
+    <!-- Modal Troubleshoot -->
+    <div id="troubleshoot-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('troubleshoot')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Remote Troubleshoot</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input" placeholder="Masukkan nama lengkap">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nomor WhatsApp</label>
+                <input type="text" class="form-input" placeholder="08xxxxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Masalah Yang Dialami</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan detail masalah laptop Anda..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Merk & Tipe Laptop</label>
+                <input type="text" class="form-input" placeholder="Contoh: ASUS ROG Strix G15">
+            </div>
+            <p style="color: #718096; font-size: 14px; margin-bottom: 20px;">
+                💡 Biaya: 150 Poin | Estimasi waktu: 30-60 menit
+            </p>
+            <button class="btn btn-primary" style="width: 100%;">Request Troubleshoot</button>
+        </div>
+    </div>
+
+    <!-- Modal Tracking -->
+    <div id="tracking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tracking')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Lacak Status Pengerjaan</h2>
+            <div class="form-group">
+                <label class="form-label">Kode Tracking</label>
+                <input type="text" class="form-input" placeholder="Masukkan kode tracking">
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 20px;">Cek Status</button>
+            
+            <div class="status-tracker">
+                <h3 style="margin-bottom: 20px;">Status: Sedang Dikerjakan</h3>
+                <div class="status-steps">
+                    <div class="status-step completed">
+                        <div class="status-icon">✓</div>
+                        <div>Diterima</div>
+                    </div>
+                    <div class="status-step completed">
+                        <div class="status-icon">✓</div>
+                        <div>Diagnosa</div>
+                    </div>
+                    <div class="status-step active">
+                        <div class="status-icon">⚙️</div>
+                        <div>Perbaikan</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="status-icon">📦</div>
+                        <div>Selesai</div>
+                    </div>
+                </div>
+                <div style="background: #f7fafc; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                    <p><strong>Update Terakhir:</strong> 26 September 2024, 14:30</p>
+                    <p><strong>Teknisi:</strong> Ahmad Pratama (Teknik Informatika ITB)</p>
+                    <p><strong>Catatan:</strong> Sedang mengganti thermal paste dan membersihkan kipas pendingin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chat -->
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Chat dengan Admin</h2>
+            
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;">
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Admin</div>
+                        <span style="font-size: 12px; color: #718096;">10:30</span>
+                    </div>
+                    <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
+                        Halo! Selamat datang di SAMLAPTOP. Ada yang bisa saya bantu?
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px; text-align: right;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; justify-content: flex-end;">
+                        <span style="font-size: 12px; color: #718096;">10:32</span>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #48bb78; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Anda</div>
+                    </div>
+                    <div style="background: #667eea; color: white; padding: 10px; border-radius: 10px; margin-right: 40px; display: inline-block;">
+                        Laptop saya sering hang ketika digunakan untuk coding
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chat-input" class="form-input" placeholder="Ketik pesan..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Redeem -->
+    <div id="redeem-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('redeem')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Tukar Poin Reward</h2>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <div class="points-badge" style="display: inline-block; font-size: 18px;">
+                    🎯 Poin Anda: 250
+                </div>
+            </div>
+            
+            <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    <div style="font-size: 40px;">🛠️</div>
+                    <div>
+                        <h3>Troubleshoot Remote 30 Menit</h3>
+                        <p style="color: #718096; margin: 5px 0;">Bantuan teknis jarak jauh oleh teknisi mahasiswa</p>
+                        <div style="background: linear-gradient(45deg, #ffd89b, #19547b); color: white; padding: 5px 10px; border-radius: 15px; display: inline-block; font-size: 12px;">
+                            150 Poin
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="redeemReward('troubleshoot')">
+                    Tukar Sekarang
+                </button>
+            </div>
+            
+            <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    <div style="font-size: 40px;">💬</div>
+                    <div>
+                        <h3>Konsultasi Premium 1 Jam</h3>
+                        <p style="color: #718096; margin: 5px 0;">Video call dengan teknisi berpengalaman</p>
+                        <div style="background: linear-gradient(45deg, #ffd89b, #19547b); color: white; padding: 5px 10px; border-radius: 15px; display: inline-block; font-size: 12px;">
+                            200 Poin
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" style="width: 100%;" disabled>
+                    Poin Tidak Cukup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Global variables
+        let currentSection = 'beranda';
+        let userPoints = 250;
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        
+         // Section Management
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+            
+            // Update active nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            mobileNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find and set active nav item
+            const activeNav = Array.from(navItems).find(item => 
+                item.textContent.toLowerCase().includes(sectionName.toLowerCase())
+            );
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+            
+            const activeMobileNav = Array.from(mobileNavItems).find(item => 
+                item.textContent.toLowerCase().includes(sectionName.toLowerCase())
+            );
+            if (activeMobileNav) {
+                activeMobileNav.classList.add('active');
+            }
+            
+            currentSection = sectionName;
+        }
+        
+        // Modal Management
+        function openModal(modalName) {
+            const modal = document.getElementById(modalName + '-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal(modalName) {
+            const modal = document.getElementById(modalName + '-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // Chat functionality
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                // Add user message
+                const userMessageHtml = `
+                    <div style="margin-bottom: 15px; text-align: right;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; justify-content: flex-end;">
+                            <span style="font-size: 12px; color: #718096;">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})}</span>
+                            <div style="width: 30px; height: 30px; border-radius: 50%; background: #48bb78; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Anda</div>
+                        </div>
+                        <div style="background: #667eea; color: white; padding: 10px; border-radius: 10px; margin-right: 40px; display: inline-block;">
+                            ${message}
+                        </div>
+                    </div>
+                `;
+                
+                chatMessages.innerHTML += userMessageHtml;
+                chatInput.value = '';
+                
+                // Auto scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate admin response
+                setTimeout(() => {
+                    const adminResponses = [
+                        "Terima kasih atas pertanyaannya. Saya akan menghubungkan Anda dengan teknisi yang sesuai.",
+                        "Bisa dijelaskan lebih detail masalahnya? Apakah ada pesan error yang muncul?",
+                        "Saya akan bantu troubleshoot masalah tersebut. Mohon tunggu sebentar.",
+                        "Masalah ini cukup umum terjadi. Kami punya beberapa solusi yang bisa dicoba."
+                    ];
+                    
+                    const randomResponse = adminResponses[Math.floor(Math.random() * adminResponses.length)];
+                    
+                    const adminMessageHtml = `
+                        <div style="margin-bottom: 15px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Admin</div>
+                                <span style="font-size: 12px; color: #718096;">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})}</span>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
+                                ${randomResponse}
+                            </div>
+                        </div>
+                    `;
+                    
+                    chatMessages.innerHTML += adminMessageHtml;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        // Handle Enter key in chat input
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+        });
+        
+        // Redeem reward functionality
+        function redeemReward(rewardType) {
+            const requiredPoints = rewardType === 'troubleshoot' ? 150 : 200;
+            
+            if (userPoints >= requiredPoints) {
+                userPoints -= requiredPoints;
+                
+                // Update points display
+                const pointsBadges = document.querySelectorAll('.points-badge');
+                pointsBadges.forEach(badge => {
+                    if (badge.textContent.includes('Poin')) {
+                        badge.textContent = `🎯 ${userPoints} Poin`;
+                    }
+                });
+                
+                // Show success message
+                alert(`Berhasil menukar reward! Poin Anda sekarang: ${userPoints}`);
+                
+                closeModal('redeem');
+                
+                // Open relevant service modal
+                if (rewardType === 'troubleshoot') {
+                    openModal('troubleshoot');
+                } else {
+                    openModal('konsultasi');
+                }
+            } else {
+                alert('Poin Anda tidak cukup untuk menukar reward ini.');
+            }
+        }
+        
+        // Add points for activities (demo)
+        function addPoints(points, activity) {
+            userPoints += points;
+            
+            // Update points display
+            const pointsBadges = document.querySelectorAll('.points-badge');
+            pointsBadges.forEach(badge => {
+                if (badge.textContent.includes('Poin')) {
+                    badge.textContent = `🎯 ${userPoints} Poin`;
+                }
+            });
+            
+            // Show notification
+            showNotification(`+${points} poin dari ${activity}!`);
+        }
+        
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #48bb78, #38a169);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Add CSS animation for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Demo: Add points when user interacts with discussions
+        document.addEventListener('DOMContentLoaded', function() {
+            const discussionCards = document.querySelectorAll('.discussion-card');
+            discussionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Simulate earning points for reading discussions
+                    const hasEarned = this.getAttribute('data-points-earned');
+                    if (!hasEarned) {
+                        addPoints(5, 'membaca diskusi');
+                        this.setAttribute('data-points-earned', 'true');
+                    }
+                });
+            });
+        });
+        
+        // Form submission handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle form submissions
+            const forms = document.querySelectorAll('.modal form, .modal button[type="submit"], .modal .btn-primary');
+            
+            // Add click handlers to all primary buttons in modals
+            const primaryButtons = document.querySelectorAll('.modal .btn-primary');
+            primaryButtons.forEach(button => {
+                if (!button.onclick) {
+                    button.addEventListener('click', function(e) {
+                        const modalContent = this.closest('.modal-content');
+                        const modalTitle = modalContent.querySelector('h2').textContent;
+                        
+                        // Simulate form processing
+                        this.textContent = 'Memproses...';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            if (modalTitle.includes('Konsultasi')) {
+                                addPoints(10, 'memulai konsultasi');
+                                alert('Konsultasi berhasil dimulai! Teknisi akan menghubungi Anda dalam 5 menit.');
+                            } else if (modalTitle.includes('Troubleshoot')) {
+                                alert('Request troubleshoot berhasil dikirim! Kami akan menghubungi Anda via WhatsApp.');
+                            } else if (modalTitle.includes('Masuk')) {
+                                addPoints(25, 'login harian');
+                                alert('Selamat datang kembali! Bonus 25 poin login harian.');
+                            }
+                            
+                            // Reset button
+                            this.disabled = false;
+                            this.textContent = this.textContent.replace('Memproses...', 
+                                modalTitle.includes('Konsultasi') ? 'Mulai Konsultasi' :
+                                modalTitle.includes('Troubleshoot') ? 'Request Troubleshoot' :
+                                modalTitle.includes('Masuk') ? 'Masuk' : 'Submit'
+                            );
+                            
+                            // Close modal
+                            const modal = this.closest('.modal');
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
