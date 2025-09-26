@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAMLAPTOP - Komunitas Mahasiswa</title>
     <link rel="stylesheet" href="style.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -18,11 +19,11 @@
                 <div class="nav-item" onclick="showSection('reseller')">Reseller</div>
             </nav>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i data-lucide="menu" width="24" height="24"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="user-menu">
                 <div class="points-badge">
-                    <i data-lucide="target" width="16" height="16"></i>
+                    <i class="fas fa-bullseye"></i>
                     250 Poin
                 </div>
                 <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
@@ -38,6 +39,7 @@
         </header>
 
         <div id="beranda-section" class="section">
+
             <!-- Hero Section -->
             <div class="hero-section">
                 <div class="hero-content">
@@ -48,10 +50,12 @@
                     </p>
                     <div class="hero-buttons">
                         <button class="btn btn-primary hero-btn" onclick="openModal('konsultasi')">
-                            🚀 Konsultasi Sekarang
+                            <i class="fas fa-rocket"></i>
+                            Konsultasi Sekarang
                         </button>
                         <button class="btn btn-secondary hero-btn" onclick="showSection('artikel')">
-                            📚 Lihat Artikel
+                            <i class="fas fa-book"></i>
+                            Lihat Artikel
                         </button>
                     </div>
                 </div>
@@ -60,17 +64,17 @@
             <!-- Stats Section -->
             <div class="stats-section">
                 <div class="stat-card">
-                    <div class="stat-icon">👥</div>
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
                     <div class="stat-number">5.000+</div>
                     <div class="stat-label">Mahasiswa</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">⭐</div>
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
                     <div class="stat-number">1.200+</div>
                     <div class="stat-label">Troubleshoot Berhasil</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">💬</div>
+                    <div class="stat-icon"><i class="fas fa-comments"></i></div>
                     <div class="stat-number">800+</div>
                     <div class="stat-label">Diskusi Aktif</div>
                 </div>
@@ -79,39 +83,40 @@
             <!-- Why Join Section -->
             <div class="why-join-section">
                 <h2 class="section-title">
-                    ✨ Kenapa Bergabung dengan SAMLAPTOP?
+                    <i class="fas fa-sparkles"></i>
+                    Kenapa Bergabung dengan SAMLAPTOP?
                 </h2>
                 <div class="benefits-grid">
                     <div class="benefit-item">
-                        <div class="benefit-icon">🔧</div>
+                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
                         <div class="benefit-text">
                             <h3>Akses teknisi mahasiswa terpercaya</h3>
                             <p>Dapatkan bantuan dari sesama mahasiswa yang sudah berpengalaman</p>
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">💬</div>
+                        <div class="benefit-icon"><i class="fas fa-comment-dots"></i></div>
                         <div class="benefit-text">
                             <h3>Forum diskusi aktif dan suportif</h3>
                             <p>Bertanya dan berbagi pengalaman dengan komunitas yang solid</p>
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🎁</div>
+                        <div class="benefit-icon"><i class="fas fa-gift"></i></div>
                         <div class="benefit-text">
                             <h3>Sistem poin dan reward menarik</h3>
                             <p>Dapatkan poin dari aktivitas dan tukar dengan layanan gratis</p>
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">📚</div>
+                        <div class="benefit-icon"><i class="fas fa-book-open"></i></div>
                         <div class="benefit-text">
                             <h3>Artikel dan panduan perawatan laptop</h3>
                             <p>Akses panduan lengkap perawatan dan tips troubleshooting</p>
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🌐</div>
+                        <div class="benefit-icon"><i class="fas fa-globe"></i></div>
                         <div class="benefit-text">
                             <h3>Konsultasi dan troubleshooting remote</h3>
                             <p>Bantuan teknis jarak jauh tanpa perlu keluar kampus</p>
@@ -120,19 +125,20 @@
                 </div>
             </div>
 
-            <!-- Rewards Section (moved down) -->
+            <!-- Rewards Section -->
             <div class="rewards-section">
                 <div class="rewards-title">
-                    💎 Reward yang Bisa Ditukar
+                    <i class="fas fa-gem"></i>
+                    Reward yang Bisa Ditukar
                 </div>
                 <div class="reward-items">
                     <div class="reward-item" onclick="openModal('redeem')">
-                        <div style="font-size: 24px; margin-bottom: 8px;">🛠️</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;"><i class="fas fa-wrench"></i></div>
                         <div style="font-weight: 600; color: #2d3748;">Troubleshoot Remote</div>
                         <div style="color: #718096; font-size: 12px;">150 Poin</div>
                     </div>
                     <div class="reward-item" onclick="openModal('redeem')">
-                        <div style="font-size: 24px; margin-bottom: 8px;">💬</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;"><i class="fas fa-video"></i></div>
                         <div style="font-weight: 600; color: #2d3748;">Konsultasi Premium</div>
                         <div style="color: #718096; font-size: 12px;">200 Poin</div>
                     </div>
@@ -142,7 +148,8 @@
             <div class="main-content">
                 <div class="content-section">
                     <div class="section-title">
-                        🔥 Diskusi Terbaru di Komunitas
+                        <i class="fas fa-fire"></i>
+                        Diskusi Terbaru di Komunitas
                     </div>
                     
                     <div class="discussion-card">
@@ -150,16 +157,16 @@
                             <div class="user-avatar">AR</div>
                             <div class="user-info">
                                 <div class="username">Ahmad Rizky</div>
-                                <div class="user-major">Teknik Informatika - UI</div>
+                                <div class="user-major">Teknik Informatika - UWG</div>
                             </div>
                             <div style="color: #718096; font-size: 12px;">3 jam lalu</div>
                         </div>
                         <div class="discussion-title">Cara mengatasi laptop overheating saat gaming</div>
                         <div class="discussion-preview">Laptop ASUS ROG saya sering panas banget saat main Valorant dan coding. Sudah coba bersihin kipas tapi masih sama...</div>
                         <div class="discussion-stats">
-                            <div class="stat-item">💬 24 Balasan</div>
-                            <div class="stat-item">👍 145 Suka</div>
-                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                            <div class="stat-item"><i class="fas fa-comment"></i> 24 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 145 Suka</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca Selengkapnya</div>
                         </div>
                     </div>
 
@@ -168,16 +175,16 @@
                             <div class="user-avatar">SW</div>
                             <div class="user-info">
                                 <div class="username">Sari Wulandari</div>
-                                <div class="user-major">Desain Komunikasi Visual - ITB</div>
+                                <div class="user-major">Teknik Informatika - UWG</div>
                             </div>
                             <div style="color: #718096; font-size: 12px;">5 jam lalu</div>
                         </div>
                         <div class="discussion-title">Review laptop terbaik untuk desain grafis 2024</div>
                         <div class="discussion-preview">Sedang cari laptop untuk kuliah DKV, budget 10-15 juta. Butuh yang kuat buat Adobe Photoshop, Illustrator, dan Premiere Pro...</div>
                         <div class="discussion-stats">
-                            <div class="stat-item">💬 15 Balasan</div>
-                            <div class="stat-item">👍 98 Suka</div>
-                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                            <div class="stat-item"><i class="fas fa-comment"></i> 15 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 98 Suka</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca Selengkapnya</div>
                         </div>
                     </div>
 
@@ -186,39 +193,40 @@
                             <div class="user-avatar">DS</div>
                             <div class="user-info">
                                 <div class="username">Dito Setiawan</div>
-                                <div class="user-major">Ekonomi - UGM</div>
+                                <div class="user-major">Ekonomi - UWG</div>
                             </div>
                             <div style="color: #718096; font-size: 12px;">8 jam lalu</div>
                         </div>
                         <div class="discussion-title">Tips merawat battery laptop biar awet</div>
                         <div class="discussion-preview">Battery laptop saya cepat banget habis, baru 1 tahun udah harus selalu dicharger. Ada tips merawat battery laptop agar tetap awet dan tahan lama?</div>
                         <div class="discussion-stats">
-                            <div class="stat-item">💬 32 Balasan</div>
-                            <div class="stat-item">👍 210 Suka</div>
-                            <div class="stat-item">📖 Baca Selengkapnya</div>
+                            <div class="stat-item"><i class="fas fa-comment"></i> 32 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 210 Suka</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca Selengkapnya</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-section">
                     <div class="section-title">
-                        ⚡ Aksi Cepat
+                        <i class="fas fa-bolt"></i>
+                        Aksi Cepat
                     </div>
                     
                     <div class="service-card" onclick="openModal('konsultasi')">
-                        <div class="service-icon" style="background: linear-gradient(45deg, #48bb78, #38a169);">💬</div>
+                        <div class="service-icon" style="background: linear-gradient(45deg, #48bb78, #38a169);"><i class="fas fa-comments"></i></div>
                         <div class="service-title">Konsultasi Laptop</div>
                         <div class="service-desc">Chat langsung dengan teknisi mahasiswa berpengalaman</div>
                     </div>
                     
                     <div class="service-card" onclick="openModal('troubleshoot')">
-                        <div class="service-icon" style="background: linear-gradient(45deg, #ed8936, #dd6b20);">🛠️</div>
+                        <div class="service-icon" style="background: linear-gradient(45deg, #ed8936, #dd6b20);"><i class="fas fa-tools"></i></div>
                         <div class="service-title">Remote Troubleshoot</div>
                         <div class="service-desc">Bantuan teknis jarak jauh untuk masalah laptop</div>
                     </div>
                     
                     <div class="service-card" onclick="openModal('tracking')">
-                        <div class="service-icon" style="background: linear-gradient(45deg, #667eea, #764ba2);">📍</div>
+                        <div class="service-icon" style="background: linear-gradient(45deg, #667eea, #764ba2);"><i class="fas fa-search"></i></div>
                         <div class="service-title">Lacak Status</div>
                         <div class="service-desc">Pantau progress perbaikan laptop Anda</div>
                     </div>
@@ -227,25 +235,25 @@
 
             <div class="services-grid">
                 <div class="service-card" onclick="showSection('artikel')">
-                    <div class="service-icon" style="background: linear-gradient(45deg, #4299e1, #3182ce);">📚</div>
+                    <div class="service-icon" style="background: linear-gradient(45deg, #4299e1, #3182ce);"><i class="fas fa-book"></i></div>
                     <div class="service-title">Artikel & Tips</div>
                     <div class="service-desc">Panduan lengkap perawatan dan troubleshooting laptop untuk mahasiswa</div>
                 </div>
                 
                 <div class="service-card" onclick="showSection('teknisi')">
-                    <div class="service-icon" style="background: linear-gradient(45deg, #38b2ac, #319795);">👨‍🔧</div>
+                    <div class="service-icon" style="background: linear-gradient(45deg, #38b2ac, #319795);"><i class="fas fa-user-cog"></i></div>
                     <div class="service-title">Daftar Teknisi</div>
                     <div class="service-desc">Jaringan teknisi mahasiswa terverifikasi di seluruh Indonesia</div>
                 </div>
                 
                 <div class="service-card" onclick="showSection('reseller')">
-                    <div class="service-icon" style="background: linear-gradient(45dd, #805ad5, #6b46c1);">🏪</div>
+                    <div class="service-icon" style="background: linear-gradient(45deg, #805ad5, #6b46c1);"><i class="fas fa-store"></i></div>
                     <div class="service-title">Reseller Terpercaya</div>
                     <div class="service-desc">Daftar reseller laptop dengan harga khusus mahasiswa</div>
                 </div>
                 
                 <div class="service-card" onclick="showSection('komunitas')">
-                    <div class="service-icon" style="background: linear-gradient(45deg, #f56565, #e53e3e);">👥</div>
+                    <div class="service-icon" style="background: linear-gradient(45deg, #f56565, #e53e3e);"><i class="fas fa-users"></i></div>
                     <div class="service-title">Komunitas</div>
                     <div class="service-desc">Bergabung dengan komunitas mahasiswa pecinta teknologi</div>
                 </div>
@@ -255,35 +263,35 @@
         <!-- Section lainnya akan ditambahkan di sini -->
         <div id="artikel-section" class="section" style="display: none;">
             <div class="content-section">
-                <div class="section-title">📚 Artikel & Tips</div>
+                <div class="section-title"><i class="fas fa-book"></i> Artikel & Tips</div>
                 <p>Bagian artikel akan dikembangkan...</p>
             </div>
         </div>
 
         <div id="komunitas-section" class="section" style="display: none;">
             <div class="content-section">
-                <div class="section-title">👥 Komunitas</div>
+                <div class="section-title"><i class="fas fa-users"></i> Komunitas</div>
                 <p>Bagian komunitas akan dikembangkan...</p>
             </div>
         </div>
 
         <div id="teknisi-section" class="section" style="display: none;">
             <div class="content-section">
-                <div class="section-title">👨‍🔧 Daftar Teknisi</div>
+                <div class="section-title"><i class="fas fa-user-cog"></i> Daftar Teknisi</div>
                 <p>Bagian teknisi akan dikembangkan...</p>
             </div>
         </div>
 
         <div id="reseller-section" class="section" style="display: none;">
             <div class="content-section">
-                <div class="section-title">🏪 Reseller</div>
+                <div class="section-title"><i class="fas fa-store"></i> Reseller</div>
                 <p>Bagian reseller akan dikembangkan...</p>
             </div>
         </div>
     </div>
 
     <!-- Chat Widget -->
-    <div class="chat-widget" onclick="openModal('chat')">💬</div>
+    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
 
     <!-- Modal Login -->
     <div id="login-modal" class="modal">
@@ -355,7 +363,7 @@
                 <input type="text" class="form-input" placeholder="Contoh: ASUS ROG Strix G15">
             </div>
             <p style="color: #718096; font-size: 14px; margin-bottom: 20px;">
-                💡 Biaya: 150 Poin | Estimasi waktu: 30-60 menit
+                <i class="fas fa-lightbulb"></i> Biaya: 150 Poin | Estimasi waktu: 30-60 menit
             </p>
             <button class="btn btn-primary" style="width: 100%;">Request Troubleshoot</button>
         </div>
@@ -376,25 +384,25 @@
                 <h3 style="margin-bottom: 20px;">Status: Sedang Dikerjakan</h3>
                 <div class="status-steps">
                     <div class="status-step completed">
-                        <div class="status-icon">✓</div>
+                        <div class="status-icon"><i class="fas fa-check"></i></div>
                         <div>Diterima</div>
                     </div>
                     <div class="status-step completed">
-                        <div class="status-icon">✓</div>
+                        <div class="status-icon"><i class="fas fa-check"></i></div>
                         <div>Diagnosa</div>
                     </div>
                     <div class="status-step active">
-                        <div class="status-icon">⚙️</div>
+                        <div class="status-icon"><i class="fas fa-cog"></i></div>
                         <div>Perbaikan</div>
                     </div>
                     <div class="status-step">
-                        <div class="status-icon">📦</div>
+                        <div class="status-icon"><i class="fas fa-box"></i></div>
                         <div>Selesai</div>
                     </div>
                 </div>
                 <div style="background: #f7fafc; padding: 15px; border-radius: 10px; margin-top: 20px;">
                     <p><strong>Update Terakhir:</strong> 26 September 2024, 14:30</p>
-                    <p><strong>Teknisi:</strong> Ahmad Pratama (Teknik Informatika ITB)</p>
+                    <p><strong>Teknisi:</strong> Ahmad Pratama (Teknik Informatika UWG)</p>
                     <p><strong>Catatan:</strong> Sedang mengganti thermal paste dan membersihkan kipas pendingin.</p>
                 </div>
             </div>
@@ -442,13 +450,13 @@
             <h2 style="margin-bottom: 20px;">Tukar Poin Reward</h2>
             <div style="text-align: center; margin-bottom: 25px;">
                 <div class="points-badge" style="display: inline-block; font-size: 18px;">
-                    🎯 Poin Anda: 250
+                    <i class="fas fa-bullseye"></i> Poin Anda: 250
                 </div>
             </div>
             
             <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px; margin-bottom: 20px;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                    <div style="font-size: 40px;">🛠️</div>
+                    <div style="font-size: 40px;"><i class="fas fa-wrench" style="color: #667eea;"></i></div>
                     <div>
                         <h3>Troubleshoot Remote 30 Menit</h3>
                         <p style="color: #718096; margin: 5px 0;">Bantuan teknis jarak jauh oleh teknisi mahasiswa</p>
@@ -464,7 +472,7 @@
             
             <div style="border: 2px solid #e2e8f0; border-radius: 15px; padding: 20px;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                    <div style="font-size: 40px;">💬</div>
+                    <div style="font-size: 40px;"><i class="fas fa-video" style="color: #718096;"></i></div>
                     <div>
                         <h3>Konsultasi Premium 1 Jam</h3>
                         <p style="color: #718096; margin: 5px 0;">Video call dengan teknisi berpengalaman</p>
