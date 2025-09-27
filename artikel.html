@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel & Tips - SAMLAPTOP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">SAMLAPTOP</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
+                <div class="nav-item active">Artikel</div>
+                <div class="nav-item" onclick="location.href='komunitas.html'">Komunitas</div>
+                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
+                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
+            </nav>
+            <div class="user-menu">
+                <div class="points-badge">
+                    <i class="fas fa-bullseye"></i>
+                    250 Poin
+                </div>
+                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
+                <div class="mobile-nav-item active">Artikel</div>
+                <div class="mobile-nav-item" onclick="location.href='komunitas.html'; toggleMobileMenu();">Komunitas</div>
+                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
+                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
+            </div>
+        </header>
+
+        <div class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-book-open"></i>
+                        Artikel & Tips Laptop
+                    </h1>
+                    <p class="hero-subtitle">
+                        Kumpulan artikel, panduan, dan tips terlengkap untuk perawatan laptop mahasiswa. 
+                        Dari troubleshooting hingga optimasi performa!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('konsultasi')">
+                            <i class="fas fa-question-circle"></i>
+                            Tanya Expert
+                        </button>
+                        <button class="btn btn-secondary hero-btn">
+                            <i class="fas fa-bookmark"></i>
+                            Bookmark Favorit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="stats-section">
+                <div class="stat-card" onclick="filterArticles('troubleshooting')">
+                    <div class="stat-icon"><i class="fas fa-tools"></i></div>
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Troubleshooting</div>
+                </div>
+                <div class="stat-card" onclick="filterArticles('maintenance')">
+                    <div class="stat-icon"><i class="fas fa-cog"></i></div>
+                    <div class="stat-number">32+</div>
+                    <div class="stat-label">Perawatan</div>
+                </div>
+                <div class="stat-card" onclick="filterArticles('optimization')">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-number">28+</div>
+                    <div class="stat-label">Optimasi</div>
+                </div>
+                <div class="stat-card" onclick="filterArticles('hardware')">
+                    <div class="stat-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="stat-number">21+</div>
+                    <div class="stat-label">Hardware</div>
+                </div>
+            </div>
+
+            <!-- Featured Articles -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Artikel Terpopuler
+                </h2>
+                <div class="benefits-grid">
+                    <div class="article-card featured">
+                        <div class="article-image">
+                            <i class="fas fa-fire" style="font-size: 48px; color: #ff6b35;"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Troubleshooting</span>
+                                <span class="article-date">2 hari lalu</span>
+                            </div>
+                            <h3>Cara Mengatasi Laptop Overheating: Panduan Lengkap 2024</h3>
+                            <p>Laptop panas berlebihan? Pelajari 10 cara efektif mengatasi overheating, dari cleaning thermal paste hingga setting power management.</p>
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> 15,420 views</span>
+                                <span><i class="fas fa-heart"></i> 892 likes</span>
+                                <span><i class="fas fa-comment"></i> 156 komentar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-battery-three-quarters" style="font-size: 48px; color: #4caf50;"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Perawatan</span>
+                                <span class="article-date">5 hari lalu</span>
+                            </div>
+                            <h3>Tips Merawat Baterai Laptop Agar Awet Hingga 5 Tahun</h3>
+                            <p>Rahasia membuat baterai laptop tahan lama dengan teknik charging yang benar dan setting power management optimal.</p>
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> 12,350 views</span>
+                                <span><i class="fas fa-heart"></i> 721 likes</span>
+                                <span><i class="fas fa-comment"></i> 98 komentar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-tachometer-alt" style="font-size: 48px; color: #2196f3;"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Optimasi</span>
+                                <span class="article-date">1 minggu lalu</span>
+                            </div>
+                            <h3>Boost Performa Laptop untuk Gaming dan Coding</h3>
+                            <p>Panduan step-by-step mengoptimalkan laptop untuk performa maksimal dalam gaming dan programming.</p>
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> 9,876 views</span>
+                                <span><i class="fas fa-heart"></i> 654 likes</span>
+                                <span><i class="fas fa-comment"></i> 87 komentar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-memory" style="font-size: 48px; color: #9c27b0;"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category">Hardware</span>
+                                <span class="article-date">1 minggu lalu</span>
+                            </div>
+                            <h3>Upgrade RAM Laptop: Panduan Memilih dan Memasang</h3>
+                            <p>Tutorial lengkap upgrade RAM laptop mulai dari memilih spesifikasi yang tepat hingga cara pemasangan yang aman.</p>
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> 8,543 views</span>
+                                <span><i class="fas fa-heart"></i> 432 likes</span>
+                                <span><i class="fas fa-comment"></i> 76 komentar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Articles -->
+            <div class="main-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-clock"></i>
+                        Artikel Terbaru
+                    </div>
+                    
+                    <div class="article-list">
+                        <div class="discussion-card article-item">
+                            <div class="discussion-header">
+                                <div class="article-thumb">
+                                    <i class="fas fa-laptop" style="color: #667eea;"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="username">Panduan Troubleshooting Blue Screen</div>
+                                    <div class="user-major">Troubleshooting • 3 hari lalu</div>
+                                </div>
+                            </div>
+                            <div class="discussion-preview">Panduan lengkap mengatasi Blue Screen of Death (BSOD) pada laptop dengan berbagai solusi efektif...</div>
+                            <div class="discussion-stats">
+                                <div class="stat-item"><i class="fas fa-eye"></i> 5,234 views</div>
+                                <div class="stat-item"><i class="fas fa-heart"></i> 312 likes</div>
+                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
+                            </div>
+                        </div>
+
+                        <div class="discussion-card article-item">
+                            <div class="discussion-header">
+                                <div class="article-thumb">
+                                    <i class="fas fa-shield-alt" style="color: #48bb78;"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="username">Keamanan Laptop: Antivirus Terbaik 2024</div>
+                                    <div class="user-major">Security • 4 hari lalu</div>
+                                </div>
+                            </div>
+                            <div class="discussion-preview">Review dan perbandingan antivirus terbaik untuk laptop mahasiswa, termasuk opsi gratis dan berbayar...</div>
+                            <div class="discussion-stats">
+                                <div class="stat-item"><i class="fas fa-eye"></i> 4,821 views</div>
+                                <div class="stat-item"><i class="fas fa-heart"></i> 267 likes</div>
+                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
+                            </div>
+                        </div>
+
+                        <div class="discussion-card article-item">
+                            <div class="discussion-header">
+                                <div class="article-thumb">
+                                    <i class="fas fa-hdd" style="color: #ed8936;"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="username">SSD vs HDD: Mana yang Lebih Cocok?</div>
+                                    <div class="user-major">Hardware • 6 hari lalu</div>
+                                </div>
+                            </div>
+                            <div class="discussion-preview">Perbandingan lengkap SSD dan HDD dari segi performa, harga, dan daya tahan untuk kebutuhan mahasiswa...</div>
+                            <div class="discussion-stats">
+                                <div class="stat-item"><i class="fas fa-eye"></i> 3,945 views</div>
+                                <div class="stat-item"><i class="fas fa-heart"></i> 198 likes</div>
+                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-tags"></i>
+                        Kategori Populer
+                    </div>
+                    
+                    <div class="category-tags">
+                        <div class="tag-item" onclick="filterArticles('windows')">
+                            <i class="fab fa-windows"></i> Windows (25)
+                        </div>
+                        <div class="tag-item" onclick="filterArticles('macOS')">
+                            <i class="fab fa-apple"></i> macOS (18)
+                        </div>
+                        <div class="tag-item" onclick="filterArticles('linux')">
+                            <i class="fab fa-linux"></i> Linux (12)
+                        </div>
+                        <div class="tag-item" onclick="filterArticles('gaming')">
+                            <i class="fas fa-gamepad"></i> Gaming (22)
+                        </div>
+                        <div class="tag-item" onclick="filterArticles('coding')">
+                            <i class="fas fa-code"></i> Coding (19)
+                        </div>
+                        <div class="tag-item" onclick="filterArticles('design')">
+                            <i class="fas fa-palette"></i> Design (14)
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-fire"></i>
+                        Tips Cepat
+                    </div>
+
+                    <div class="quick-tips">
+                        <div class="tip-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Restart laptop minimal 1x seminggu untuk performa optimal</span>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Bersihkan file temporary secara rutin dengan Disk Cleanup</span>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Update driver secara berkala untuk stabilitas sistem</span>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Gunakan cooling pad saat gaming atau coding intensif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
+
+    <!-- Modals (same as index.html) -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Email/NIM</label>
+                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Masukkan password">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
+        </div>
+    </div>
+
+    <div id="konsultasi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('konsultasi')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Konsultasi Artikel</h2>
+            <div class="form-group">
+                <label class="form-label">Topik yang Ingin Ditanyakan</label>
+                <select class="form-select">
+                    <option>Troubleshooting</option>
+                    <option>Perawatan Laptop</option>
+                    <option>Optimasi Performa</option>
+                    <option>Hardware Upgrade</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Pertanyaan Detail</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan pertanyaan Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Kirim Pertanyaan</button>
+        </div>
+    </div>
+
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Chat dengan Expert</h2>
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;">
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Expert</div>
+                        <span style="font-size: 12px; color: #718096;">10:30</span>
+                    </div>
+                    <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
+                        Halo! Ada artikel atau topik laptop yang ingin Anda tanyakan?
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chat-input" class="form-input" placeholder="Tanyakan tentang artikel..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .article-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-left-color: #667eea;
+        }
+
+        .article-card.featured {
+            border-left-color: #ff6b35;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .article-image {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 10px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+
+        .article-category {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .article-date {
+            color: #718096;
+        }
+
+        .article-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-content p {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .article-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .article-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-thumb {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag-item {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag-item:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .quick-tips {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(72, 187, 120, 0.1);
+            border-radius: 10px;
+            font-size: 14px;
+            color: #2d3748;
+        }
+
+        .tip-item i {
+            color: #48bb78;
+        }
+    </style>
+</body>
+</html>

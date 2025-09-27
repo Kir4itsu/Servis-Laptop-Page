@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseller - SAMLAPTOP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">SAMLAPTOP</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
+                <div class="nav-item" onclick="location.href='artikel.html'">Artikel</div>
+                <div class="nav-item" onclick="location.href='komunitas.html'">Komunitas</div>
+                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
+                <div class="nav-item active">Reseller</div>
+            </nav>
+            <div class="user-menu">
+                <div class="points-badge">
+                    <i class="fas fa-bullseye"></i>
+                    250 Poin
+                </div>
+                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
+                <div class="mobile-nav-item" onclick="location.href='artikel.html'; toggleMobileMenu();">Artikel</div>
+                <div class="mobile-nav-item" onclick="location.href='komunitas.html'; toggleMobileMenu();">Komunitas</div>
+                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
+                <div class="mobile-nav-item active">Reseller</div>
+            </div>
+        </header>
+
+        <div class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-store"></i>
+                        Reseller Terpercaya SAMLAPTOP
+                    </h1>
+                    <p class="hero-subtitle">
+                        Dapatkan laptop impian dengan harga khusus mahasiswa dari reseller terpercaya. 
+                        Garansi resmi, cicilan 0%, dan konsultasi gratis untuk memilih laptop yang tepat!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('consultation')">
+                            <i class="fas fa-comments"></i>
+                            Konsultasi Gratis
+                        </button>
+                        <button class="btn btn-secondary hero-btn" onclick="openModal('partner')">
+                            <i class="fas fa-handshake"></i>
+                            Jadi Partner
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Stats -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-store"></i></div>
+                    <div class="stat-number">43</div>
+                    <div class="stat-label">Partner Reseller</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="stat-number">2.847</div>
+                    <div class="stat-label">Laptop Terjual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Diskon Rata-rata</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Garansi Resmi</div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="rewards-section">
+                <div class="rewards-title">
+                    <i class="fas fa-filter"></i>
+                    Filter Laptop
+                </div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option>Semua Brand</option>
+                        <option>ASUS</option>
+                        <option>Lenovo</option>
+                        <option>HP</option>
+                        <option>Dell</option>
+                        <option>Acer</option>
+                        <option>MSI</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Semua Budget</option>
+                        <option>5-10 Juta</option>
+                        <option>10-15 Juta</option>
+                        <option>15-20 Juta</option>
+                        <option>>20 Juta</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Semua Kategori</option>
+                        <option>Gaming</option>
+                        <option>Business</option>
+                        <option>Creative</option>
+                        <option>Student</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-fire"></i>
+                        Hot Deals Hari Ini
+                    </div>
+                    
+                    <div class="laptop-grid">
+                        <div class="laptop-card featured">
+                            <div class="laptop-image">
+                                <div class="laptop-placeholder">
+                                    <i class="fas fa-laptop" style="font-size: 48px; color: #667eea;"></i>
+                                </div>
+                                <div class="discount-badge">-25%</div>
+                                <div class="stock-badge">Stok: 3</div>
+                            </div>
+                            <div class="laptop-info">
+                                <div class="laptop-brand">ASUS</div>
+                                <div class="laptop-name">ROG Strix G15 G513QM</div>
+                                <div class="laptop-specs">
+                                    <span><i class="fas fa-microchip"></i> AMD Ryzen 7 5800H</span>
+                                    <span><i class="fas fa-memory"></i> 16GB RAM</span>
+                                    <span><i class="fas fa-hdd"></i> 512GB SSD</span>
+                                    <span><i class="fas fa-desktop"></i> RTX 3060 6GB</span>
+                                </div>
+                                <div class="laptop-price">
+                                    <div class="price-original">Rp 18.500.000</div>
+                                    <div class="price-discount">Rp 13.875.000</div>
+                                    <div class="price-installment">Cicilan: Rp 1.156.250/bulan</div>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">TechMart Jakarta</div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.9 (234)</span>
+                                    </div>
+                                </div>
+                                <div class="laptop-actions">
+                                    <button class="btn btn-primary" onclick="orderLaptop('rog-strix')">
+                                        <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openModal('chat')">
+                                        <i class="fas fa-comment"></i> Chat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="laptop-card">
+                            <div class="laptop-image">
+                                <div class="laptop-placeholder">
+                                    <i class="fas fa-laptop" style="font-size: 48px; color: #48bb78;"></i>
+                                </div>
+                                <div class="discount-badge">-20%</div>
+                                <div class="stock-badge available">Tersedia</div>
+                            </div>
+                            <div class="laptop-info">
+                                <div class="laptop-brand">Lenovo</div>
+                                <div class="laptop-name">ThinkPad E14 Gen 4</div>
+                                <div class="laptop-specs">
+                                    <span><i class="fas fa-microchip"></i> Intel i5-1235U</span>
+                                    <span><i class="fas fa-memory"></i> 8GB RAM</span>
+                                    <span><i class="fas fa-hdd"></i> 256GB SSD</span>
+                                    <span><i class="fas fa-desktop"></i> Intel Iris Xe</span>
+                                </div>
+                                <div class="laptop-price">
+                                    <div class="price-original">Rp 12.500.000</div>
+                                    <div class="price-discount">Rp 10.000.000</div>
+                                    <div class="price-installment">Cicilan: Rp 833.333/bulan</div>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">Laptop Corner Bandung</div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.8 (156)</span>
+                                    </div>
+                                </div>
+                                <div class="laptop-actions">
+                                    <button class="btn btn-primary" onclick="orderLaptop('thinkpad-e14')">
+                                        <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openModal('chat')">
+                                        <i class="fas fa-comment"></i> Chat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="laptop-card">
+                            <div class="laptop-image">
+                                <div class="laptop-placeholder">
+                                    <i class="fas fa-laptop" style="font-size: 48px; color: #ed8936;"></i>
+                                </div>
+                                <div class="discount-badge">-18%</div>
+                                <div class="stock-badge">Stok: 7</div>
+                            </div>
+                            <div class="laptop-info">
+                                <div class="laptop-brand">HP</div>
+                                <div class="laptop-name">Pavilion Gaming 15-ec2</div>
+                                <div class="laptop-specs">
+                                    <span><i class="fas fa-microchip"></i> AMD Ryzen 5 5600H</span>
+                                    <span><i class="fas fa-memory"></i> 8GB RAM</span>
+                                    <span><i class="fas fa-hdd"></i> 512GB SSD</span>
+                                    <span><i class="fas fa-desktop"></i> GTX 1650 4GB</span>
+                                </div>
+                                <div class="laptop-price">
+                                    <div class="price-original">Rp 11.000.000</div>
+                                    <div class="price-discount">Rp 9.020.000</div>
+                                    <div class="price-installment">Cicilan: Rp 751.667/bulan</div>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">GameStore Surabaya</div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.7 (98)</span>
+                                    </div>
+                                </div>
+                                <div class="laptop-actions">
+                                    <button class="btn btn-primary" onclick="orderLaptop('pavilion-gaming')">
+                                        <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openModal('chat')">
+                                        <i class="fas fa-comment"></i> Chat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-crown"></i>
+                        Top Reseller Partner
+                    </div>
+                    
+                    <div class="reseller-list">
+                        <div class="reseller-card">
+                            <div class="reseller-header">
+                                <div class="reseller-logo">
+                                    <i class="fas fa-store" style="font-size: 24px; color: #667eea;"></i>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">TechMart Jakarta</div>
+                                    <div class="reseller-location">
+                                        <i class="fas fa-map-marker-alt"></i> Jakarta Selatan
+                                    </div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.9 (234 review)</span>
+                                    </div>
+                                </div>
+                                <div class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified
+                                </div>
+                            </div>
+                            <div class="reseller-specialties">
+                                <span class="specialty-tag">Gaming Laptop</span>
+                                <span class="specialty-tag">Business Laptop</span>
+                                <span class="specialty-tag">Cicilan 0%</span>
+                            </div>
+                            <div class="reseller-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-laptop"></i>
+                                    <span>450+ Laptop Terjual</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <span>Same Day Delivery</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reseller-card">
+                            <div class="reseller-header">
+                                <div class="reseller-logo">
+                                    <i class="fas fa-laptop" style="font-size: 24px; color: #48bb78;"></i>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">Laptop Corner Bandung</div>
+                                    <div class="reseller-location">
+                                        <i class="fas fa-map-marker-alt"></i> Bandung
+                                    </div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.8 (156 review)</span>
+                                    </div>
+                                </div>
+                                <div class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified
+                                </div>
+                            </div>
+                            <div class="reseller-specialties">
+                                <span class="specialty-tag">Student Laptop</span>
+                                <span class="specialty-tag">Creative Workstation</span>
+                                <span class="specialty-tag">Trade-in</span>
+                            </div>
+                            <div class="reseller-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-laptop"></i>
+                                    <span>320+ Laptop Terjual</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Free Setup</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reseller-card">
+                            <div class="reseller-header">
+                                <div class="reseller-logo">
+                                    <i class="fas fa-gamepad" style="font-size: 24px; color: #ed8936;"></i>
+                                </div>
+                                <div class="reseller-info">
+                                    <div class="reseller-name">GameStore Surabaya</div>
+                                    <div class="reseller-location">
+                                        <i class="fas fa-map-marker-alt"></i> Surabaya
+                                    </div>
+                                    <div class="reseller-rating">
+                                        <div class="stars small">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>4.7 (98 review)</span>
+                                    </div>
+                                </div>
+                                <div class="verified-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    Verified
+                                </div>
+                            </div>
+                            <div class="reseller-specialties">
+                                <span class="specialty-tag">Gaming Specialist</span>
+                                <span class="specialty-tag">Custom Build</span>
+                                <span class="specialty-tag">Extended Warranty</span>
+                            </div>
+                            <div class="reseller-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-laptop"></i>
+                                    <span>280+ Laptop Terjual</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Gaming Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-tags"></i>
+                        Promo Spesial
+                    </div>
+
+                    <div class="promo-list">
+                        <div class="promo-card student">
+                            <div class="promo-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-title">Student Discount</div>
+                                <div class="promo-desc">Diskon 10% untuk semua mahasiswa</div>
+                                <div class="promo-code">Kode: STUDENT2024</div>
+                            </div>
+                        </div>
+
+                        <div class="promo-card installment">
+                            <div class="promo-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-title">Cicilan 0%</div>
+                                <div class="promo-desc">12 bulan tanpa bunga</div>
+                                <div class="promo-code">Syarat & ketentuan berlaku</div>
+                            </div>
+                        </div>
+
+                        <div class="promo-card tradein">
+                            <div class="promo-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="promo-info">
+                                <div class="promo-title">Trade-in Program</div>
+                                <div class="promo-desc">Tukar tambah laptop lama</div>
+                                <div class="promo-code">Penilaian gratis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i>
+                    Kenapa Pilih Reseller Partner SAMLAPTOP?
+                </h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="benefit-text">
+                            <h3>Garansi Resmi</h3>
+                            <p>Semua laptop dilengkapi garansi resmi dari distributor atau brand</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tags"></i></div>
+                        <div class="benefit-text">
+                            <h3>Harga Khusus Mahasiswa</h3>
+                            <p>Dapatkan diskon dan harga spesial untuk mahasiswa</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-credit-card"></i></div>
+                        <div class="benefit-text">
+                            <h3>Cicilan 0% Tanpa Kartu Kredit</h3>
+                            <p>Program cicilan mudah tanpa ribet syarat kartu kredit</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                        <div class="benefit-text">
+                            <h3>Konsultasi Gratis</h3>
+                            <p>Bantuan memilih laptop sesuai kebutuhan dan budget</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shipping-fast"></i></div>
+                        <div class="benefit-text">
+                            <h3>Pengiriman Cepat</h3>
+                            <p>Same day delivery untuk Jakarta dan pengiriman ke seluruh Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                        <div class="benefit-text">
+                            <h3>After Sales Service</h3>
+                            <p>Dukungan purna jual dan service berkualitas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Email/NIM</label>
+                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Masukkan password">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
+        </div>
+    </div>
+
+    <div id="consultation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('consultation')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Konsultasi Gratis</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input" placeholder="Nama lengkap">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Universitas</label>
+                <input type="text" class="form-input" placeholder="Nama universitas">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kebutuhan Laptop</label>
+                <select class="form-select">
+                    <option>Gaming</option>
+                    <option>Programming/Coding</option>
+                    <option>Design Grafis</option>
+                    <option>Office/Kuliah</option>
+                    <option>Video Editing</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Budget</label>
+                <select class="form-select">
+                    <option>5-10 Juta</option>
+                    <option>10-15 Juta</option>
+                    <option>15-20 Juta</option>
+                    <option>20-25 Juta</option>
+                    <option>>25 Juta</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Detail Kebutuhan</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan kebutuhan spesifik Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Mulai Konsultasi</button>
+        </div>
+    </div>
+
+    <div id="partner-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('partner')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Daftar Jadi Partner Reseller</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Toko/Perusahaan</label>
+                <input type="text" class="form-input" placeholder="Nama reseller">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Alamat Lengkap</label>
+                <textarea class="form-textarea" rows="3" placeholder="Alamat toko/kantor"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kontak Person</label>
+                <input type="text" class="form-input" placeholder="Nama PIC">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nomor WhatsApp</label>
+                <input type="text" class="form-input" placeholder="08xxxxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Spesialisasi</label>
+                <select class="form-select">
+                    <option>Gaming Laptop</option>
+                    <option>Business Laptop</option>
+                    <option>Creative Workstation</option>
+                    <option>Student Laptop</option>
+                    <option>All Categories</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Pengalaman Bisnis</label>
+                <textarea class="form-textarea" rows="4" placeholder="Ceritakan pengalaman bisnis Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Daftar Partner</button>
+        </div>
+    </div>
+
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Chat dengan Reseller</h2>
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;"></div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chat-input" class="form-input" placeholder="Tanyakan tentang laptop..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+
+        .laptop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .laptop-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            border-left: 4px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .laptop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-left-color: #667eea;
+        }
+
+        .laptop-card.featured {
+            border-left-color: #ff6b35;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .laptop-image {
+            position: relative;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .laptop-placeholder {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e53e3e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ed8936;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-badge.available {
+            background: #48bb78;
+        }
+
+        .laptop-brand {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .laptop-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .laptop-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .laptop-specs span {
+            font-size: 12px;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .laptop-specs i {
+            width: 16px;
+            color: #667eea;
+        }
+
+        .laptop-price {
+            margin-bottom: 15px;
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: #718096;
+            text-decoration: line-through;
+        }
+
+        .price-discount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e53e3e;
+            margin: 3px 0;
+        }
+
+        .price-installment {
+            font-size: 12px;
+            color: #48bb78;
+        }
+
+        .reseller-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 10px;
+        }
+
+        .reseller-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .reseller-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+            color: #ffc107;
+        }
+
+        .stars.small {
+            font-size: 12px;
+        }
+
+        .laptop-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .laptop-actions button {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .reseller-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .reseller-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .reseller-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .reseller-header {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .reseller-logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reseller-info {
+            flex: 1;
+        }
+
+        .reseller-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .reseller-location {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .verified-badge {
+            background: #48bb78;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .reseller-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .specialty-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .reseller-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .stat-item i {
+            color: #667eea;
+        }
+
+        .promo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .promo-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .promo-card.student {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(255, 255, 255, 0.95));
+            border-left: 4px solid #48bb78;
+        }
+
+        .promo-card.installment {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(255, 255, 255, 0.95));
+            border-left: 4px solid #667eea;
+        }
+
+        .promo-card.tradein {
+            background: linear-gradient(135deg, rgba(237, 137, 54, 0.1), rgba(255, 255, 255, 0.95));
+            border-left: 4px solid #ed8936;
+        }
+
+        .promo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(102, 126, 234, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #667eea;
+        }
+
+        .promo-card.student .promo-icon {
+            background: rgba(72, 187, 120, 0.1);
+            color: #48bb78;
+        }
+
+        .promo-card.tradein .promo-icon {
+            background: rgba(237, 137, 54, 0.1);
+            color: #ed8936;
+        }
+
+        .promo-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .promo-desc {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        .promo-code {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .filter-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-select {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .laptop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .laptop-actions {
+                flex-direction: column;
+            }
+
+            .reseller-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .reseller-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>

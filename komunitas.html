@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunitas - SAMLAPTOP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">SAMLAPTOP</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
+                <div class="nav-item" onclick="location.href='artikel.html'">Artikel</div>
+                <div class="nav-item active">Komunitas</div>
+                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
+                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
+            </nav>
+            <div class="user-menu">
+                <div class="points-badge">
+                    <i class="fas fa-bullseye"></i>
+                    250 Poin
+                </div>
+                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
+                <div class="mobile-nav-item" onclick="location.href='artikel.html'; toggleMobileMenu();">Artikel</div>
+                <div class="mobile-nav-item active">Komunitas</div>
+                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
+                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
+            </div>
+        </header>
+
+        <div class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-users"></i>
+                        Komunitas SAMLAPTOP
+                    </h1>
+                    <p class="hero-subtitle">
+                        Bergabunglah dengan 5000+ mahasiswa Indonesia yang saling berbagi pengalaman, 
+                        tips, dan solusi tentang dunia laptop dan teknologi!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('join')">
+                            <i class="fas fa-plus-circle"></i>
+                            Gabung Komunitas
+                        </button>
+                        <button class="btn btn-secondary hero-btn" onclick="openModal('post')">
+                            <i class="fas fa-edit"></i>
+                            Buat Diskusi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">5.247</div>
+                    <div class="stat-label">Total Member</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                    <div class="stat-number">1.834</div>
+                    <div class="stat-label">Diskusi Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="stat-number">3.627</div>
+                    <div class="stat-label">Masalah Terselesaikan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-university"></i></div>
+                    <div class="stat-number">147</div>
+                    <div class="stat-label">Universitas</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-fire"></i>
+                        Diskusi Trending
+                    </div>
+                    
+                    <div class="discussion-card trending">
+                        <div class="discussion-header">
+                            <div class="user-avatar">JN</div>
+                            <div class="user-info">
+                                <div class="username">Joko Nugroho</div>
+                                <div class="user-major">Teknik Informatika - ITB</div>
+                                <div class="user-badge">Expert Member</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">
+                                <i class="fas fa-fire" style="color: #ff6b35;"></i> Trending
+                            </div>
+                        </div>
+                        <div class="discussion-title">
+                            <i class="fas fa-star" style="color: #ffc107;"></i>
+                            Laptop Gaming 2024: Rekomendasi Terbaik Budget 10-20 Juta
+                        </div>
+                        <div class="discussion-preview">
+                            Setelah riset selama 2 bulan dan testing berbagai laptop gaming, ini dia rekomendasi terbaik untuk mahasiswa dengan budget 10-20 juta. Lengkap dengan perbandingan performa, thermals, dan value for money...
+                        </div>
+                        <div class="discussion-tags">
+                            <span class="tag">Gaming</span>
+                            <span class="tag">Review</span>
+                            <span class="tag">Budget</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 89 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 456 Likes</div>
+                            <div class="stat-item"><i class="fas fa-eye"></i> 12.3k Views</div>
+                            <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">AR</div>
+                            <div class="user-info">
+                                <div class="username">Ahmad Rizky</div>
+                                <div class="user-major">Teknik Informatika - UI</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">3 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">Help! Laptop sering freeze saat multitasking</div>
+                        <div class="discussion-preview">Laptop saya ASUS VivoBook sering freeze kalau buka banyak aplikasi sekaligus (Chrome + VS Code + Figma). RAM 8GB, apakah perlu upgrade atau ada solusi lain?</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Troubleshooting</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 24 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 145 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">SW</div>
+                            <div class="user-info">
+                                <div class="username">Sari Wulandari</div>
+                                <div class="user-major">Desain Komunikasi Visual - ITB</div>
+                                <div class="user-badge">Active Member</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">5 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">MacBook vs ThinkPad untuk kuliah DKV</div>
+                        <div class="discussion-preview">Lagi bingung pilih laptop untuk kuliah DKV. Budget 15-20 juta, butuh yang kuat untuk Adobe Creative Suite. MacBook Air M2 atau ThinkPad X1 Carbon ya?</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Recommendation</span>
+                            <span class="tag">Design</span>
+                            <span class="tag">MacBook</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 67 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 298 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card">
+                        <div class="discussion-header">
+                            <div class="user-avatar">RH</div>
+                            <div class="user-info">
+                                <div class="username">Rizki Hidayat</div>
+                                <div class="user-major">Sistem Informasi - UGM</div>
+                            </div>
+                            <div style="color: #718096; font-size: 12px;">1 hari lalu</div>
+                        </div>
+                        <div class="discussion-title">[SOLVED] Cara install dual boot Windows 11 + Linux</div>
+                        <div class="discussion-preview">Tutorial lengkap install dual boot Windows 11 dan Ubuntu 22.04 LTS. Sudah tested di laptop ASUS dan Lenovo. Safe dan mudah diikuti untuk pemula!</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Tutorial</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Windows</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 43 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 387 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-crown"></i>
+                        Top Contributors
+                    </div>
+                    
+                    <div class="contributor-list">
+                        <div class="contributor-card">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">JN</div>
+                                <div class="contributor-badge">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Joko Nugroho</div>
+                                <div class="contributor-title">Expert Member</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 234 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 1.2k Likes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contributor-card">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">DA</div>
+                                <div class="contributor-badge helper">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Dina Ayu</div>
+                                <div class="contributor-title">Super Helper</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 187 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 956 Likes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contributor-card">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">BP</div>
+                                <div class="contributor-badge tech">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Budi Pratama</div>
+                                <div class="contributor-title">Tech Specialist</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 156 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 743 Likes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-calendar-alt"></i>
+                        Event Komunitas
+                    </div>
+
+                    <div class="event-list">
+                        <div class="event-card upcoming">
+                            <div class="event-date">
+                                <div class="day">28</div>
+                                <div class="month">SEP</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Workshop: Laptop Maintenance 101</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-clock"></i> 19:00 - 21:00</span>
+                                    <span><i class="fas fa-video"></i> Online via Zoom</span>
+                                </div>
+                                <div class="event-participants">
+                                    <i class="fas fa-users"></i> 43/50 peserta
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-small">Daftar</button>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">
+                                <div class="day">05</div>
+                                <div class="month">OKT</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Meetup: Gaming Laptop Showcase</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-clock"></i> 14:00 - 17:00</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Jakarta Tech Hub</span>
+                                </div>
+                                <div class="event-participants">
+                                    <i class="fas fa-users"></i> 12/30 peserta
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">Info</button>
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-tags"></i>
+                        Popular Topics
+                    </div>
+
+                    <div class="topic-tags">
+                        <div class="tag-item popular">
+                            <i class="fas fa-gamepad"></i> Gaming (234)
+                        </div>
+                        <div class="tag-item">
+                            <i class="fas fa-code"></i> Programming (189)
+                        </div>
+                        <div class="tag-item">
+                            <i class="fas fa-palette"></i> Design (156)
+                        </div>
+                        <div class="tag-item">
+                            <i class="fas fa-tools"></i> Troubleshooting (298)
+                        </div>
+                        <div class="tag-item">
+                            <i class="fas fa-shopping-cart"></i> Buying Guide (134)
+                        </div>
+                        <div class="tag-item">
+                            <i class="fas fa-cog"></i> Performance (167)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Guidelines -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i>
+                    Aturan Komunitas
+                </h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                        <div class="benefit-text">
+                            <h3>Saling Menghormati</h3>
+                            <p>Bersikap sopan dan menghormati pendapat setiap member komunitas</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-search"></i></div>
+                        <div class="benefit-text">
+                            <h3>Search Before Ask</h3>
+                            <p>Cari dulu sebelum bertanya untuk menghindari duplikasi diskusi</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-ban"></i></div>
+                        <div class="benefit-text">
+                            <h3>No Spam & Self-Promotion</h3>
+                            <p>Dilarang spam dan promosi berlebihan tanpa izin moderator</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div class="benefit-text">
+                            <h3>Help Others</h3>
+                            <p>Bantu sesama member jika kamu tahu solusinya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Email/NIM</label>
+                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Masukkan password">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
+        </div>
+    </div>
+
+    <div id="join-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('join')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Gabung Komunitas SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input" placeholder="Masukkan nama lengkap">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Universitas/Kampus</label>
+                <input type="text" class="form-input" placeholder="Nama kampus">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Jurusan</label>
+                <input type="text" class="form-input" placeholder="Jurusan/Program Studi">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Mengapa ingin bergabung?</label>
+                <textarea class="form-textarea" rows="3" placeholder="Ceritakan motivasi Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Gabung Sekarang</button>
+        </div>
+    </div>
+
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('post')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Buat Diskusi Baru</h2>
+            <div class="form-group">
+                <label class="form-label">Judul Diskusi</label>
+                <input type="text" class="form-input" placeholder="Tulis judul yang menarik...">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kategori</label>
+                <select class="form-select">
+                    <option>Troubleshooting</option>
+                    <option>Recommendation</option>
+                    <option>Tutorial</option>
+                    <option>Review</option>
+                    <option>General Discussion</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Konten Diskusi</label>
+                <textarea class="form-textarea" rows="6" placeholder="Jelaskan topik diskusi dengan detail..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tags (pisahkan dengan koma)</label>
+                <input type="text" class="form-input" placeholder="gaming, laptop, asus">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Posting Diskusi</button>
+        </div>
+    </div>
+
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Chat Komunitas</h2>
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;"></div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chat-input" class="form-input" placeholder="Ketik pesan..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .trending {
+            border-left-color: #ff6b35;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .user-badge {
+            font-size: 10px;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 2px;
+        }
+
+        .discussion-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .contributor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contributor-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contributor-card:hover {
+            background: #edf2f7;
+            transform: translateX(3px);
+        }
+
+        .contributor-avatar {
+            position: relative;
+        }
+
+        .user-avatar.large {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+        }
+
+        .contributor-badge {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffc107;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .contributor-badge.helper {
+            background: #48bb78;
+        }
+
+        .contributor-badge.tech {
+            background: #667eea;
+        }
+
+        .contributor-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .contributor-title {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        .contributor-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 11px;
+            color: #718096;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .event-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #e2e8f0;
+        }
+
+        .event-card.upcoming {
+            border-left-color: #48bb78;
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .event-date .day {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .event-date .month {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .event-details {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        .event-participants {
+            font-size: 11px;
+            color: #667eea;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+            min-width: 80px;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-item {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag-item:hover, .tag-item.popular {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</body>
+</html>

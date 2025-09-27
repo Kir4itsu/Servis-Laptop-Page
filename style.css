@@ -35,6 +35,12 @@
             z-index: 1000;
         }
         
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
         .logo {
             font-size: 28px;
             font-weight: bold;
@@ -694,12 +700,20 @@
                 width: calc(100% - 30px);
             }
             
+            .header-left {
+                gap: 10px;
+            }
+            
             .nav {
                 display: none;
             }
             
             .mobile-menu-btn {
                 display: block;
+            }
+            
+            .logo {
+                font-size: 24px;
             }
             
             .user-menu {

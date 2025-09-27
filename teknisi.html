@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teknisi - SAMLAPTOP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">SAMLAPTOP</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
+                <div class="nav-item" onclick="location.href='artikel.html'">Artikel</div>
+                <div class="nav-item" onclick="location.href='komunitas.html'">Komunitas</div>
+                <div class="nav-item active">Teknisi</div>
+                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
+            </nav>
+            <div class="user-menu">
+                <div class="points-badge">
+                    <i class="fas fa-bullseye"></i>
+                    250 Poin
+                </div>
+                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
+                <div class="mobile-nav-item" onclick="location.href='artikel.html'; toggleMobileMenu();">Artikel</div>
+                <div class="mobile-nav-item" onclick="location.href='komunitas.html'; toggleMobileMenu();">Komunitas</div>
+                <div class="mobile-nav-item active">Teknisi</div>
+                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
+            </div>
+        </header>
+
+        <div class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-user-cog"></i>
+                        Teknisi SAMLAPTOP
+                    </h1>
+                    <p class="hero-subtitle">
+                        Temukan teknisi laptop terpercaya dari sesama mahasiswa di seluruh Indonesia. 
+                        Berpengalaman, terverifikasi, dan siap membantu masalah laptop Anda!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('booking')">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Teknisi
+                        </button>
+                        <button class="btn btn-secondary hero-btn" onclick="openModal('register-tech')">
+                            <i class="fas fa-user-plus"></i>
+                            Daftar Jadi Teknisi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Stats -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="stat-number">127</div>
+                    <div class="stat-label">Teknisi Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-number">3.624</div>
+                    <div class="stat-label">Service Selesai</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">Rating Rata-rata</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Jam Response</div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="rewards-section">
+                <div class="rewards-title">
+                    <i class="fas fa-filter"></i>
+                    Filter Teknisi
+                </div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option>Semua Kota</option>
+                        <option>Jakarta</option>
+                        <option>Bandung</option>
+                        <option>Surabaya</option>
+                        <option>Yogyakarta</option>
+                        <option>Semarang</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Semua Spesialisasi</option>
+                        <option>Hardware</option>
+                        <option>Software</option>
+                        <option>Gaming Setup</option>
+                        <option>Data Recovery</option>
+                        <option>Network</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>Rating Tertinggi</option>
+                        <option>Harga Terendah</option>
+                        <option>Terdekat</option>
+                        <option>Terbaru</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-medal"></i>
+                        Top Rated Teknisi
+                    </div>
+                    
+                    <div class="technician-grid">
+                        <div class="technician-card featured">
+                            <div class="tech-header">
+                                <div class="tech-avatar">
+                                    <div class="user-avatar large">AW</div>
+                                    <div class="tech-badge verified">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="tech-status online"></div>
+                                </div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Ahmad Wijaya</div>
+                                    <div class="tech-university">Teknik Elektro - ITB</div>
+                                    <div class="tech-experience">3+ tahun pengalaman</div>
+                                    <div class="tech-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.9 (127 review)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-specialties">
+                                <span class="specialty-tag">Hardware Repair</span>
+                                <span class="specialty-tag">Gaming Setup</span>
+                                <span class="specialty-tag">Overheating Fix</span>
+                            </div>
+                            <div class="tech-description">
+                                Spesialis perbaikan hardware laptop gaming. Berpengalaman menangani overheating, upgrade RAM/SSD, dan custom cooling system. Garansi 30 hari untuk semua service.
+                            </div>
+                            <div class="tech-price">
+                                <span class="price">Mulai dari Rp 75.000</span>
+                                <span class="consultation">Konsultasi gratis</span>
+                            </div>
+                            <div class="tech-actions">
+                                <button class="btn btn-primary" onclick="bookTechnician('AW')">
+                                    <i class="fas fa-calendar-check"></i> Book Now
+                                </button>
+                                <button class="btn btn-secondary" onclick="openModal('chat')">
+                                    <i class="fas fa-comment"></i> Chat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="technician-card">
+                            <div class="tech-header">
+                                <div class="tech-avatar">
+                                    <div class="user-avatar large">LS</div>
+                                    <div class="tech-badge verified">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="tech-status online"></div>
+                                </div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Linda Sari</div>
+                                    <div class="tech-university">Sistem Informasi - UI</div>
+                                    <div class="tech-experience">2+ tahun pengalaman</div>
+                                    <div class="tech-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.8 (89 review)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-specialties">
+                                <span class="specialty-tag">Software Troubleshoot</span>
+                                <span class="specialty-tag">Data Recovery</span>
+                                <span class="specialty-tag">Virus Removal</span>
+                            </div>
+                            <div class="tech-description">
+                                Expert software troubleshooting dan data recovery. Menangani blue screen, corrupted files, virus removal, dan optimasi sistem. Remote service tersedia 24/7.
+                            </div>
+                            <div class="tech-price">
+                                <span class="price">Mulai dari Rp 50.000</span>
+                                <span class="consultation">Remote available</span>
+                            </div>
+                            <div class="tech-actions">
+                                <button class="btn btn-primary" onclick="bookTechnician('LS')">
+                                    <i class="fas fa-calendar-check"></i> Book Now
+                                </button>
+                                <button class="btn btn-secondary" onclick="openModal('chat')">
+                                    <i class="fas fa-comment"></i> Chat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="technician-card">
+                            <div class="tech-header">
+                                <div class="tech-avatar">
+                                    <div class="user-avatar large">RD</div>
+                                    <div class="tech-badge verified">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <div class="tech-status busy"></div>
+                                </div>
+                                <div class="tech-info">
+                                    <div class="tech-name">Rizky Dwi</div>
+                                    <div class="tech-university">Teknik Informatika - UGM</div>
+                                    <div class="tech-experience">4+ tahun pengalaman</div>
+                                    <div class="tech-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="rating-text">4.7 (156 review)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-specialties">
+                                <span class="specialty-tag">MacBook Specialist</span>
+                                <span class="specialty-tag">Logic Board Repair</span>
+                                <span class="specialty-tag">Screen Replacement</span>
+                            </div>
+                            <div class="tech-description">
+                                Spesialis MacBook dan laptop premium. Berpengalaman dalam logic board repair, screen replacement, dan component-level troubleshooting. Suku cadang original.
+                            </div>
+                            <div class="tech-price">
+                                <span class="price">Mulai dari Rp 150.000</span>
+                                <span class="consultation">Premium service</span>
+                            </div>
+                            <div class="tech-actions">
+                                <button class="btn btn-secondary" disabled>
+                                    <i class="fas fa-clock"></i> Busy
+                                </button>
+                                <button class="btn btn-secondary" onclick="openModal('chat')">
+                                    <i class="fas fa-comment"></i> Chat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Teknisi Terdekat
+                    </div>
+                    
+                    <div class="location-list">
+                        <div class="location-item">
+                            <div class="location-info">
+                                <div class="location-name">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Jakarta Selatan
+                                </div>
+                                <div class="tech-count">12 teknisi tersedia</div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">Lihat</button>
+                        </div>
+
+                        <div class="location-item">
+                            <div class="location-info">
+                                <div class="location-name">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Bandung
+                                </div>
+                                <div class="tech-count">8 teknisi tersedia</div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">Lihat</button>
+                        </div>
+
+                        <div class="location-item">
+                            <div class="location-info">
+                                <div class="location-name">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Surabaya
+                                </div>
+                                <div class="tech-count">15 teknisi tersedia</div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">Lihat</button>
+                        </div>
+
+                        <div class="location-item">
+                            <div class="location-info">
+                                <div class="location-name">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Yogyakarta
+                                </div>
+                                <div class="tech-count">6 teknisi tersedia</div>
+                            </div>
+                            <button class="btn btn-secondary btn-small">Lihat</button>
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-tools"></i>
+                        Service Populer
+                    </div>
+
+                    <div class="service-list">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-thermometer-three-quarters"></i>
+                            </div>
+                            <div class="service-info">
+                                <div class="service-name">Overheating Fix</div>
+                                <div class="service-desc">Cleaning thermal paste & fan</div>
+                                <div class="service-price">Rp 75.000 - 150.000</div>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                            <div class="service-info">
+                                <div class="service-name">RAM Upgrade</div>
+                                <div class="service-desc">Installation + compatibility check</div>
+                                <div class="service-price">Rp 50.000 - 100.000</div>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div class="service-info">
+                                <div class="service-name">SSD Installation</div>
+                                <div class="service-desc">Fresh install + data migration</div>
+                                <div class="service-price">Rp 100.000 - 200.000</div>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="service-info">
+                                <div class="service-name">Screen Replacement</div>
+                                <div class="service-desc">LCD/LED replacement</div>
+                                <div class="service-price">Rp 200.000 - 500.000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-star"></i>
+                        Review Terbaru
+                    </div>
+
+                    <div class="review-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="user-avatar small">DN</div>
+                                <div class="review-info">
+                                    <div class="reviewer-name">Dina Nurlita</div>
+                                    <div class="review-date">2 hari lalu</div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-text">
+                                "Teknisi Ahmad sangat profesional! Laptop gaming saya yang sering overheat sekarang sudah normal. Thermal paste diganti dan kipas dibersihkan dengan teliti. Recommended!"
+                            </div>
+                            <div class="review-tech">Service oleh: Ahmad Wijaya</div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="user-avatar small">FA</div>
+                                <div class="review-info">
+                                    <div class="reviewer-name">Fajar Aditya</div>
+                                    <div class="review-date">5 hari lalu</div>
+                                </div>
+                                <div class="review-rating">
+                                    <div class="stars small">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-text">
+                                "Linda berhasil recover semua data skripsi yang hilang! Service remote juga sangat membantu karena ga perlu ke tempat. Harga reasonable banget."
+                            </div>
+                            <div class="review-tech">Service oleh: Linda Sari</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    <i class="fas fa-question-circle"></i>
+                    Cara Kerja SAMLAPTOP
+                </h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-search"></i></div>
+                        <div class="benefit-text">
+                            <h3>1. Pilih Teknisi</h3>
+                            <p>Cari teknisi berdasarkan lokasi, spesialisasi, dan rating</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="benefit-text">
+                            <h3>2. Book Schedule</h3>
+                            <p>Tentukan jadwal yang cocok untuk service laptop Anda</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                        <div class="benefit-text">
+                            <h3>3. Service Laptop</h3>
+                            <p>Teknisi akan datang atau service remote sesuai kesepakatan</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                        <div class="benefit-text">
+                            <h3>4. Review & Rating</h3>
+                            <p>Berikan review untuk membantu mahasiswa lain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
+            <div class="form-group">
+                <label class="form-label">Email/NIM</label>
+                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Masukkan password">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
+        </div>
+    </div>
+
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('booking')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Book Teknisi</h2>
+            <div class="form-group">
+                <label class="form-label">Pilih Teknisi</label>
+                <select class="form-select">
+                    <option>Ahmad Wijaya - Hardware Specialist</option>
+                    <option>Linda Sari - Software Expert</option>
+                    <option>Rizky Dwi - MacBook Specialist</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Jenis Service</label>
+                <select class="form-select">
+                    <option>Overheating Fix - Rp 75.000</option>
+                    <option>RAM Upgrade - Rp 50.000</option>
+                    <option>SSD Installation - Rp 100.000</option>
+                    <option>General Checkup - Rp 50.000</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tanggal & Waktu</label>
+                <input type="datetime-local" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Alamat Service</label>
+                <textarea class="form-textarea" rows="3" placeholder="Alamat lengkap untuk service..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Deskripsi Masalah</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan masalah laptop Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Book Sekarang</button>
+        </div>
+    </div>
+
+    <div id="register-tech-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('register-tech')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Daftar Sebagai Teknisi</h2>
+            <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-input" placeholder="Nama lengkap">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Universitas & Jurusan</label>
+                <input type="text" class="form-input" placeholder="Contoh: Teknik Informatika - ITB">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Spesialisasi</label>
+                <select class="form-select">
+                    <option>Hardware Repair</option>
+                    <option>Software Troubleshooting</option>
+                    <option>Gaming Setup</option>
+                    <option>MacBook Specialist</option>
+                    <option>Data Recovery</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Pengalaman (tahun)</label>
+                <input type="number" class="form-input" placeholder="Berapa tahun pengalaman?">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Portfolio/Sertifikat</label>
+                <input type="file" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Deskripsi Keahlian</label>
+                <textarea class="form-textarea" rows="4" placeholder="Jelaskan keahlian dan pengalaman Anda..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Daftar Teknisi</button>
+        </div>
+    </div>
+
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            <h2 style="margin-bottom: 20px;">Chat dengan Teknisi</h2>
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;"></div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chat-input" class="form-input" placeholder="Tanyakan tentang service..." style="flex: 1;">
+                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+
+        .technician-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .technician-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            border-left: 4px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .technician-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-left-color: #667eea;
+        }
+
+        .technician-card.featured {
+            border-left-color: #ffc107;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), rgba(255, 255, 255, 0.95));
+        }
+
+        .tech-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tech-avatar {
+            position: relative;
+        }
+
+        .tech-badge {
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #48bb78;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .tech-badge.verified {
+            background: #667eea;
+        }
+
+        .tech-status {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .tech-status.online {
+            background: #48bb78;
+        }
+
+        .tech-status.busy {
+            background: #ed8936;
+        }
+
+        .tech-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .tech-university {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 3px;
+        }
+
+        .tech-experience {
+            font-size: 12px;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .tech-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+            color: #ffc107;
+        }
+
+        .stars.small {
+            font-size: 12px;
+        }
+
+        .rating-text {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .tech-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .specialty-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .tech-description {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .tech-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .consultation {
+            font-size: 12px;
+            color: #48bb78;
+        }
+
+        .tech-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tech-actions button {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .location-list, .service-list, .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .location-item, .service-item, .review-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .location-item:hover, .service-item:hover {
+            background: #edf2f7;
+        }
+
+        .location-name {
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-count {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(102, 126, 234, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 18px;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 3px;
+        }
+
+        .service-desc {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        .service-price {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .user-avatar.small {
+            width: 35px;
+            height: 35px;
+            font-size: 12px;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: #718096;
+        }
+
+        .review-text {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .review-tech {
+            font-size: 12px;
+            color: #667eea;
+        }
+    </style>
+</body>
+</html>
