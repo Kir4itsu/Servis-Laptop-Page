@@ -469,17 +469,20 @@
 
     <script>
 
-        // Load header & footer dari extension.html
-      fetch("extension.html")
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-          document.getElementById("header-placeholder").innerHTML =
-            doc.getElementById("main-header").innerHTML;
-          document.getElementById("footer-placeholder").innerHTML =
-            doc.getElementById("main-footer").innerHTML;
-        });
+        // Load header & footer
+        fetch("extension.html")
+            .then(res => res.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                document.getElementById("header-placeholder").innerHTML =
+                    doc.getElementById("main-header").innerHTML;
+                document.getElementById("footer-placeholder").innerHTML =
+                    doc.getElementById("main-footer").innerHTML;
+                
+                // Script dari extension.html akan otomatis berjalan
+                // dan mengatur navbar active berdasarkan halaman saat ini
+            });
 
         // Global variables
         let currentSection = 'beranda';

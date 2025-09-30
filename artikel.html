@@ -1,493 +1,909 @@
+<!-- Lanjutan dari artikel.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel & Tips - SAMLAPTOP</title>
+    <link rel="stylesheet" href="style.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo">SAMLAPTOP</div>
+    <div id="header-placeholder"></div>
+
+    <div class="artikel-container">
+        <div class="artikel-hero">
+            <h1><i class="fas fa-book"></i> Artikel & Tips Laptop</h1>
+            <p>Panduan lengkap perawatan, troubleshooting, dan tips seputar laptop</p>
+        </div>
+
+        <div class="artikel-filter-section">
+            <div class="artikel-filter-tabs">
+                <button class="artikel-filter-tab active" data-category="all">Semua</button>
+                <button class="artikel-filter-tab" data-category="perawatan">Perawatan</button>
+                <button class="artikel-filter-tab" data-category="troubleshooting">Troubleshooting</button>
+                <button class="artikel-filter-tab" data-category="tips">Tips & Trik</button>
+                <button class="artikel-filter-tab" data-category="review">Review</button>
             </div>
-            <nav class="nav">
-                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
-                <div class="nav-item active">Artikel</div>
-                <div class="nav-item" onclick="location.href='komunitas.html'">Komunitas</div>
-                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
-                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
-            </nav>
-            <div class="user-menu">
-                <div class="points-badge">
-                    <i class="fas fa-bullseye"></i>
-                    250 Poin
-                </div>
-                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+            <div class="artikel-search-box">
+                <input type="text" class="artikel-search-input" id="searchInput" placeholder="Cari artikel...">
+                <button class="artikel-search-btn" onclick="searchArticles()"><i class="fas fa-search"></i> Cari</button>
             </div>
+        </div>
+
+        <div class="artikel-grid" id="articles-grid">
+            <!-- Artikel akan dimuat di sini -->
+        </div>
+    </div>
+
+    <!-- Modal Baca Artikel -->
+    <div class="artikel-modal" id="article-modal">
+        <div class="artikel-modal-content">
+            <button class="artikel-modal-close" onclick="closeArticleModal()"><i class="fas fa-times"></i></button>
             
-            <div class="mobile-menu" id="mobile-menu">
-                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
-                <div class="mobile-nav-item active">Artikel</div>
-                <div class="mobile-nav-item" onclick="location.href='komunitas.html'; toggleMobileMenu();">Komunitas</div>
-                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
-                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
+            <div class="artikel-modal-header">
+                <h1 class="artikel-modal-title" id="modal-title"></h1>
+                <div class="artikel-modal-meta" id="modal-meta"></div>
             </div>
-        </header>
 
-        <div class="section">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <i class="fas fa-book-open"></i>
-                        Artikel & Tips Laptop
-                    </h1>
-                    <p class="hero-subtitle">
-                        Kumpulan artikel, panduan, dan tips terlengkap untuk perawatan laptop mahasiswa. 
-                        Dari troubleshooting hingga optimasi performa!
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary hero-btn" onclick="openModal('konsultasi')">
-                            <i class="fas fa-question-circle"></i>
-                            Tanya Expert
-                        </button>
-                        <button class="btn btn-secondary hero-btn">
-                            <i class="fas fa-bookmark"></i>
-                            Bookmark Favorit
-                        </button>
-                    </div>
+            <div class="artikel-modal-body" id="modal-body"></div>
+
+            <div class="artikel-reaction-section">
+                <h3 style="margin-bottom: 15px;">Bagaimana artikel ini?</h3>
+                <div class="artikel-reaction-buttons">
+                    <button class="artikel-reaction-btn" data-reaction="like">
+                        <span>👍</span> <span id="like-count">0</span>
+                    </button>
+                    <button class="artikel-reaction-btn" data-reaction="love">
+                        <span>❤️</span> <span id="love-count">0</span>
+                    </button>
+                    <button class="artikel-reaction-btn" data-reaction="helpful">
+                        <span>💡</span> <span id="helpful-count">0</span>
+                    </button>
+                    <button class="artikel-reaction-btn" data-reaction="bookmark">
+                        <span>🔖</span> Simpan
+                    </button>
                 </div>
             </div>
 
-            <!-- Categories Section -->
-            <div class="stats-section">
-                <div class="stat-card" onclick="filterArticles('troubleshooting')">
-                    <div class="stat-icon"><i class="fas fa-tools"></i></div>
-                    <div class="stat-number">45+</div>
-                    <div class="stat-label">Troubleshooting</div>
+            <div class="artikel-comment-section">
+                <h3 style="margin-bottom: 15px;">Komentar (<span id="comment-count">0</span>)</h3>
+                <div class="artikel-comment-input-area">
+                    <textarea class="artikel-comment-input" id="comment-input" placeholder="Tulis komentar Anda..."></textarea>
+                    <button class="artikel-comment-submit" onclick="postComment()">Kirim Komentar</button>
                 </div>
-                <div class="stat-card" onclick="filterArticles('maintenance')">
-                    <div class="stat-icon"><i class="fas fa-cog"></i></div>
-                    <div class="stat-number">32+</div>
-                    <div class="stat-label">Perawatan</div>
-                </div>
-                <div class="stat-card" onclick="filterArticles('optimization')">
-                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
-                    <div class="stat-number">28+</div>
-                    <div class="stat-label">Optimasi</div>
-                </div>
-                <div class="stat-card" onclick="filterArticles('hardware')">
-                    <div class="stat-icon"><i class="fas fa-microchip"></i></div>
-                    <div class="stat-number">21+</div>
-                    <div class="stat-label">Hardware</div>
-                </div>
+                <div class="artikel-comments-list" id="comments-list"></div>
             </div>
+        </div>
+    </div>
 
-            <!-- Featured Articles -->
-            <div class="why-join-section">
-                <h2 class="section-title">
-                    <i class="fas fa-star"></i>
-                    Artikel Terpopuler
-                </h2>
-                <div class="benefits-grid">
-                    <div class="article-card featured">
-                        <div class="article-image">
-                            <i class="fas fa-fire" style="font-size: 48px; color: #ff6b35;"></i>
-                        </div>
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span class="article-category">Troubleshooting</span>
-                                <span class="article-date">2 hari lalu</span>
-                            </div>
-                            <h3>Cara Mengatasi Laptop Overheating: Panduan Lengkap 2024</h3>
-                            <p>Laptop panas berlebihan? Pelajari 10 cara efektif mengatasi overheating, dari cleaning thermal paste hingga setting power management.</p>
-                            <div class="article-stats">
-                                <span><i class="fas fa-eye"></i> 15,420 views</span>
-                                <span><i class="fas fa-heart"></i> 892 likes</span>
-                                <span><i class="fas fa-comment"></i> 156 komentar</span>
-                            </div>
-                        </div>
-                    </div>
+    <div id="footer-placeholder"></div>
 
-                    <div class="article-card">
-                        <div class="article-image">
-                            <i class="fas fa-battery-three-quarters" style="font-size: 48px; color: #4caf50;"></i>
-                        </div>
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span class="article-category">Perawatan</span>
-                                <span class="article-date">5 hari lalu</span>
-                            </div>
-                            <h3>Tips Merawat Baterai Laptop Agar Awet Hingga 5 Tahun</h3>
-                            <p>Rahasia membuat baterai laptop tahan lama dengan teknik charging yang benar dan setting power management optimal.</p>
-                            <div class="article-stats">
-                                <span><i class="fas fa-eye"></i> 12,350 views</span>
-                                <span><i class="fas fa-heart"></i> 721 likes</span>
-                                <span><i class="fas fa-comment"></i> 98 komentar</span>
-                            </div>
-                        </div>
-                    </div>
+    <script>
+        // Load header & footer
+        fetch("extension.html")
+            .then(res => res.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                document.getElementById("header-placeholder").innerHTML =
+                    doc.getElementById("main-header").innerHTML;
+                document.getElementById("footer-placeholder").innerHTML =
+                    doc.getElementById("main-footer").innerHTML;
+                
+                // Script dari extension.html akan otomatis berjalan
+                // dan mengatur navbar active berdasarkan halaman saat ini
+            });
 
-                    <div class="article-card">
-                        <div class="article-image">
-                            <i class="fas fa-tachometer-alt" style="font-size: 48px; color: #2196f3;"></i>
-                        </div>
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span class="article-category">Optimasi</span>
-                                <span class="article-date">1 minggu lalu</span>
-                            </div>
-                            <h3>Boost Performa Laptop untuk Gaming dan Coding</h3>
-                            <p>Panduan step-by-step mengoptimalkan laptop untuk performa maksimal dalam gaming dan programming.</p>
-                            <div class="article-stats">
-                                <span><i class="fas fa-eye"></i> 9,876 views</span>
-                                <span><i class="fas fa-heart"></i> 654 likes</span>
-                                <span><i class="fas fa-comment"></i> 87 komentar</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="article-card">
-                        <div class="article-image">
-                            <i class="fas fa-memory" style="font-size: 48px; color: #9c27b0;"></i>
-                        </div>
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span class="article-category">Hardware</span>
-                                <span class="article-date">1 minggu lalu</span>
-                            </div>
-                            <h3>Upgrade RAM Laptop: Panduan Memilih dan Memasang</h3>
-                            <p>Tutorial lengkap upgrade RAM laptop mulai dari memilih spesifikasi yang tepat hingga cara pemasangan yang aman.</p>
-                            <div class="article-stats">
-                                <span><i class="fas fa-eye"></i> 8,543 views</span>
-                                <span><i class="fas fa-heart"></i> 432 likes</span>
-                                <span><i class="fas fa-comment"></i> 76 komentar</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Latest Articles -->
-            <div class="main-content">
-                <div class="content-section">
-                    <div class="section-title">
-                        <i class="fas fa-clock"></i>
-                        Artikel Terbaru
-                    </div>
+        // Data artikel
+        const articlesData = [
+            {
+                id: 1,
+                title: "Cara Mengatasi Laptop Overheating yang Efektif",
+                category: "troubleshooting",
+                excerpt: "Laptop yang terlalu panas dapat merusak komponen internal. Pelajari cara mengatasi dan mencegah overheating...",
+                author: "Ahmad Pratama",
+                authorInitials: "AP",
+                date: "25 Sep 2024",
+                readTime: "5 menit",
+                views: 1245,
+                likes: 145,
+                comments: 24,
+                icon: "🔥",
+                badge: "Populer",
+                content: `
+                    <h2>Mengapa Laptop Bisa Overheating?</h2>
+                    <p>Laptop overheating adalah masalah umum yang sering dialami pengguna, terutama saat menjalankan aplikasi berat seperti gaming, video editing, atau coding. Panas berlebih dapat menyebabkan throttling, menurunkan performa, bahkan merusak komponen hardware.</p>
                     
-                    <div class="article-list">
-                        <div class="discussion-card article-item">
-                            <div class="discussion-header">
-                                <div class="article-thumb">
-                                    <i class="fas fa-laptop" style="color: #667eea;"></i>
-                                </div>
-                                <div class="user-info">
-                                    <div class="username">Panduan Troubleshooting Blue Screen</div>
-                                    <div class="user-major">Troubleshooting • 3 hari lalu</div>
-                                </div>
-                            </div>
-                            <div class="discussion-preview">Panduan lengkap mengatasi Blue Screen of Death (BSOD) pada laptop dengan berbagai solusi efektif...</div>
-                            <div class="discussion-stats">
-                                <div class="stat-item"><i class="fas fa-eye"></i> 5,234 views</div>
-                                <div class="stat-item"><i class="fas fa-heart"></i> 312 likes</div>
-                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
-                            </div>
-                        </div>
+                    <h3>Penyebab Utama Overheating</h3>
+                    <ul>
+                        <li><strong>Debu dan kotoran</strong> yang menumpuk di ventilasi dan kipas</li>
+                        <li><strong>Thermal paste</strong> yang sudah kering atau tidak merata</li>
+                        <li><strong>Ventilasi terhalang</strong> saat menggunakan laptop di kasur atau permukaan empuk</li>
+                        <li><strong>Beban kerja tinggi</strong> dalam waktu lama tanpa istirahat</li>
+                        <li><strong>Sistem pendingin</strong> yang sudah tidak optimal</li>
+                    </ul>
 
-                        <div class="discussion-card article-item">
-                            <div class="discussion-header">
-                                <div class="article-thumb">
-                                    <i class="fas fa-shield-alt" style="color: #48bb78;"></i>
-                                </div>
-                                <div class="user-info">
-                                    <div class="username">Keamanan Laptop: Antivirus Terbaik 2024</div>
-                                    <div class="user-major">Security • 4 hari lalu</div>
-                                </div>
-                            </div>
-                            <div class="discussion-preview">Review dan perbandingan antivirus terbaik untuk laptop mahasiswa, termasuk opsi gratis dan berbayar...</div>
-                            <div class="discussion-stats">
-                                <div class="stat-item"><i class="fas fa-eye"></i> 4,821 views</div>
-                                <div class="stat-item"><i class="fas fa-heart"></i> 267 likes</div>
-                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
-                            </div>
-                        </div>
-
-                        <div class="discussion-card article-item">
-                            <div class="discussion-header">
-                                <div class="article-thumb">
-                                    <i class="fas fa-hdd" style="color: #ed8936;"></i>
-                                </div>
-                                <div class="user-info">
-                                    <div class="username">SSD vs HDD: Mana yang Lebih Cocok?</div>
-                                    <div class="user-major">Hardware • 6 hari lalu</div>
-                                </div>
-                            </div>
-                            <div class="discussion-preview">Perbandingan lengkap SSD dan HDD dari segi performa, harga, dan daya tahan untuk kebutuhan mahasiswa...</div>
-                            <div class="discussion-stats">
-                                <div class="stat-item"><i class="fas fa-eye"></i> 3,945 views</div>
-                                <div class="stat-item"><i class="fas fa-heart"></i> 198 likes</div>
-                                <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
-                            </div>
-                        </div>
+                    <div class="artikel-tip-box">
+                        <strong>💡 Tips Pro:</strong>
+                        <p>Suhu normal laptop saat idle adalah 30-50°C, dan saat bekerja berat 60-80°C. Jika melebihi 90°C, segera ambil tindakan!</p>
                     </div>
-                </div>
 
-                <div class="content-section">
-                    <div class="section-title">
-                        <i class="fas fa-tags"></i>
-                        Kategori Populer
-                    </div>
+                    <h2>Solusi Mengatasi Overheating</h2>
                     
-                    <div class="category-tags">
-                        <div class="tag-item" onclick="filterArticles('windows')">
-                            <i class="fab fa-windows"></i> Windows (25)
-                        </div>
-                        <div class="tag-item" onclick="filterArticles('macOS')">
-                            <i class="fab fa-apple"></i> macOS (18)
-                        </div>
-                        <div class="tag-item" onclick="filterArticles('linux')">
-                            <i class="fab fa-linux"></i> Linux (12)
-                        </div>
-                        <div class="tag-item" onclick="filterArticles('gaming')">
-                            <i class="fas fa-gamepad"></i> Gaming (22)
-                        </div>
-                        <div class="tag-item" onclick="filterArticles('coding')">
-                            <i class="fas fa-code"></i> Coding (19)
-                        </div>
-                        <div class="tag-item" onclick="filterArticles('design')">
-                            <i class="fas fa-palette"></i> Design (14)
-                        </div>
+                    <h3>1. Bersihkan Kipas dan Ventilasi</h3>
+                    <p>Debu adalah musuh utama sistem pendingin laptop. Bersihkan secara berkala menggunakan:</p>
+                    <ul>
+                        <li>Compressed air untuk menyemprot ventilasi</li>
+                        <li>Kuas kecil untuk area yang sulit dijangkau</li>
+                        <li>Lap mikrofiber untuk bagian luar</li>
+                    </ul>
+
+                    <h3>2. Ganti Thermal Paste</h3>
+                    <p>Thermal paste menghubungkan CPU/GPU dengan heatsink. Jika sudah lama (lebih dari 2 tahun), sebaiknya diganti dengan yang berkualitas baik seperti Arctic MX-4 atau Thermal Grizzly.</p>
+
+                    <h3>3. Gunakan Cooling Pad</h3>
+                    <p>Cooling pad membantu aliran udara tambahan dari bawah laptop. Pilih yang memiliki kipas besar dengan kecepatan adjustable.</p>
+
+                    <h3>4. Atur Power Management</h3>
+                    <p>Gunakan mode "Balanced" atau "Power Saver" saat tidak membutuhkan performa maksimal. Ini mengurangi konsumsi daya dan panas yang dihasilkan.</p>
+
+                    <h3>5. Update Driver dan BIOS</h3>
+                    <p>Driver dan BIOS terbaru sering mengoptimalkan sistem pendingin. Pastikan selalu update ke versi terbaru dari website resmi manufacturer.</p>
+
+                    <div class="artikel-tip-box">
+                        <strong>⚠️ Peringatan:</strong>
+                        <p>Jangan pernah membuka casing laptop jika masih dalam masa garansi, karena akan membatalkan garansi Anda!</p>
                     </div>
 
-                    <div class="section-title" style="margin-top: 30px;">
-                        <i class="fas fa-fire"></i>
-                        Tips Cepat
+                    <h2>Pencegahan Overheating</h2>
+                    <p>Lebih baik mencegah daripada mengobati. Berikut tips mencegah laptop overheating:</p>
+                    <ol>
+                        <li>Gunakan laptop di permukaan keras dan rata</li>
+                        <li>Jaga jarak ventilasi dari dinding/penghalang</li>
+                        <li>Istirahatkan laptop setiap 2-3 jam penggunaan intensif</li>
+                        <li>Tutup aplikasi yang tidak digunakan</li>
+                        <li>Rutin bersihkan ventilasi setiap 3-6 bulan</li>
+                    </ol>
+
+                    <p>Dengan perawatan yang tepat, laptop Anda akan awet dan performa tetap optimal. Jika masalah overheating masih berlanjut setelah mencoba semua langkah di atas, sebaiknya konsultasikan dengan teknisi profesional.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Tips Merawat Baterai Laptop Agar Awet dan Tahan Lama",
+                category: "perawatan",
+                excerpt: "Baterai laptop yang cepat habis? Ikuti tips merawat baterai yang benar agar tetap awet hingga bertahun-tahun...",
+                author: "Siti Nurhaliza",
+                authorInitials: "SN",
+                date: "24 Sep 2024",
+                readTime: "4 menit",
+                views: 892,
+                likes: 98,
+                comments: 15,
+                icon: "🔋",
+                badge: "Baru",
+                content: `
+                    <h2>Memahami Baterai Laptop Modern</h2>
+                    <p>Baterai laptop modern menggunakan teknologi Lithium-ion atau Lithium-polymer yang memiliki karakteristik berbeda dari baterai lama. Memahami cara kerjanya membantu Anda merawatnya dengan benar.</p>
+
+                    <h3>Mitos vs Fakta Baterai Laptop</h3>
+                    <ul>
+                        <li><strong>Mitos:</strong> Harus dikosongkan 0% sebelum dicharge → <strong>Fakta:</strong> Justru berbahaya untuk baterai Li-ion!</li>
+                        <li><strong>Mitos:</strong> Harus dicharge sampai 100% → <strong>Fakta:</strong> Optimal di 20-80%</li>
+                        <li><strong>Mitos:</strong> Cabut charger saat 100% → <strong>Fakta:</strong> Laptop modern punya proteksi overcharge</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>💡 Sweet Spot:</strong>
+                        <p>Jaga level baterai di kisaran 20-80% untuk umur panjang optimal!</p>
                     </div>
 
-                    <div class="quick-tips">
-                        <div class="tip-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Restart laptop minimal 1x seminggu untuk performa optimal</span>
+                    <h2>Tips Merawat Baterai</h2>
+
+                    <h3>1. Hindari Suhu Ekstrem</h3>
+                    <p>Suhu ideal untuk baterai adalah 20-25°C. Hindari menggunakan laptop di tempat panas atau dingin ekstrem karena dapat merusak sel baterai.</p>
+
+                    <h3>2. Kalibrasi Berkala</h3>
+                    <p>Lakukan kalibrasi 1-2 bulan sekali:</p>
+                    <ol>
+                        <li>Charge baterai sampai 100%</li>
+                        <li>Gunakan sampai 0% (shutdown otomatis)</li>
+                        <li>Biarkan 3-4 jam dalam kondisi mati</li>
+                        <li>Charge kembali tanpa putus sampai 100%</li>
+                    </ol>
+
+                    <h3>3. Mode Hemat Baterai</h3>
+                    <p>Aktifkan mode hemat daya saat mobile. Windows Battery Saver atau Mac Low Power Mode dapat memperpanjang runtime hingga 30%.</p>
+
+                    <h3>4. Hindari Deep Discharge Berulang</h3>
+                    <p>Jangan biarkan baterai kosong total terlalu sering. Charge saat mencapai 20-30% untuk menjaga kesehatan baterai.</p>
+
+                    <h3>5. Lepas Baterai Saat Stationary</h3>
+                    <p>Jika menggunakan laptop di meja dengan AC sepanjang hari, pertimbangkan melepas baterai dan simpan di tempat sejuk dengan charge 50-60%.</p>
+
+                    <h2>Optimasi Penggunaan</h2>
+                    <ul>
+                        <li>Kurangi brightness layar</li>
+                        <li>Tutup aplikasi background yang tidak perlu</li>
+                        <li>Disable Bluetooth dan WiFi saat tidak digunakan</li>
+                        <li>Gunakan dark mode (untuk OLED/AMOLED)</li>
+                        <li>Update sistem operasi dan driver secara berkala</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>⚠️ Tanda Baterai Harus Diganti:</strong>
+                        <p>Runtime kurang dari 50% kapasitas awal, swelling (bengkak), atau laptop mati tiba-tiba meski baterai masih menunjukkan persentase tinggi.</p>
+                    </div>
+
+                    <p>Dengan perawatan yang tepat, baterai laptop dapat bertahan 3-5 tahun dengan performa optimal!</p>
+                `
+            },
+            {
+                id: 3,
+                title: "Rekomendasi Laptop Terbaik untuk Mahasiswa 2024",
+                category: "review",
+                excerpt: "Pilihan laptop yang cocok untuk kuliah, budget-friendly, dengan performa mumpuni untuk berbagai kebutuhan...",
+                author: "Dimas Pratama",
+                authorInitials: "DP",
+                date: "23 Sep 2024",
+                readTime: "7 menit",
+                views: 1567,
+                likes: 210,
+                comments: 38,
+                icon: "💻",
+                badge: "Trending",
+                content: `
+                    <h2>Kriteria Laptop Ideal untuk Mahasiswa</h2>
+                    <p>Memilih laptop untuk kuliah bukan hanya soal harga, tapi juga kebutuhan spesifik jurusan Anda. Berikut kriteria umum yang perlu dipertimbangkan.</p>
+
+                    <h3>Spesifikasi Minimum yang Direkomendasikan</h3>
+                    <ul>
+                        <li><strong>Processor:</strong> Intel Core i5 Gen 11+ atau AMD Ryzen 5 5000+</li>
+                        <li><strong>RAM:</strong> Minimum 8GB (16GB lebih baik)</li>
+                        <li><strong>Storage:</strong> SSD 256GB (512GB ideal)</li>
+                        <li><strong>Display:</strong> FHD 1920x1080, 14-15 inch</li>
+                        <li><strong>Battery:</strong> Minimal 6-8 jam penggunaan normal</li>
+                        <li><strong>Weight:</strong> Maksimal 2kg untuk mobilitas</li>
+                    </ul>
+
+                    <h2>Rekomendasi Berdasarkan Budget</h2>
+
+                    <h3>Budget 7-10 Juta</h3>
+                    <p><strong>1. ASUS VivoBook 14 X1404</strong></p>
+                    <ul>
+                        <li>Intel Core i5-1235U</li>
+                        <li>8GB RAM, 512GB SSD</li>
+                        <li>Layar 14" FHD</li>
+                        <li>Cocok untuk: Tugas kuliah umum, browsing, streaming</li>
+                    </ul>
+
+                    <p><strong>2. Lenovo IdeaPad Slim 3</strong></p>
+                    <ul>
+                        <li>AMD Ryzen 5 5500U</li>
+                        <li>8GB RAM, 512GB SSD</li>
+                        <li>Baterai tahan lama</li>
+                        <li>Cocok untuk: Office work, coding ringan</li>
+                    </ul>
+
+                    <h3>Budget 10-15 Juta</h3>
+                    <p><strong>1. HP Pavilion 14</strong></p>
+                    <ul>
+                        <li>Intel Core i5-1235U</li>
+                        <li>16GB RAM, 512GB SSD</li>
+                        <li>Desain premium, ringan</li>
+                        <li>Cocok untuk: Multitasking, desain grafis ringan</li>
+                    </ul>
+
+                    <p><strong>2. ASUS TUF Gaming A15</strong></p>
+                    <ul>
+                        <li>AMD Ryzen 5 6600H</li>
+                        <li>8GB RAM, RTX 3050</li>
+                        <li>Gaming + productivity</li>
+                        <li>Cocok untuk: Gaming, rendering, coding</li>
+                    </ul>
+
+                    <h3>Budget 15-20 Juta</h3>
+                    <p><strong>1. MacBook Air M1</strong></p>
+                    <ul>
+                        <li>Apple M1 Chip</li>
+                        <li>8GB RAM, 256GB SSD</li>
+                        <li>Battery life luar biasa</li>
+                        <li>Cocok untuk: Creative work, programming, design</li>
+                    </ul>
+
+                    <p><strong>2. ASUS ZenBook 14 OLED</strong></p>
+                    <ul>
+                        <li>Intel Core i7-1260P</li>
+                        <li>16GB RAM, 512GB SSD</li>
+                        <li>Layar OLED stunning</li>
+                        <li>Cocok untuk: Content creation, photography</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>💡 Tips Memilih:</strong>
+                        <p>Prioritaskan SSD, RAM 16GB jika budget memungkinkan, dan pastikan keyboard nyaman karena akan sering dipakai untuk mengetik tugas!</p>
+                    </div>
+
+                    <h2>Rekomendasi Berdasarkan Jurusan</h2>
+
+                    <h3>Teknik Informatika / Ilmu Komputer</h3>
+                    <p>Butuh performa tinggi untuk coding, virtualisasi, dan development:</p>
+                    <ul>
+                        <li>RAM minimum 16GB</li>
+                        <li>Processor i7 atau Ryzen 7</li>
+                        <li>SSD 512GB+</li>
+                        <li>Rekomendasi: ThinkPad, Dell XPS, MacBook Pro</li>
+                    </ul>
+
+                    <h3>Desain Grafis / DKV</h3>
+                    <p>Perlu layar berkualitas dan GPU dedicated:</p>
+                    <ul>
+                        <li>Layar color accurate (100% sRGB)</li>
+                        <li>GPU dedicated (GTX/RTX)</li>
+                        <li>RAM 16GB+</li>
+                        <li>Rekomendasi: ZenBook OLED, MacBook Pro, Dell XPS</li>
+                    </ul>
+
+                    <h3>Ekonomi / Bisnis / Hukum</h3>
+                    <p>Fokus mobilitas dan battery life:</p>
+                    <ul>
+                        <li>Ringan (di bawah 1.5kg)</li>
+                        <li>Battery 8+ jam</li>
+                        <li>Office suite friendly</li>
+                        <li>Rekomendasi: MacBook Air, ASUS ExpertBook, HP Elite</li>
+                    </ul>
+
+                    <h2>Tips Membeli Laptop</h2>
+                    <ol>
+                        <li><strong>Beli di official store</strong> untuk garansi resmi</li>
+                        <li><strong>Cek review</strong> dari pengguna nyata</li>
+                        <li><strong>Pertimbangkan ekosistem</strong> (Windows, Mac, atau Linux)</li>
+                        <li><strong>Jangan tergoda spek tinggi</strong> tapi build quality buruk</li>
+                        <li><strong>Test langsung</strong> keyboard dan trackpad sebelum beli</li>
+                    </ol>
+
+                    <div class="artikel-tip-box">
+                        <strong>🎓 Mahasiswa Bonus:</strong>
+                        <p>Manfaatkan diskon mahasiswa! Apple, Microsoft, dan beberapa brand lain memberikan student discount hingga 10-15%.</p>
+                    </div>
+
+                    <p>Ingat, laptop terbaik adalah yang sesuai dengan kebutuhan dan budget Anda. Jangan terburu-buru, riset dulu, dan konsultasikan dengan komunitas SAMLAPTOP jika masih bingung!</p>
+                `
+            },
+            {
+                id: 4,
+                title: "Cara Mempercepat Laptop Windows yang Lemot",
+                category: "tips",
+                excerpt: "Laptop Windows terasa lambat? Ikuti panduan lengkap optimasi untuk mengembalikan performa laptop Anda...",
+                author: "Budi Santoso",
+                authorInitials: "BS",
+                date: "22 Sep 2024",
+                readTime: "6 menit",
+                views: 1123,
+                likes: 156,
+                comments: 29,
+                icon: "⚡",
+                badge: "Hot",
+                content: `
+                    <h2>Penyebab Laptop Windows Lemot</h2>
+                    <p>Laptop yang lemot bisa disebabkan berbagai faktor, mulai dari hardware yang sudah tua, storage penuh, hingga terlalu banyak aplikasi yang berjalan di background.</p>
+
+                    <h3>Diagnosa Awal</h3>
+                    <p>Sebelum optimasi, identifikasi dulu masalahnya:</p>
+                    <ul>
+                        <li>Buka Task Manager (Ctrl+Shift+Esc)</li>
+                        <li>Cek penggunaan CPU, RAM, Disk, dan Network</li>
+                        <li>Identifikasi aplikasi yang mengkonsumsi resource tinggi</li>
+                    </ul>
+
+                    <h2>Optimasi Windows untuk Performa Maksimal</h2>
+
+                    <h3>1. Disable Startup Programs</h3>
+                    <p>Aplikasi yang auto-start memperlambat booting dan mengkonsumsi RAM:</p>
+                    <ol>
+                        <li>Buka Task Manager → Tab Startup</li>
+                        <li>Disable aplikasi yang tidak perlu</li>
+                        <li>Fokus disable apps dengan "High impact"</li>
+                    </ol>
+
+                    <h3>2. Uninstall Bloatware</h3>
+                    <p>Hapus aplikasi bawaan Windows yang tidak terpakai:</p>
+                    <ul>
+                        <li>Settings → Apps → Apps & features</li>
+                        <li>Uninstall aplikasi yang tidak digunakan</li>
+                        <li>Gunakan tools seperti Revo Uninstaller untuk pembersihan menyeluruh</li>
+                    </ul>
+
+                    <h3>3. Disk Cleanup & Defragment</h3>
+                    <p>Bersihkan file sampah dan optimasi storage:</p>
+                    <ul>
+                        <li>Jalankan Disk Cleanup (cleanmgr)</li>
+                        <li>Hapus temporary files, recycle bin, system files</li>
+                        <li>Defragment HDD (skip jika SSD)</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>⚠️ Penting:</strong>
+                        <p>JANGAN defragment SSD! Ini malah mengurangi umur SSD. Windows otomatis mengoptimasi SSD dengan TRIM.</p>
+                    </div>
+
+                    <h3>4. Adjust Visual Effects</h3>
+                    <p>Kurangi animasi untuk performa lebih cepat:</p>
+                    <ol>
+                        <li>Settings → System → About → Advanced system settings</li>
+                        <li>Performance Settings → Adjust for best performance</li>
+                        <li>Atau pilih manual, matikan animasi yang tidak penting</li>
+                    </ol>
+
+                    <h3>5. Update Drivers</h3>
+                    <p>Driver outdated bisa menyebabkan bottleneck:</p>
+                    <ul>
+                        <li>Update GPU driver dari website resmi (NVIDIA/AMD)</li>
+                        <li>Update chipset driver</li>
+                        <li>Gunakan Windows Update untuk driver lainnya</li>
+                    </ul>
+
+                    <h3>6. Scan Malware</h3>
+                    <p>Virus dan malware membebani sistem:</p>
+                    <ul>
+                        <li>Gunakan Windows Defender scan penuh</li>
+                        <li>Pertimbangkan Malwarebytes untuk deep scan</li>
+                        <li>Hapus toolbar dan extension browser mencurigakan</li>
+                    </ul>
+
+                    <h2>Upgrade Hardware (Jika Perlu)</h2>
+
+                    <h3>1. Upgrade ke SSD</h3>
+                    <p>Dampak paling signifikan! SSD bisa mempercepat:</p>
+                    <ul>
+                        <li>Boot time dari menit ke detik</li>
+                        <li>Loading aplikasi 3-5x lebih cepat</li>
+                        <li>Overall system responsiveness</li>
+                    </ul>
+
+                    <h3>2. Tambah RAM</h3>
+                    <p>Jika sering multitasking atau RAM usage tinggi:</p>
+                    <ul>
+                        <li>Upgrade ke 8GB minimum</li>
+                        <li>16GB untuk power users</li>
+                        <li>Pastikan kompatibilitas dengan laptop Anda</li>
+                    </ul>
+
+                    <h2>Windows Settings Optimization</h2>
+
+                    <h3>Disable Unnecessary Services</h3>
+                    <p>Service yang bisa di-disable untuk performa:</p>
+                    <ul>
+                        <li>Windows Search (jika jarang search file)</li>
+                        <li>Superfetch/Prefetch (untuk SSD)</li>
+                        <li>Print Spooler (jika tidak punya printer)</li>
+                    </ul>
+
+                    <h3>Power Plan Settings</h3>
+                    <p>Gunakan "High Performance" power plan saat plugged in untuk performa maksimal.</p>
+
+                    <div class="artikel-tip-box">
+                        <strong>💡 Pro Tip:</strong>
+                        <p>Restart laptop minimal seminggu sekali untuk clear memory dan refresh system processes!</p>
+                    </div>
+
+                    <h2>Maintenance Rutin</h2>
+                    <ol>
+                        <li>Jalankan Disk Cleanup bulanan</li>
+                        <li>Update Windows dan drivers</li>
+                        <li>Scan malware berkala</li>
+                        <li>Monitor storage, jangan sampai penuh</li>
+                        <li>Bersihkan browser cache</li>
+                    </ol>
+
+                    <p>Dengan mengikuti langkah-langkah di atas, laptop Windows Anda akan terasa jauh lebih responsif dan cepat. Jika masih lemot setelah semua optimasi, mungkin waktunya upgrade hardware atau konsultasi dengan teknisi!</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Panduan Lengkap Membersihkan Laptop dari Debu",
+                category: "perawatan",
+                excerpt: "Debu adalah musuh utama laptop. Pelajari cara membersihkan laptop dengan aman dan efektif tanpa merusak komponen...",
+                author: "Rina Wijaya",
+                authorInitials: "RW",
+                date: "21 Sep 2024",
+                readTime: "5 menit",
+                views: 945,
+                likes: 112,
+                comments: 18,
+                icon: "🧹",
+                badge: null,
+                content: `
+                    <h2>Mengapa Pembersihan Laptop Penting?</h2>
+                    <p>Debu yang menumpuk di laptop bukan sekadar masalah kebersihan. Debu dapat:</p>
+                    <ul>
+                        <li>Menyumbat ventilasi dan mengganggu aliran udara</li>
+                        <li>Menyebabkan overheating</li>
+                        <li>Mengurangi umur komponen hardware</li>
+                        <li>Membuat kipas berisik</li>
+                        <li>Menurunkan performa karena thermal throttling</li>
+                    </ul>
+
+                    <h2>Alat yang Dibutuhkan</h2>
+                    <ul>
+                        <li><strong>Compressed air / blower:</strong> Untuk menyemprot debu</li>
+                        <li><strong>Kuas halus:</strong> Untuk area sensitif</li>
+                        <li><strong>Microfiber cloth:</strong> Untuk lap bagian luar</li>
+                        <li><strong>Isopropyl alcohol:</strong> Untuk membersihkan layar dan keyboard</li>
+                        <li><strong>Cotton swabs:</strong> Untuk sudut-sudut sempit</li>
+                        <li><strong>Screwdriver set:</strong> Untuk membuka casing (opsional)</li>
+                    </ul>
+
+                    <h2>Langkah-Langkah Pembersihan</h2>
+
+                    <h3>1. Persiapan</h3>
+                    <p>Sebelum mulai, pastikan:</p>
+                    <ul>
+                        <li>Matikan laptop dan cabut semua kabel</li>
+                        <li>Lepaskan baterai jika memungkinkan</li>
+                        <li>Siapkan area kerja yang bersih dan terang</li>
+                        <li>Gunakan anti-static wrist strap untuk proteksi (opsional)</li>
+                    </ul>
+
+                    <h3>2. Bersihkan Eksterior</h3>
+                    <p>Mulai dari bagian luar:</p>
+                    <ol>
+                        <li>Semprot compressed air ke ventilasi untuk keluarkan debu</li>
+                        <li>Lap casing dengan microfiber cloth yang sedikit dibasahi</li>
+                        <li>Bersihkan port dengan cotton swab dan compressed air</li>
+                    </ol>
+
+                    <h3>3. Bersihkan Layar</h3>
+                    <p>Layar laptop sangat sensitif:</p>
+                    <ul>
+                        <li>Gunakan microfiber cloth kering untuk debu ringan</li>
+                        <li>Untuk noda membandel, semprot sedikit isopropyl alcohol ke cloth (bukan langsung ke layar)</li>
+                        <li>Gosok dengan gerakan melingkar lembut</li>
+                        <li>Jangan tekan terlalu keras</li>
+                    </ul>
+
+                    <h3>4. Bersihkan Keyboard</h3>
+                    <p>Keyboard adalah sarang debu dan kuman:</p>
+                    <ol>
+                        <li>Balik laptop dan ketuk-ketuk pelan untuk keluarkan debu</li>
+                        <li>Gunakan compressed air di sela-sela tombol</li>
+                        <li>Bersihkan permukaan tombol dengan cloth dan isopropyl alcohol</li>
+                        <li>Gunakan cotton swab untuk sudut yang sulit</li>
+                    </ol>
+
+                    <h3>5. Pembersihan Internal (Advanced)</h3>
+                    <p>Hanya untuk yang berpengalaman:</p>
+                    <ul>
+                        <li>Buka casing laptop sesuai petunjuk manufacturer</li>
+                        <li>Gunakan compressed air untuk bersihkan kipas dan heatsink</li>
+                        <li>Hati-hati dengan komponen sensitif</li>
+                        <li>Jangan sentuh motherboard dengan tangan langsung</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>⚠️ Peringatan:</strong>
+                        <p>Pembersihan internal dapat membatalkan garansi. Lakukan hanya jika Anda yakin atau konsultasi dengan teknisi.</p>
+                    </div>
+
+                    <h2>Jadwal Pembersihan yang Direkomendasikan</h2>
+                    <ul>
+                        <li><strong>Harian:</strong> Lap permukaan dengan microfiber cloth</li>
+                        <li><strong>Mingguan:</strong> Bersihkan keyboard dan layar</li>
+                        <li><strong>Bulanan:</strong> Bersihkan ventilasi dengan compressed air</li>
+                        <li><strong>6 Bulanan:</strong> Pembersihan internal menyeluruh</li>
+                    </ul>
+
+                    <h2>Kesalahan yang Harus Dihindari</h2>
+                    <ul>
+                        <li>Jangan gunakan pembersih rumah tangga di layar</li>
+                        <li>Jangan semprot cairan langsung ke laptop</li>
+                        <li>Jangan gunakan vacuum cleaner (dapat menyebabkan static electricity)</li>
+                        <li>Jangan paksa membuka casing jika tidak tahu caranya</li>
+                        <li>Jangan gunakan kain kasar yang dapat menggores</li>
+                    </ul>
+
+                    <div class="artikel-tip-box">
+                        <strong>💡 Tips Akhir:</strong>
+                        <p>Laptop yang bersih tidak hanya terlihat bagus, tapi juga berfungsi lebih baik dan bertahan lebih lama. Investasikan waktu untuk perawatan rutin!</p>
+                    </div>
+
+                    <p>Dengan mengikuti panduan ini, laptop Anda akan tetap bersih, dingin, dan berkinerja optimal. Jika ragu dengan langkah-langkah tertentu, jangan sungkan untuk meminta bantuan teknisi profesional di SAMLAPTOP!</p>
+                `
+            }
+        ];
+
+        // Fungsi untuk memuat artikel ke grid
+        function loadArticles(category = 'all', searchQuery = '') {
+            const grid = document.getElementById('articles-grid');
+            grid.innerHTML = '';
+
+            const filteredArticles = articlesData.filter(article => {
+                const matchesCategory = category === 'all' || article.category === category;
+                const matchesSearch = searchQuery === '' || 
+                    article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredArticles.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-articles-message">
+                        <i class="fas fa-search"></i>
+                        <h3>Tidak ada artikel yang ditemukan</h3>
+                        <p>Coba ubah filter pencarian atau kata kunci</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredArticles.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.className = 'artikel-item';
+                articleElement.innerHTML = `
+                    <div class="artikel-thumbnail">
+                        <span class="artikel-icon">${article.icon}</span>
+                        ${article.badge ? `<div class="artikel-badge">${article.badge}</div>` : ''}
+                    </div>
+                    <div class="artikel-content">
+                        <div class="artikel-meta">
+                            <span class="artikel-category">${getCategoryName(article.category)}</span>
+                            <span class="artikel-date">${article.date}</span>
                         </div>
-                        <div class="tip-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Bersihkan file temporary secara rutin dengan Disk Cleanup</span>
+                        <h3 class="artikel-title">${article.title}</h3>
+                        <p class="artikel-excerpt">${article.excerpt}</p>
+                        <div class="artikel-footer">
+                            <div class="artikel-author">
+                                <div class="author-avatar">${article.authorInitials}</div>
+                                <div class="author-info">
+                                    <div class="author-name">${article.author}</div>
+                                    <div class="artikel-read-time">${article.readTime}</div>
+                                </div>
+                            </div>
+                            <div class="artikel-stats">
+                                <span><i class="fas fa-eye"></i> ${formatNumber(article.views)}</span>
+                                <span><i class="fas fa-heart"></i> ${formatNumber(article.likes)}</span>
+                                <span><i class="fas fa-comment"></i> ${formatNumber(article.comments)}</span>
+                            </div>
                         </div>
-                        <div class="tip-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Update driver secara berkala untuk stabilitas sistem</span>
-                        </div>
-                        <div class="tip-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Gunakan cooling pad saat gaming atau coding intensif</span>
+                    </div>
+                `;
+                
+                articleElement.addEventListener('click', () => openArticleModal(article));
+                grid.appendChild(articleElement);
+            });
+        }
+
+        // Fungsi untuk mendapatkan nama kategori
+        function getCategoryName(category) {
+            const categories = {
+                'perawatan': 'Perawatan',
+                'troubleshooting': 'Troubleshooting',
+                'tips': 'Tips & Trik',
+                'review': 'Review'
+            };
+            return categories[category] || category;
+        }
+
+        // Fungsi untuk memformat angka
+        function formatNumber(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'k';
+            }
+            return num.toString();
+        }
+
+        // Fungsi untuk membuka modal artikel
+        function openArticleModal(article) {
+            const modal = document.getElementById('article-modal');
+            const title = document.getElementById('modal-title');
+            const meta = document.getElementById('modal-meta');
+            const body = document.getElementById('modal-body');
+            
+            // Set konten modal
+            title.textContent = article.title;
+            meta.innerHTML = `
+                <div class="artikel-modal-author">
+                    <div class="author-avatar">${article.authorInitials}</div>
+                    <div class="author-info">
+                        <div class="author-name">${article.author}</div>
+                        <div class="artikel-meta-details">
+                            <span>${article.date}</span> • 
+                            <span>${article.readTime}</span> • 
+                            <span>${formatNumber(article.views)} views</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="artikel-modal-category">
+                    <span>${getCategoryName(article.category)}</span>
+                </div>
+            `;
+            body.innerHTML = article.content;
+            
+            // Set reaksi
+            document.getElementById('like-count').textContent = article.likes;
+            document.getElementById('love-count').textContent = Math.floor(article.likes * 0.7);
+            document.getElementById('helpful-count').textContent = Math.floor(article.likes * 0.5);
+            document.getElementById('comment-count').textContent = article.comments;
+            
+            // Reset komentar
+            document.getElementById('comments-list').innerHTML = '';
+            document.getElementById('comment-input').value = '';
+            
+            // Tampilkan modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Simpan artikel yang sedang dibuka
+            modal.currentArticle = article;
+        }
 
-    <!-- Chat Widget -->
-    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
+        // Fungsi untuk menutup modal
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-    <!-- Modals (same as index.html) -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('login')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
-            <div class="form-group">
-                <label class="form-label">Email/NIM</label>
-                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-input" placeholder="Masukkan password">
-            </div>
-            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
-        </div>
-    </div>
+        // Fungsi untuk mencari artikel
+        function searchArticles() {
+            const searchQuery = document.getElementById('searchInput').value;
+            const activeCategory = document.querySelector('.artikel-filter-tab.active').dataset.category;
+            loadArticles(activeCategory, searchQuery);
+        }
 
-    <div id="konsultasi-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('konsultasi')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Konsultasi Artikel</h2>
-            <div class="form-group">
-                <label class="form-label">Topik yang Ingin Ditanyakan</label>
-                <select class="form-select">
-                    <option>Troubleshooting</option>
-                    <option>Perawatan Laptop</option>
-                    <option>Optimasi Performa</option>
-                    <option>Hardware Upgrade</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Pertanyaan Detail</label>
-                <textarea class="form-textarea" rows="4" placeholder="Jelaskan pertanyaan Anda..."></textarea>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;">Kirim Pertanyaan</button>
-        </div>
-    </div>
-
-    <div id="chat-modal" class="modal">
-        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
-            <span class="close" onclick="closeModal('chat')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Chat dengan Expert</h2>
-            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;">
-                <div style="margin-bottom: 15px;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Expert</div>
-                        <span style="font-size: 12px; color: #718096;">10:30</span>
+        // Fungsi untuk memposting komentar
+        function postComment() {
+            const input = document.getElementById('comment-input');
+            const commentText = input.value.trim();
+            
+            if (!commentText) {
+                alert('Silakan tulis komentar terlebih dahulu!');
+                return;
+            }
+            
+            const commentsList = document.getElementById('comments-list');
+            const commentCount = document.getElementById('comment-count');
+            
+            // Buat elemen komentar baru
+            const commentElement = document.createElement('div');
+            commentElement.className = 'artikel-comment-item';
+            commentElement.innerHTML = `
+                <div class="comment-avatar">${getUserInitials()}</div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">${getRandomUserName()}</span>
+                        <span class="comment-time">Baru saja</span>
                     </div>
-                    <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
-                        Halo! Ada artikel atau topik laptop yang ingin Anda tanyakan?
+                    <div class="comment-text">${commentText}</div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn">Suka</button>
+                        <button class="comment-action-btn">Balas</button>
                     </div>
                 </div>
-            </div>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" id="chat-input" class="form-input" placeholder="Tanyakan tentang artikel..." style="flex: 1;">
-                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <style>
-        .article-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            `;
+            
+            // Tambahkan komentar ke daftar
+            commentsList.insertBefore(commentElement, commentsList.firstChild);
+            
+            // Update jumlah komentar
+            const currentCount = parseInt(commentCount.textContent);
+            commentCount.textContent = currentCount + 1;
+            
+            // Reset input
+            input.value = '';
+            
+            // Simulasikan notifikasi sukses
+            showNotification('Komentar berhasil diposting!');
         }
 
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border-left-color: #667eea;
+        // Fungsi untuk mendapatkan inisial pengguna acak
+        function getUserInitials() {
+            const names = ['AN', 'BS', 'CD', 'DP', 'ES', 'FW', 'GH', 'IJ', 'KL', 'MN'];
+            return names[Math.floor(Math.random() * names.length)];
         }
 
-        .article-card.featured {
-            border-left-color: #ff6b35;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(255, 255, 255, 0.95));
+        // Fungsi untuk mendapatkan nama pengguna acak
+        function getRandomUserName() {
+            const names = ['Andi', 'Budi', 'Citra', 'Dewi', 'Eko', 'Fajar', 'Gita', 'Hadi', 'Indra', 'Joko'];
+            return names[Math.floor(Math.random() * names.length)];
         }
 
-        .article-image {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 10px;
+        // Fungsi untuk menampilkan notifikasi
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'artikel-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animasi masuk
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Hapus setelah 3 detik
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
         }
 
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 12px;
+        // Event listener untuk filter tab
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('artikel-filter-tab')) {
+                // Hapus active class dari semua tab
+                document.querySelectorAll('.artikel-filter-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Tambah active class ke tab yang diklik
+                e.target.classList.add('active');
+                
+                // Load artikel dengan kategori yang dipilih
+                const category = e.target.dataset.category;
+                const searchQuery = document.getElementById('searchInput').value;
+                loadArticles(category, searchQuery);
+            }
+            
+            // Event listener untuk tombol reaksi
+            if (e.target.classList.contains('artikel-reaction-btn') || 
+                e.target.parentElement.classList.contains('artikel-reaction-btn')) {
+                
+                const button = e.target.classList.contains('artikel-reaction-btn') ? 
+                    e.target : e.target.parentElement;
+                const reaction = button.dataset.reaction;
+                
+                // Animasi tombol
+                button.classList.add('artikel-reaction-active');
+                setTimeout(() => {
+                    button.classList.remove('artikel-reaction-active');
+                }, 300);
+                
+                // Update counter (simulasi)
+                if (reaction !== 'bookmark') {
+                    const countElement = document.getElementById(`${reaction}-count`);
+                    const currentCount = parseInt(countElement.textContent);
+                    countElement.textContent = currentCount + 1;
+                    
+                    showNotification(`Anda memberikan reaksi ${getReactionName(reaction)}!`);
+                } else {
+                    showNotification('Artikel disimpan ke bookmark!');
+                }
+            }
+        });
+
+        // Fungsi untuk mendapatkan nama reaksi
+        function getReactionName(reaction) {
+            const reactions = {
+                'like': 'Suka',
+                'love': 'Cinta',
+                'helpful': 'Membantu',
+                'bookmark': 'Bookmark'
+            };
+            return reactions[reaction] || reaction;
         }
 
-        .article-category {
-            background: #667eea;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
+        // Event listener untuk menutup modal saat klik di luar konten
+        document.getElementById('article-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeArticleModal();
+            }
+        });
 
-        .article-date {
-            color: #718096;
-        }
+        // Event listener untuk input pencarian dengan Enter
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                searchArticles();
+            }
+        });
 
-        .article-content h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .article-content p {
-            color: #718096;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .article-stats {
-            display: flex;
-            gap: 15px;
-            font-size: 12px;
-            color: #718096;
-        }
-
-        .article-stats span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .article-thumb {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(102, 126, 234, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .category-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tag-item {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tag-item:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .quick-tips {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .tip-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px;
-            background: rgba(72, 187, 120, 0.1);
-            border-radius: 10px;
-            font-size: 14px;
-            color: #2d3748;
-        }
-
-        .tip-item i {
-            color: #48bb78;
-        }
-    </style>
+        // Load artikel saat halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticles();
+        });
+    </script>
 </body>
 </html>

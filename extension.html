@@ -4,10 +4,11 @@
             <div class="logo">SAMLAPTOP</div>
         </div>
         <nav class="nav">
-            <div class="nav-item active" onclick="showSection('beranda')">Beranda</div>
-            <div class="nav-item" onclick="showSection('artikel')">Artikel</div>
-            <div class="nav-item" onclick="showSection('komunitas')">Komunitas</div>
-            <div class="nav-item" onclick="showSection('teknisi')">Teknisi</div>                <div class="nav-item" onclick="showSection('reseller')">Reseller</div>
+            <div class="nav-item" data-page="index.html" onclick="showSection('beranda')">Beranda</div>
+            <div class="nav-item" data-page="artikel.html" onclick="showSection('artikel')">Artikel</div>
+            <div class="nav-item" data-page="komunitas.html" onclick="showSection('komunitas')">Komunitas</div>
+            <div class="nav-item" data-page="teknisi.html" onclick="showSection('teknisi')">Teknisi</div>
+            <div class="nav-item" data-page="reseller.html" onclick="showSection('reseller')">Reseller</div>
         </nav>
         <div class="user-menu">
             <div class="points-badge">
@@ -20,23 +21,23 @@
 
   <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-        <div class="bottom-nav-item active" onclick="showSection('beranda'); setActiveBottomNav(this)">
+        <div class="bottom-nav-item" data-page="index.html" onclick="showSection('beranda'); setActiveBottomNav(this)">
             <i class="fas fa-home"></i>
             <span>Beranda</span>
         </div>
-        <div class="bottom-nav-item" onclick="showSection('artikel'); setActiveBottomNav(this)">
+        <div class="bottom-nav-item" data-page="artikel.html" onclick="showSection('artikel'); setActiveBottomNav(this)">
             <i class="fas fa-book"></i>
             <span>Artikel</span>
         </div>
-        <div class="bottom-nav-item" onclick="showSection('komunitas'); setActiveBottomNav(this)">
+        <div class="bottom-nav-item" data-page="komunitas.html" onclick="showSection('komunitas'); setActiveBottomNav(this)">
             <i class="fas fa-users"></i>
             <span>Komunitas</span>
         </div>
-        <div class="bottom-nav-item" onclick="showSection('teknisi'); setActiveBottomNav(this)">
+        <div class="bottom-nav-item" data-page="teknisi.html" onclick="showSection('teknisi'); setActiveBottomNav(this)">
             <i class="fas fa-user-cog"></i>
             <span>Teknisi</span>
         </div>
-        <div class="bottom-nav-item" onclick="showSection('reseller'); setActiveBottomNav(this)">
+        <div class="bottom-nav-item" data-page="reseller.html" onclick="showSection('reseller'); setActiveBottomNav(this)">
             <i class="fas fa-store"></i>
             <span>Reseller</span>
         </div>
@@ -95,3 +96,72 @@
         </div>
     </footer>
 </div>
+
+<script>
+    // Fungsi untuk set active navbar berdasarkan halaman saat ini
+    function setActiveNavbar() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Set active untuk desktop nav
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-page') === currentPage) {
+                item.classList.add('active');
+            }
+        });
+
+        // Set active untuk bottom nav
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        bottomNavItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-page') === currentPage) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    // Fungsi untuk set active bottom nav (untuk mobile)
+    function setActiveBottomNav(element) {
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        bottomNavItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        element.classList.add('active');
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        setActiveNavbar();
+    });
+
+    // Fungsi universal untuk navigasi (jika diperlukan)
+    function navigateTo(page) {
+        window.location.href = page;
+    }
+
+    // Fungsi untuk show section (jika menggunakan SPA)
+    function showSection(section) {
+        // Implementasi SPA Anda di sini
+        console.log('Show section:', section);
+        
+        // Jika menggunakan multi-page, redirect ke halaman yang sesuai
+        const pageMap = {
+            'beranda': 'index.html',
+            'artikel': 'artikel.html',
+            'komunitas': 'komunitas.html',
+            'teknisi': 'teknisi.html',
+            'reseller': 'reseller.html'
+        };
+        
+        if (pageMap[section] && pageMap[section] !== window.location.pathname.split('/').pop()) {
+            window.location.href = pageMap[section];
+        }
+    }
+
+    // Fungsi untuk modal (placeholder)
+    function openModal(modalType) {
+        console.log('Open modal:', modalType);
+        // Implementasi modal Anda di sini
+    }
+</script>
