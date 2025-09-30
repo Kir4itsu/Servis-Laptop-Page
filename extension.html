@@ -1,0 +1,97 @@
+<div id="main-header">
+  <header class="header">
+        <div class="header-left">
+            <div class="logo">SAMLAPTOP</div>
+        </div>
+        <nav class="nav">
+            <div class="nav-item active" onclick="showSection('beranda')">Beranda</div>
+            <div class="nav-item" onclick="showSection('artikel')">Artikel</div>
+            <div class="nav-item" onclick="showSection('komunitas')">Komunitas</div>
+            <div class="nav-item" onclick="showSection('teknisi')">Teknisi</div>                <div class="nav-item" onclick="showSection('reseller')">Reseller</div>
+        </nav>
+        <div class="user-menu">
+            <div class="points-badge">
+                <i class="fas fa-bullseye"></i>
+                <span class="points-text">250 Poin</span>
+            </div>
+            <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
+        </div>
+    </header>
+
+  <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="bottom-nav-item active" onclick="showSection('beranda'); setActiveBottomNav(this)">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </div>
+        <div class="bottom-nav-item" onclick="showSection('artikel'); setActiveBottomNav(this)">
+            <i class="fas fa-book"></i>
+            <span>Artikel</span>
+        </div>
+        <div class="bottom-nav-item" onclick="showSection('komunitas'); setActiveBottomNav(this)">
+            <i class="fas fa-users"></i>
+            <span>Komunitas</span>
+        </div>
+        <div class="bottom-nav-item" onclick="showSection('teknisi'); setActiveBottomNav(this)">
+            <i class="fas fa-user-cog"></i>
+            <span>Teknisi</span>
+        </div>
+        <div class="bottom-nav-item" onclick="showSection('reseller'); setActiveBottomNav(this)">
+            <i class="fas fa-store"></i>
+            <span>Reseller</span>
+        </div>
+    </nav>
+</div>
+
+<div id="main-footer">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SAMLAPTOP</h3>
+                <p class="footer-desc">
+                    Komunitas mahasiswa untuk saling membantu dalam perawatan, troubleshooting, dan konsultasi laptop.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/kir4itsu/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://steamcommunity.com/id/Kir4itsu" class="social-link"><i class="fab fa-steam"></i></a>
+                    <a href="https://wa.me/081234567890" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/Kir4itsu" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="openModal('konsultasi'); return false;"><i class="fas fa-chevron-right"></i> Konsultasi Laptop</a></li>
+                    <li><a href="#" onclick="openModal('troubleshoot'); return false;"><i class="fas fa-chevron-right"></i> Remote Troubleshoot</a></li>
+                    <li><a href="#" onclick="showSection('teknisi'); return false;"><i class="fas fa-chevron-right"></i> Daftar Teknisi</a></li>
+                    <li><a href="#" onclick="showSection('reseller'); return false;"><i class="fas fa-chevron-right"></i> Reseller Terpercaya</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Komunitas</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showSection('artikel'); return false;"><i class="fas fa-chevron-right"></i> Artikel & Tips</a></li>
+                    <li><a href="#" onclick="showSection('komunitas'); return false;"><i class="fas fa-chevron-right"></i> Forum Diskusi</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sistem Poin</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Bantuan</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Hubungi Kami</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Syarat & Ketentuan</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 SAMLAPTOP. All rights reserved. Made by Kiraitsu Mochizuki</p>
+        </div>
+    </footer>
+</div>

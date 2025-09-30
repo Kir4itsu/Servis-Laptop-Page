@@ -8,37 +8,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo">SAMLAPTOP</div>
-            </div>
-            <nav class="nav">
-                <div class="nav-item active">Beranda</div>
-                <div class="nav-item" onclick="location.href='artikel.html'">Artikel</div>
-                <div class="nav-item" onclick="location.href='komunitas.html'">Komunitas</div>
-                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
-                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
-            </nav>
-            <div class="user-menu">
-                <div class="points-badge">
-                    <i class="fas fa-bullseye"></i>
-                    250 Poin
-                </div>
-                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
-            </div>
-            
-            <div class="mobile-menu" id="mobile-menu">
-                <div class="mobile-nav-item active">Beranda</div>
-                <div class="mobile-nav-item" onclick="location.href='artikel.html'; toggleMobileMenu();">Artikel</div>
-                <div class="mobile-nav-item" onclick="location.href='komunitas.html'; toggleMobileMenu();">Komunitas</div>
-                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
-                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
-            </div>
-        </header>
+     <div class="container">
+        
+        <div id="header-placeholder"></div>
 
         <div id="beranda-section" class="section">
             <!-- Hero Section -->
@@ -489,7 +461,26 @@
         </div>
     </div>
 
+     <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bottom Navigation for Mobile -->
+    <div id="nav-placeholder"></div>
+
     <script>
+
+        // Load header & footer dari extension.html
+      fetch("extension.html")
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          document.getElementById("header-placeholder").innerHTML =
+            doc.getElementById("main-header").innerHTML;
+          document.getElementById("footer-placeholder").innerHTML =
+            doc.getElementById("main-footer").innerHTML;
+        });
+
         // Global variables
         let currentSection = 'beranda';
         let userPoints = 250;
