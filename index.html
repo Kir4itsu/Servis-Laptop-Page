@@ -6,6 +6,37 @@
     <title>SAMLAPTOP - Komunitas Mahasiswa</title>
     <link rel="stylesheet" href="style.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Typing Animation */
+        .typing-dots {
+            display: inline-flex;
+            gap: 3px;
+        }
+
+        .typing-dots span {
+            height: 8px;
+            width: 8px;
+            background: #718096;
+            border-radius: 50%;
+            display: inline-block;
+            animation: typing 1.5s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: 0s; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
      <div class="container">
@@ -382,36 +413,45 @@
         </div>
     </div>
 
-    <!-- Modal Chat -->
+    <!-- Modal Chat dengan AI -->
     <div id="chat-modal" class="modal">
         <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
             <span class="close" onclick="closeModal('chat')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Chat dengan Admin</h2>
+            <h2 style="margin-bottom: 20px;">Chat dengan AI Assistant</h2>
+            <p style="color: #718096; font-size: 14px; margin-bottom: 15px; text-align: center;">
+                <i class="fas fa-robot"></i> Asisten virtual untuk konsultasi laptop
+            </p>
             
             <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;">
+                <!-- Pesan awal -->
                 <div style="margin-bottom: 15px;">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Admin</div>
-                        <span style="font-size: 12px; color: #718096;">10:30</span>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">AI</div>
+                        <span style="font-size: 12px; color: #718096;">Sekarang</span>
                     </div>
-                    <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
-                        Halo! Selamat datang di SAMLAPTOP. Ada yang bisa saya bantu?
-                    </div>
-                </div>
-                <div style="margin-bottom: 15px; text-align: right;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; justify-content: flex-end;">
-                        <span style="font-size: 12px; color: #718096;">10:32</span>
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #48bb78; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Anda</div>
-                    </div>
-                    <div style="background: #667eea; color: white; padding: 10px; border-radius: 10px; margin-right: 40px; display: inline-block;">
-                        Laptop saya sering hang ketika digunakan untuk coding
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-left: 40px; max-width: 70%;">
+                        Halo! Saya asisten AI SAMLAPTOP 👋<br><br>
+                        Saya siap membantu masalah laptop Anda. Ceritakan:
+                        • Gejala yang dialami
+                        • Merk & tipe laptop  
+                        • Kapan masalah mulai terjadi
+                        • Pesan error (jika ada)
+                        <div style="font-size: 10px; color: #718096; margin-top: 5px; text-align: right;">Powered by AI</div>
                     </div>
                 </div>
             </div>
             
             <div style="display: flex; gap: 10px;">
-                <input type="text" id="chat-input" class="form-input" placeholder="Ketik pesan..." style="flex: 1;">
-                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+                <input type="text" id="chat-input" class="form-input" placeholder="Tulis masalah laptop Anda..." style="flex: 1;" onkeypress="handleChatInput(event)">
+                <button class="btn btn-primary" onclick="sendAIMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <div style="margin-top: 10px; text-align: center;">
+                <button class="btn btn-secondary" onclick="clearChat()" style="font-size: 12px; padding: 5px 10px;">
+                    <i class="fas fa-trash"></i> Bersihkan Chat
+                </button>
             </div>
         </div>
     </div>
@@ -468,6 +508,219 @@
     <div id="nav-placeholder"></div>
 
     <script>
+        // AI Chat Functionality
+        let chatHistory = [
+            {
+                role: "user",
+                parts: [{ text: "Kamu adalah asisten virtual ahli laptop untuk SAMLAPTOP - komunitas mahasiswa saling membantu dalam perawatan dan troubleshooting laptop. PROFIL KAMU: - Nama: TechBot SAMLAPTOP - Keahlian: Troubleshooting laptop, perawatan hardware/software, optimasi performa - Bahasa: Indonesia informal yang ramah dan mudah dipahami mahasiswa - Tujuan: Bantu diagnosa masalah dan berikan solusi praktis ATURAN UTAMA: 1. FOKUS pada masalah teknis laptop (hardware, software, performa, dll) 2. Berikan solusi STEP-BY-STEP yang bisa dicoba sendiri 3. Jika kompleks, sarankan hubungi teknisi SAMLAPTOP 4. JANGAN beri saran buka hardware jika user pemula 5. JANGAN jawab pertanyaan di luar topik laptop" }]
+            },
+            {
+                role: "model",
+                parts: [{ text: "Halo! 👋 Saya TechBot SAMLAPTOP, ahli troubleshooting laptop. Ada masalah laptop apa yang bisa saya bantu? Ceritakan gejala dan merk laptop Anda!" }]
+            }
+        ];
+
+        async function sendAIMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const message = chatInput.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to UI
+            addMessageToChat('user', message);
+            chatInput.value = '';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            try {
+                // Get AI response
+                const aiResponse = await getAIResponse(message);
+                
+                // Remove typing indicator and add AI response
+                removeTypingIndicator();
+                addMessageToChat('assistant', aiResponse);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                removeTypingIndicator();
+                
+                // Fallback responses if API fails
+                const fallbackResponses = [
+                    "Maaf, saat ini saya sedang mengalami gangguan teknis. Silakan hubungi teknisi langsung melalui menu konsultasi.",
+                    "Sistem sedang sibuk. Bisa Anda coba lagi sebentar lagi?",
+                    "Untuk mendapatkan bantuan lebih cepat, silakan gunakan layanan konsultasi premium dengan teknisi kami."
+                ];
+                const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+                addMessageToChat('assistant', randomResponse);
+            }
+        }
+
+        // Function to add message to chat UI
+        function addMessageToChat(role, message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const timestamp = new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'});
+            
+            const messageHtml = `
+                <div style="margin-bottom: 15px; ${role === 'user' ? 'text-align: right;' : ''}">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; ${role === 'user' ? 'justify-content: flex-end;' : ''}">
+                        ${role === 'user' ? 
+                            `<span style="font-size: 12px; color: #718096;">${timestamp}</span>
+                             <div style="width: 30px; height: 30px; border-radius: 50%; background: #48bb78; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Anda</div>` :
+                            `<div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">AI</div>
+                             <span style="font-size: 12px; color: #718096;">${timestamp}</span>`
+                        }
+                    </div>
+                    <div style="background: ${role === 'user' ? '#667eea' : 'white'}; color: ${role === 'user' ? 'white' : '#2d3748'}; padding: 12px; border-radius: 10px; ${role === 'user' ? 'margin-right: 40px; display: inline-block;' : 'margin-left: 40px;'} max-width: 70%; word-wrap: break-word;">
+                        ${message}
+                        ${role === 'assistant' ? '<div style="font-size: 10px; color: #718096; margin-top: 5px; text-align: right;">Powered by AI</div>' : ''}
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.innerHTML += messageHtml;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Add to chat history for context
+            if (role === 'user') {
+                chatHistory.push({
+                    role: "user",
+                    parts: [{ text: message }]
+                });
+            } else {
+                chatHistory.push({
+                    role: "model", 
+                    parts: [{ text: message }]
+                });
+            }
+            
+            // Keep only last 10 messages for context
+            if (chatHistory.length > 10) {
+                chatHistory = chatHistory.slice(-10);
+            }
+        }
+
+        // Typing indicator functions
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chat-messages');
+            const typingHtml = `
+                <div style="margin-bottom: 15px;" id="typing-indicator">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">AI</div>
+                        <span style="font-size: 12px; color: #718096;">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})}</span>
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-left: 40px; display: inline-block;">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.innerHTML += typingHtml;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // AI Response Function using Google Gemini API
+        async function getAIResponse(userMessage) {
+            const API_KEY = 'AIzaSyDMh_DjIoztoYoxuVRJqZIlxtc_LH6yJ1U'; 
+            
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: chatHistory.concat([
+                            {
+                                role: "user",
+                                parts: [{ text: userMessage }]
+                            }
+                        ]),
+                        generationConfig: {
+                            temperature: 0.7,
+                            topK: 40,
+                            topP: 0.95,
+                            maxOutputTokens: 1024,
+                        },
+                        safetySettings: [
+                            {
+                                category: "HARM_CATEGORY_HARASSMENT",
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            },
+                            {
+                                category: "HARM_CATEGORY_HATE_SPEECH", 
+                                threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                            }
+                        ]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    return data.candidates[0].content.parts[0].text;
+                } else {
+                    console.error('Unexpected API response:', data);
+                    throw new Error('No response from AI');
+                }
+                
+            } catch (error) {
+                console.error('AI API Error:', error);
+                throw error;
+            }
+        }
+
+        
+        // Handle Enter key in chat
+        function handleChatInput(e) {
+            if (e.key === 'Enter') {
+                sendAIMessage();
+            }
+        }
+
+        // Clear chat history
+        function clearChat() {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = `
+                <div style="margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">AI</div>
+                        <span style="font-size: 12px; color: #718096;">Sekarang</span>
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-left: 40px; max-width: 70%;">
+                        Halo! Percakapan telah dimulai ulang. Ada yang bisa saya bantu terkait masalah laptop Anda?
+                        <div style="font-size: 10px; color: #718096; margin-top: 5px; text-align: right;">Powered by AI</div>
+                    </div>
+                </div>
+            `;
+            
+            chatHistory = [
+                {
+                    role: "user", 
+                    parts: [{ text: "Kamu adalah asisten virtual ahli laptop untuk SAMLAPTOP. Mulai percakapan baru." }]
+                },
+                {
+                    role: "model",
+                    parts: [{ text: "Halo! Percakapan telah dimulai ulang. Ada yang bisa saya bantu terkait masalah laptop Anda?" }]
+                }
+            ];
+        }
 
         // Load header & footer
         fetch("extension.html")
@@ -480,72 +733,69 @@
                 document.getElementById("footer-placeholder").innerHTML =
                     doc.getElementById("main-footer").innerHTML;
                 
-                // Script dari extension.html akan otomatis berjalan
-                // dan mengatur navbar active berdasarkan halaman saat ini
+                // Set active navigation setelah header dimuat
+                setTimeout(() => {
+                    setActiveNavbar();
+                }, 100);
             });
+
+        // Fungsi untuk set active navbar
+        function setActiveNavbar() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            console.log('Current page:', currentPage);
+            
+            // Set active untuk desktop nav
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const itemPage = item.getAttribute('data-page');
+                console.log('Checking:', itemPage, 'vs', currentPage);
+                if (itemPage === currentPage) {
+                    item.classList.add('active');
+                    console.log('✅ Activated:', item.textContent);
+                }
+            });
+
+            // Set active untuk bottom nav
+            const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-page') === currentPage) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Fungsi untuk show section
+        function showSection(section) {
+            const pageMap = {
+                'beranda': 'index.html',
+                'artikel': 'artikel.html', 
+                'komunitas': 'komunitas.html',
+                'teknisi': 'teknisi.html',
+                'reseller': 'reseller.html'
+            };
+            
+            const targetPage = pageMap[section];
+            
+            if (targetPage && targetPage !== window.location.pathname.split('/').pop()) {
+                window.location.href = targetPage;
+            }
+        }
+
+        // Fungsi untuk bottom nav
+        function setActiveBottomNav(element) {
+            const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
 
         // Global variables
         let currentSection = 'beranda';
         let userPoints = 250;
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('active');
-        }
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-        
-        // Section Management
-        function showSection(sectionName) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.add('hidden');
-            });
-            
-            // Show selected section
-            const targetSection = document.getElementById(sectionName + '-section');
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-            }
-            
-            // Update active nav item
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-            mobileNavItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Find and set active nav item
-            const activeNav = Array.from(navItems).find(item => 
-                item.textContent.toLowerCase().includes(sectionName.toLowerCase())
-            );
-            if (activeNav) {
-                activeNav.classList.add('active');
-            }
-            
-            const activeMobileNav = Array.from(mobileNavItems).find(item => 
-                item.textContent.toLowerCase().includes(sectionName.toLowerCase())
-            );
-            if (activeMobileNav) {
-                activeMobileNav.classList.add('active');
-            }
-            
-            currentSection = sectionName;
-        }
         
         // Modal Management
         function openModal(modalName) {
@@ -574,73 +824,6 @@
                 }
             });
         }
-        
-        // Chat functionality
-        function sendMessage() {
-            const chatInput = document.getElementById('chat-input');
-            const chatMessages = document.getElementById('chat-messages');
-            const message = chatInput.value.trim();
-            
-            if (message) {
-                // Add user message
-                const userMessageHtml = `
-                    <div style="margin-bottom: 15px; text-align: right;">
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px; justify-content: flex-end;">
-                            <span style="font-size: 12px; color: #718096;">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})}</span>
-                            <div style="width: 30px; height: 30px; border-radius: 50%; background: #48bb78; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Anda</div>
-                        </div>
-                        <div style="background: #667eea; color: white; padding: 10px; border-radius: 10px; margin-right: 40px; display: inline-block;">
-                            ${message}
-                        </div>
-                    </div>
-                `;
-                
-                chatMessages.innerHTML += userMessageHtml;
-                chatInput.value = '';
-                
-                // Auto scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Simulate admin response
-                setTimeout(() => {
-                    const adminResponses = [
-                        "Terima kasih atas pertanyaannya. Saya akan menghubungkan Anda dengan teknisi yang sesuai.",
-                        "Bisa dijelaskan lebih detail masalahnya? Apakah ada pesan error yang muncul?",
-                        "Saya akan bantu troubleshoot masalah tersebut. Mohon tunggu sebentar.",
-                        "Masalah ini cukup umum terjadi. Kami punya beberapa solusi yang bisa dicoba."
-                    ];
-                    
-                    const randomResponse = adminResponses[Math.floor(Math.random() * adminResponses.length)];
-                    
-                    const adminMessageHtml = `
-                        <div style="margin-bottom: 15px;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                                <div style="width: 30px; height: 30px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">Admin</div>
-                                <span style="font-size: 12px; color: #718096;">${new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})}</span>
-                            </div>
-                            <div style="background: white; padding: 10px; border-radius: 10px; margin-left: 40px;">
-                                ${randomResponse}
-                            </div>
-                        </div>
-                    `;
-                    
-                    chatMessages.innerHTML += adminMessageHtml;
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-            }
-        }
-        
-        // Handle Enter key in chat input
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatInput = document.getElementById('chat-input');
-            if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        sendMessage();
-                    }
-                });
-            }
-        });
         
         // Redeem reward functionality
         function redeemReward(rewardType) {
@@ -814,5 +997,4 @@
         });
     </script>
 </body>
-
 </html>

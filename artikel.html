@@ -81,19 +81,75 @@
 
     <script>
         // Load header & footer
-        fetch("extension.html")
-            .then(res => res.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-                document.getElementById("header-placeholder").innerHTML =
-                    doc.getElementById("main-header").innerHTML;
-                document.getElementById("footer-placeholder").innerHTML =
-                    doc.getElementById("main-footer").innerHTML;
+            fetch("extension.html")
+                .then(res => res.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    document.getElementById("header-placeholder").innerHTML =
+                        doc.getElementById("main-header").innerHTML;
+                    document.getElementById("footer-placeholder").innerHTML =
+                        doc.getElementById("main-footer").innerHTML;
+                    
+                    // Set active navigation setelah header dimuat
+                    setTimeout(() => {
+                        setActiveNavbar();
+                    }, 100);
+                });
+
+            // Fungsi untuk set active navbar
+            function setActiveNavbar() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
                 
-                // Script dari extension.html akan otomatis berjalan
-                // dan mengatur navbar active berdasarkan halaman saat ini
-            });
+                console.log('Current page:', currentPage);
+                
+                // Set active untuk desktop nav
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    const itemPage = item.getAttribute('data-page');
+                    console.log('Checking:', itemPage, 'vs', currentPage);
+                    if (itemPage === currentPage) {
+                        item.classList.add('active');
+                        console.log('✅ Activated:', item.textContent);
+                    }
+                });
+
+                // Set active untuk bottom nav
+                const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+                bottomNavItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-page') === currentPage) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            // Fungsi untuk show section
+            function showSection(section) {
+                const pageMap = {
+                    'beranda': 'index.html',
+                    'artikel': 'artikel.html', 
+                    'komunitas': 'komunitas.html',
+                    'teknisi': 'teknisi.html',
+                    'reseller': 'reseller.html'
+                };
+                
+                const targetPage = pageMap[section];
+                
+                if (targetPage && targetPage !== window.location.pathname.split('/').pop()) {
+                    window.location.href = targetPage;
+                }
+            }
+
+            // Fungsi untuk bottom nav
+            function setActiveBottomNav(element) {
+                const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+                bottomNavItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                element.classList.add('active');
+            }
 
         // Data artikel
         const articlesData = [
@@ -829,6 +885,28 @@
                     document.body.removeChild(notification);
                 }, 300);
             }, 3000);
+        }
+
+        // Fungsi untuk show section (untuk multi-page navigation)
+        function showSection(section) {
+            // Map section ke halaman yang sesuai
+            const pageMap = {
+                'beranda': 'index.html',
+                'artikel': 'artikel.html',
+                'komunitas': 'komunitas.html',
+                'teknisi': 'teknisi.html',
+                'reseller': 'reseller.html'
+            };
+            
+            const targetPage = pageMap[section];
+            
+            if (targetPage && targetPage !== window.location.pathname.split('/').pop()) {
+                // Redirect ke halaman yang sesuai
+                window.location.href = targetPage;
+            } else if (targetPage) {
+                // Jika sudah di halaman yang benar, scroll ke atas
+                window.scrollTo(0, 0);
+            }
         }
 
         // Event listener untuk filter tab

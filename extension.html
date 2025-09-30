@@ -98,9 +98,11 @@
 </div>
 
 <script>
-    // Fungsi untuk set active navbar berdasarkan halaman saat ini
+    // Fungsi untuk set active navbar
     function setActiveNavbar() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        console.log('Setting active nav for:', currentPage);
         
         // Set active untuk desktop nav
         const navItems = document.querySelectorAll('.nav-item');
@@ -108,6 +110,7 @@
             item.classList.remove('active');
             if (item.getAttribute('data-page') === currentPage) {
                 item.classList.add('active');
+                console.log('Activated:', item.textContent);
             }
         });
 
@@ -140,12 +143,9 @@
         window.location.href = page;
     }
 
-    // Fungsi untuk show section (jika menggunakan SPA)
+    // Fungsi untuk show section (untuk multi-page navigation)
     function showSection(section) {
-        // Implementasi SPA Anda di sini
-        console.log('Show section:', section);
-        
-        // Jika menggunakan multi-page, redirect ke halaman yang sesuai
+        // Map section ke halaman yang sesuai
         const pageMap = {
             'beranda': 'index.html',
             'artikel': 'artikel.html',
@@ -154,8 +154,14 @@
             'reseller': 'reseller.html'
         };
         
-        if (pageMap[section] && pageMap[section] !== window.location.pathname.split('/').pop()) {
-            window.location.href = pageMap[section];
+        const targetPage = pageMap[section];
+        
+        if (targetPage && targetPage !== window.location.pathname.split('/').pop()) {
+            // Redirect ke halaman yang sesuai
+            window.location.href = targetPage;
+        } else if (targetPage) {
+            // Jika sudah di halaman yang benar, scroll ke atas
+            window.scrollTo(0, 0);
         }
     }
 
