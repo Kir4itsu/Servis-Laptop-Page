@@ -6,457 +6,8 @@
     <title>Komunitas - SAMLAPTOP</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="logo">SAMLAPTOP</div>
-            </div>
-            <nav class="nav">
-                <div class="nav-item" onclick="location.href='index.html'">Beranda</div>
-                <div class="nav-item" onclick="location.href='artikel.html'">Artikel</div>
-                <div class="nav-item active">Komunitas</div>
-                <div class="nav-item" onclick="location.href='teknisi.html'">Teknisi</div>
-                <div class="nav-item" onclick="location.href='reseller.html'">Reseller</div>
-            </nav>
-            <div class="user-menu">
-                <div class="points-badge">
-                    <i class="fas fa-bullseye"></i>
-                    250 Poin
-                </div>
-                <button class="btn btn-primary" onclick="openModal('login')">Masuk</button>
-            </div>
-            
-            <div class="mobile-menu" id="mobile-menu">
-                <div class="mobile-nav-item" onclick="location.href='index.html'; toggleMobileMenu();">Beranda</div>
-                <div class="mobile-nav-item" onclick="location.href='artikel.html'; toggleMobileMenu();">Artikel</div>
-                <div class="mobile-nav-item active">Komunitas</div>
-                <div class="mobile-nav-item" onclick="location.href='teknisi.html'; toggleMobileMenu();">Teknisi</div>
-                <div class="mobile-nav-item" onclick="location.href='reseller.html'; toggleMobileMenu();">Reseller</div>
-            </div>
-        </header>
-
-        <div class="section">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <i class="fas fa-users"></i>
-                        Komunitas SAMLAPTOP
-                    </h1>
-                    <p class="hero-subtitle">
-                        Bergabunglah dengan 5000+ mahasiswa Indonesia yang saling berbagi pengalaman, 
-                        tips, dan solusi tentang dunia laptop dan teknologi!
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary hero-btn" onclick="openModal('join')">
-                            <i class="fas fa-plus-circle"></i>
-                            Gabung Komunitas
-                        </button>
-                        <button class="btn btn-secondary hero-btn" onclick="openModal('post')">
-                            <i class="fas fa-edit"></i>
-                            Buat Diskusi
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Community Stats -->
-            <div class="stats-section">
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-number">5.247</div>
-                    <div class="stat-label">Total Member</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-comments"></i></div>
-                    <div class="stat-number">1.834</div>
-                    <div class="stat-label">Diskusi Aktif</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-hands-helping"></i></div>
-                    <div class="stat-number">3.627</div>
-                    <div class="stat-label">Masalah Terselesaikan</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-university"></i></div>
-                    <div class="stat-number">147</div>
-                    <div class="stat-label">Universitas</div>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="main-content">
-                <div class="content-section">
-                    <div class="section-title">
-                        <i class="fas fa-fire"></i>
-                        Diskusi Trending
-                    </div>
-                    
-                    <div class="discussion-card trending">
-                        <div class="discussion-header">
-                            <div class="user-avatar">JN</div>
-                            <div class="user-info">
-                                <div class="username">Joko Nugroho</div>
-                                <div class="user-major">Teknik Informatika - ITB</div>
-                                <div class="user-badge">Expert Member</div>
-                            </div>
-                            <div style="color: #718096; font-size: 12px;">
-                                <i class="fas fa-fire" style="color: #ff6b35;"></i> Trending
-                            </div>
-                        </div>
-                        <div class="discussion-title">
-                            <i class="fas fa-star" style="color: #ffc107;"></i>
-                            Laptop Gaming 2024: Rekomendasi Terbaik Budget 10-20 Juta
-                        </div>
-                        <div class="discussion-preview">
-                            Setelah riset selama 2 bulan dan testing berbagai laptop gaming, ini dia rekomendasi terbaik untuk mahasiswa dengan budget 10-20 juta. Lengkap dengan perbandingan performa, thermals, dan value for money...
-                        </div>
-                        <div class="discussion-tags">
-                            <span class="tag">Gaming</span>
-                            <span class="tag">Review</span>
-                            <span class="tag">Budget</span>
-                        </div>
-                        <div class="discussion-stats">
-                            <div class="stat-item"><i class="fas fa-comment"></i> 89 Balasan</div>
-                            <div class="stat-item"><i class="fas fa-heart"></i> 456 Likes</div>
-                            <div class="stat-item"><i class="fas fa-eye"></i> 12.3k Views</div>
-                            <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
-                        </div>
-                    </div>
-
-                    <div class="discussion-card">
-                        <div class="discussion-header">
-                            <div class="user-avatar">AR</div>
-                            <div class="user-info">
-                                <div class="username">Ahmad Rizky</div>
-                                <div class="user-major">Teknik Informatika - UI</div>
-                            </div>
-                            <div style="color: #718096; font-size: 12px;">3 jam lalu</div>
-                        </div>
-                        <div class="discussion-title">Help! Laptop sering freeze saat multitasking</div>
-                        <div class="discussion-preview">Laptop saya ASUS VivoBook sering freeze kalau buka banyak aplikasi sekaligus (Chrome + VS Code + Figma). RAM 8GB, apakah perlu upgrade atau ada solusi lain?</div>
-                        <div class="discussion-tags">
-                            <span class="tag">Troubleshooting</span>
-                            <span class="tag">Performance</span>
-                        </div>
-                        <div class="discussion-stats">
-                            <div class="stat-item"><i class="fas fa-comment"></i> 24 Balasan</div>
-                            <div class="stat-item"><i class="fas fa-heart"></i> 145 Likes</div>
-                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
-                        </div>
-                    </div>
-
-                    <div class="discussion-card">
-                        <div class="discussion-header">
-                            <div class="user-avatar">SW</div>
-                            <div class="user-info">
-                                <div class="username">Sari Wulandari</div>
-                                <div class="user-major">Desain Komunikasi Visual - ITB</div>
-                                <div class="user-badge">Active Member</div>
-                            </div>
-                            <div style="color: #718096; font-size: 12px;">5 jam lalu</div>
-                        </div>
-                        <div class="discussion-title">MacBook vs ThinkPad untuk kuliah DKV</div>
-                        <div class="discussion-preview">Lagi bingung pilih laptop untuk kuliah DKV. Budget 15-20 juta, butuh yang kuat untuk Adobe Creative Suite. MacBook Air M2 atau ThinkPad X1 Carbon ya?</div>
-                        <div class="discussion-tags">
-                            <span class="tag">Recommendation</span>
-                            <span class="tag">Design</span>
-                            <span class="tag">MacBook</span>
-                        </div>
-                        <div class="discussion-stats">
-                            <div class="stat-item"><i class="fas fa-comment"></i> 67 Balasan</div>
-                            <div class="stat-item"><i class="fas fa-heart"></i> 298 Likes</div>
-                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
-                        </div>
-                    </div>
-
-                    <div class="discussion-card">
-                        <div class="discussion-header">
-                            <div class="user-avatar">RH</div>
-                            <div class="user-info">
-                                <div class="username">Rizki Hidayat</div>
-                                <div class="user-major">Sistem Informasi - UGM</div>
-                            </div>
-                            <div style="color: #718096; font-size: 12px;">1 hari lalu</div>
-                        </div>
-                        <div class="discussion-title">[SOLVED] Cara install dual boot Windows 11 + Linux</div>
-                        <div class="discussion-preview">Tutorial lengkap install dual boot Windows 11 dan Ubuntu 22.04 LTS. Sudah tested di laptop ASUS dan Lenovo. Safe dan mudah diikuti untuk pemula!</div>
-                        <div class="discussion-tags">
-                            <span class="tag">Tutorial</span>
-                            <span class="tag">Linux</span>
-                            <span class="tag">Windows</span>
-                        </div>
-                        <div class="discussion-stats">
-                            <div class="stat-item"><i class="fas fa-comment"></i> 43 Balasan</div>
-                            <div class="stat-item"><i class="fas fa-heart"></i> 387 Likes</div>
-                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <div class="section-title">
-                        <i class="fas fa-crown"></i>
-                        Top Contributors
-                    </div>
-                    
-                    <div class="contributor-list">
-                        <div class="contributor-card">
-                            <div class="contributor-avatar">
-                                <div class="user-avatar large">JN</div>
-                                <div class="contributor-badge">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="contributor-info">
-                                <div class="contributor-name">Joko Nugroho</div>
-                                <div class="contributor-title">Expert Member</div>
-                                <div class="contributor-stats">
-                                    <span><i class="fas fa-comments"></i> 234 Posts</span>
-                                    <span><i class="fas fa-heart"></i> 1.2k Likes</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contributor-card">
-                            <div class="contributor-avatar">
-                                <div class="user-avatar large">DA</div>
-                                <div class="contributor-badge helper">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                            </div>
-                            <div class="contributor-info">
-                                <div class="contributor-name">Dina Ayu</div>
-                                <div class="contributor-title">Super Helper</div>
-                                <div class="contributor-stats">
-                                    <span><i class="fas fa-comments"></i> 187 Posts</span>
-                                    <span><i class="fas fa-heart"></i> 956 Likes</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contributor-card">
-                            <div class="contributor-avatar">
-                                <div class="user-avatar large">BP</div>
-                                <div class="contributor-badge tech">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                            </div>
-                            <div class="contributor-info">
-                                <div class="contributor-name">Budi Pratama</div>
-                                <div class="contributor-title">Tech Specialist</div>
-                                <div class="contributor-stats">
-                                    <span><i class="fas fa-comments"></i> 156 Posts</span>
-                                    <span><i class="fas fa-heart"></i> 743 Likes</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-title" style="margin-top: 30px;">
-                        <i class="fas fa-calendar-alt"></i>
-                        Event Komunitas
-                    </div>
-
-                    <div class="event-list">
-                        <div class="event-card upcoming">
-                            <div class="event-date">
-                                <div class="day">28</div>
-                                <div class="month">SEP</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-title">Workshop: Laptop Maintenance 101</div>
-                                <div class="event-details">
-                                    <span><i class="fas fa-clock"></i> 19:00 - 21:00</span>
-                                    <span><i class="fas fa-video"></i> Online via Zoom</span>
-                                </div>
-                                <div class="event-participants">
-                                    <i class="fas fa-users"></i> 43/50 peserta
-                                </div>
-                            </div>
-                            <button class="btn btn-primary btn-small">Daftar</button>
-                        </div>
-
-                        <div class="event-card">
-                            <div class="event-date">
-                                <div class="day">05</div>
-                                <div class="month">OKT</div>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-title">Meetup: Gaming Laptop Showcase</div>
-                                <div class="event-details">
-                                    <span><i class="fas fa-clock"></i> 14:00 - 17:00</span>
-                                    <span><i class="fas fa-map-marker-alt"></i> Jakarta Tech Hub</span>
-                                </div>
-                                <div class="event-participants">
-                                    <i class="fas fa-users"></i> 12/30 peserta
-                                </div>
-                            </div>
-                            <button class="btn btn-secondary btn-small">Info</button>
-                        </div>
-                    </div>
-
-                    <div class="section-title" style="margin-top: 30px;">
-                        <i class="fas fa-tags"></i>
-                        Popular Topics
-                    </div>
-
-                    <div class="topic-tags">
-                        <div class="tag-item popular">
-                            <i class="fas fa-gamepad"></i> Gaming (234)
-                        </div>
-                        <div class="tag-item">
-                            <i class="fas fa-code"></i> Programming (189)
-                        </div>
-                        <div class="tag-item">
-                            <i class="fas fa-palette"></i> Design (156)
-                        </div>
-                        <div class="tag-item">
-                            <i class="fas fa-tools"></i> Troubleshooting (298)
-                        </div>
-                        <div class="tag-item">
-                            <i class="fas fa-shopping-cart"></i> Buying Guide (134)
-                        </div>
-                        <div class="tag-item">
-                            <i class="fas fa-cog"></i> Performance (167)
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Community Guidelines -->
-            <div class="why-join-section">
-                <h2 class="section-title">
-                    <i class="fas fa-shield-alt"></i>
-                    Aturan Komunitas
-                </h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
-                        <div class="benefit-text">
-                            <h3>Saling Menghormati</h3>
-                            <p>Bersikap sopan dan menghormati pendapat setiap member komunitas</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-search"></i></div>
-                        <div class="benefit-text">
-                            <h3>Search Before Ask</h3>
-                            <p>Cari dulu sebelum bertanya untuk menghindari duplikasi diskusi</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-ban"></i></div>
-                        <div class="benefit-text">
-                            <h3>No Spam & Self-Promotion</h3>
-                            <p>Dilarang spam dan promosi berlebihan tanpa izin moderator</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon"><i class="fas fa-hands-helping"></i></div>
-                        <div class="benefit-text">
-                            <h3>Help Others</h3>
-                            <p>Bantu sesama member jika kamu tahu solusinya</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Widget -->
-    <div class="chat-widget" onclick="openModal('chat')"><i class="fas fa-comment-dots"></i></div>
-
-    <!-- Modals -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('login')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Masuk ke SAMLAPTOP</h2>
-            <div class="form-group">
-                <label class="form-label">Email/NIM</label>
-                <input type="text" class="form-input" placeholder="Masukkan email atau NIM">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-input" placeholder="Masukkan password">
-            </div>
-            <button class="btn btn-primary" style="width: 100%;">Masuk</button>
-        </div>
-    </div>
-
-    <div id="join-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('join')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Gabung Komunitas SAMLAPTOP</h2>
-            <div class="form-group">
-                <label class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-input" placeholder="Masukkan nama lengkap">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Universitas/Kampus</label>
-                <input type="text" class="form-input" placeholder="Nama kampus">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Jurusan</label>
-                <input type="text" class="form-input" placeholder="Jurusan/Program Studi">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Mengapa ingin bergabung?</label>
-                <textarea class="form-textarea" rows="3" placeholder="Ceritakan motivasi Anda..."></textarea>
-            </div>
-            <button class="btn btn-primary" style="width: 100%;">Gabung Sekarang</button>
-        </div>
-    </div>
-
-    <div id="post-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('post')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Buat Diskusi Baru</h2>
-            <div class="form-group">
-                <label class="form-label">Judul Diskusi</label>
-                <input type="text" class="form-input" placeholder="Tulis judul yang menarik...">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Kategori</label>
-                <select class="form-select">
-                    <option>Troubleshooting</option>
-                    <option>Recommendation</option>
-                    <option>Tutorial</option>
-                    <option>Review</option>
-                    <option>General Discussion</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Konten Diskusi</label>
-                <textarea class="form-textarea" rows="6" placeholder="Jelaskan topik diskusi dengan detail..."></textarea>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Tags (pisahkan dengan koma)</label>
-                <input type="text" class="form-input" placeholder="gaming, laptop, asus">
-            </div>
-            <button class="btn btn-primary" style="width: 100%;">Posting Diskusi</button>
-        </div>
-    </div>
-
-    <div id="chat-modal" class="modal">
-        <div class="modal-content" style="max-width: 600px; height: 70vh; display: flex; flex-direction: column;">
-            <span class="close" onclick="closeModal('chat')">&times;</span>
-            <h2 style="margin-bottom: 20px;">Chat Komunitas</h2>
-            <div id="chat-messages" style="flex: 1; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; background: #f7fafc;"></div>
-            <div style="display: flex; gap: 10px;">
-                <input type="text" id="chat-input" class="form-input" placeholder="Ketik pesan..." style="flex: 1;">
-                <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
     <style>
+        /* Additional styles for community page */
         .trending {
             border-left-color: #ff6b35;
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(255, 255, 255, 0.95));
@@ -469,6 +20,7 @@
             padding: 2px 8px;
             border-radius: 10px;
             margin-top: 2px;
+            display: inline-block;
         }
 
         .discussion-tags {
@@ -501,6 +53,7 @@
             background: #f7fafc;
             border-radius: 12px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .contributor-card:hover {
@@ -516,6 +69,12 @@
             width: 50px;
             height: 50px;
             font-size: 18px;
+        }
+
+        .user-avatar.small {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
         }
 
         .contributor-badge {
@@ -582,18 +141,23 @@
 
         .event-date {
             text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             min-width: 50px;
         }
 
         .event-date .day {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 700;
             color: #2d3748;
         }
 
         .event-date .month {
             font-size: 12px;
             color: #718096;
+            text-transform: uppercase;
         }
 
         .event-info {
@@ -616,13 +180,7 @@
 
         .event-participants {
             font-size: 11px;
-            color: #667eea;
-        }
-
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 12px;
-            min-width: 80px;
+            color: #718096;
         }
 
         .topic-tags {
@@ -632,22 +190,3016 @@
         }
 
         .tag-item {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
+            background: #f7fafc;
             padding: 8px 15px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
+            color: #4a5568;
             cursor: pointer;
             transition: all 0.3s ease;
+        }
+
+        .tag-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tag-item.popular {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+
+        .tag-item.popular:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .chat-notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Styling untuk chat komunitas */
+        .online-members {
+            background: #f0f4ff;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid #667eea;
+        }
+
+        .online-title {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .members-list {
+            display: flex;
+            gap: 8px;
+        }
+
+        .member-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .member-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .member-avatar::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background: #48bb78;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 3px solid #e2e8f0;
+            transition: all 0.3s ease;
+            animation: messageSlideIn 0.3s ease;
+        }
+
+        .chat-message:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .chat-message.user-message {
+            border-left-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .chat-user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .chat-user-info {
+            flex: 1;
+        }
+
+        .chat-user-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #2d3748;
+        }
+
+        .chat-user-role {
+            font-size: 10px;
+            color: #718096;
+            margin-top: 1px;
+        }
+
+        .chat-text {
+            color: #4a5568;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .chat-time {
+            font-size: 11px;
+            color: #a0aec0;
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        /* Animasi untuk pesan baru */
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            color: #718096;
+            font-size: 12px;
+        }
+
+        .typing-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #a0aec0;
+            animation: typingPulse 1.5s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingPulse {
+            0%, 60%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            30% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .discussion-detail {
+            padding: 10px;
+        }
+
+        .discussion-content {
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .reaction-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .reaction-btn {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .reaction-btn:hover {
+            background: #edf2f7;
+        }
+
+        .reaction-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .comments-section {
+            margin-top: 30px;
+        }
+
+        .comment-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .comment-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+        }
+
+        .comment-date {
+            font-size: 11px;
+            color: #718096;
+        }
+
+        .comment-content {
+            color: #4a5568;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .comment-action {
+            background: none;
+            border: none;
+            color: #718096;
+            cursor: pointer;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .comment-action:hover {
+            color: #667eea;
+        }
+
+        .comment-form {
+            margin-top: 20px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Topic Filters */
+        .topic-filters {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 12px;
+            background: white;
+        }
+
+        .tag-item {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tag-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .topic-activity {
+            font-size: 10px;
+            color: #718096;
+            margin-left: 5px;
+        }
+
+        /* Discussion Detail Styles */
+        .discussion-title-main {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 20px 0;
+            line-height: 1.3;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .laptop-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .laptop-image {
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .laptop-card h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .laptop-card p {
+            font-size: 13px;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            color: #f6ad55;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .discussion-tips {
+            background: #fffaf0;
+            border-left: 4px solid #f6ad55;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .discussion-tips i {
+            color: #f6ad55;
+            margin-right: 8px;
+        }
+
+        /* Comment Styles */
+        .comment-item.featured {
+            background: #f0fff4;
+            border-left: 3px solid #48bb78;
+        }
+
+        .comment-badge {
+            background: #48bb78;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 8px;
+        }
+
+        .comment-reactions {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .comment-reaction {
+            font-size: 12px;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Contributor Profile Styles */
+        .contributor-profile {
+            padding: 10px;
+        }
+
+        .profile-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .profile-avatar {
+            position: relative;
+        }
+
+        .user-avatar.xlarge {
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #48bb78;
+            border: 2px solid white;
+        }
+
+        .online-status.online {
+            background: #48bb78;
+        }
+
+        .profile-info h2 {
+            margin: 0 0 5px 0;
+            color: #2d3748;
+        }
+
+        .profile-role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-major {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .profile-join-date {
+            color: #a0aec0;
+            font-size: 12px;
+        }
+
+        .profile-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .profile-rating .stars {
+            color: #f6ad55;
+        }
+
+        .rating-value {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .profile-stats .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .profile-bio, .profile-specialties, .profile-achievements, .profile-reviews {
+            margin-bottom: 25px;
+        }
+
+        .profile-bio h3, .profile-specialties h3, .profile-achievements h3, .profile-reviews h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .tag-item:hover, .tag-item.popular {
+        .specialties-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .specialty-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .achievement-item i {
+            color: #f6ad55;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-item {
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: #718096;
+        }
+
+        .review-rating {
+            color: #f6ad55;
+        }
+
+        .review-content {
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        .review-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .review-action {
+            background: none;
+            border: none;
+            color: #718096;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .emoji-reactions {
+            display: flex;
+            gap: 5px;
+            margin-left: auto;
+        }
+
+        .emoji-btn {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .emoji-btn:hover {
+            background: #edf2f7;
+            transform: scale(1.2);
+        }
+
+        /* All Contributors Grid */
+        .all-contributors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .contributor-card-large {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contributor-card-large:hover {
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        /* Event Detail Styles */
+        .event-detail-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .detail-item i {
+            color: #667eea;
+            font-size: 18px;
+        }
+
+        .event-agenda, .event-requirements {
+            margin-bottom: 25px;
+        }
+
+        .agenda-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .agenda-item {
+            padding: 10px 15px;
+            background: #f7fafc;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .event-participation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .participants-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #718096;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            background: #f7fafc;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .action-card:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .action-card i {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .action-card span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Button View All */
+        .btn-view-all {
+            background: none;
+            border: 1px solid #667eea;
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-all:hover {
             background: #667eea;
             color: white;
         }
+
+        /* Chat Modal Styles */
+        .chat-header {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .chat-messages {
+            padding: 15px;
+            background: #f8f9fa;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send-btn:hover {
+            background: #5a67d8;
+            transform: scale(1.05);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .new-discussion {
+            border-left: 4px solid #48bb78;
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.05), rgba(255, 255, 255, 0.95));
+            animation: pulse 2s infinite;
+        }
+
+        .new-tag {
+            background: #48bb78 !important;
+            color: white !important;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(72, 187, 120, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0); }
+        }
+
+        .no-comments {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .hero-subtitle {
+                font-size: 14px;
+            }
+            
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .online-members {
+                padding: 8px 12px;
+            }
+            
+            .member-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 10px;
+            }
+            
+            .chat-message {
+                padding: 10px 12px;
+            }
+            
+            .chat-user-name {
+                font-size: 13px;
+            }
+            
+            .chat-text {
+                font-size: 13px;
+            }
+            .topic-filters {
+                flex-direction: column;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-stats {
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .reviews-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .event-participation {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .event-actions {
+                width: 100%;
+            }
+
+            .event-actions .btn {
+                flex: 1;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .all-contributors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+</head>
+<body>
+    <div class="container">
+        <div id="header-placeholder"></div>
+
+        <div class="section">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-users"></i>
+                        Komunitas SAMLAPTOP
+                    </h1>
+                    <p class="hero-subtitle">
+                        Bergabunglah dengan 5000+ mahasiswa Indonesia yang saling berbagi pengalaman, 
+                        tips, dan solusi tentang dunia laptop dan teknologi!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary hero-btn" onclick="openModal('join')">
+                            <i class="fas fa-plus-circle"></i>
+                            Gabung Komunitas
+                        </button>
+                        <button class="btn btn-secondary hero-btn" onclick="openModal('post')">
+                            <i class="fas fa-edit"></i>
+                            Buat Diskusi
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-number">5.247</div>
+                        <div class="stat-label">Total Member</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-number">1.834</div>
+                        <div class="stat-label">Diskusi Aktif</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-number">3.627</div>
+                        <div class="stat-label">Masalah Terselesaikan</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-university"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-number">147</div>
+                        <div class="stat-label">Universitas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="content-section">
+                    <!-- Popular Topics dengan Filter -->
+                    <div class="section-title">
+                        <i class="fas fa-tags"></i>
+                        Popular Topics
+                        <div class="topic-filters">
+                            <select id="topic-sort" onchange="sortTopics()" class="filter-select">
+                                <option value="popular">Paling Populer</option>
+                                <option value="recent">Terbaru</option>
+                                <option value="name">Nama A-Z</option>
+                            </select>
+                            <select id="topic-category" onchange="filterTopics()" class="filter-select">
+                                <option value="all">Semua Kategori</option>
+                                <option value="gaming">Gaming</option>
+                                <option value="programming">Programming</option>
+                                <option value="design">Design</option>
+                                <option value="troubleshooting">Troubleshooting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="topic-tags" id="topics-container">
+                        <!-- Topics akan di-load secara dinamis -->
+                    </div>
+
+                    <!-- Diskusi Trending -->
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-fire"></i>
+                        Diskusi Trending
+                    </div>
+                    
+                    <div class="discussion-card trending" onclick="openDiscussion(1)">
+                        <div class="discussion-header">
+                            <div class="user-avatar">JN</div>
+                            <div class="user-info">
+                                <div class="username">Joko Nugroho</div>
+                                <div class="user-major">Teknik Informatika - ITB</div>
+                                <div class="user-badge">Expert Member</div>
+                            </div>
+                            <div class="discussion-meta">
+                                <i class="fas fa-fire" style="color: #ff6b35;"></i> Trending
+                            </div>
+                        </div>
+                        <div class="discussion-title">
+                            <i class="fas fa-star" style="color: #ffc107;"></i>
+                            Laptop Gaming 2024: Rekomendasi Terbaik Budget 10-20 Juta
+                        </div>
+                        <div class="discussion-preview">
+                            Setelah riset selama 2 bulan dan testing berbagai laptop gaming, ini dia rekomendasi terbaik untuk mahasiswa dengan budget 10-20 juta. Lengkap dengan perbandingan performa, thermals, dan value for money...
+                        </div>
+                        <div class="discussion-tags">
+                            <span class="tag">Gaming</span>
+                            <span class="tag">Review</span>
+                            <span class="tag">Budget</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 89 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 456 Likes</div>
+                            <div class="stat-item"><i class="fas fa-eye"></i> 12.3k Views</div>
+                            <div class="stat-item"><i class="fas fa-bookmark"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card" onclick="openDiscussion(2)">
+                        <div class="discussion-header">
+                            <div class="user-avatar">AR</div>
+                            <div class="user-info">
+                                <div class="username">Ahmad Rizky</div>
+                                <div class="user-major">Teknik Informatika - UI</div>
+                            </div>
+                            <div class="discussion-meta">3 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">Help! Laptop sering freeze saat multitasking</div>
+                        <div class="discussion-preview">Laptop saya ASUS VivoBook sering freeze kalau buka banyak aplikasi sekaligus (Chrome + VS Code + Figma). RAM 8GB, apakah perlu upgrade atau ada solusi lain?</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Troubleshooting</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 24 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 145 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card" onclick="openDiscussion(3)">
+                        <div class="discussion-header">
+                            <div class="user-avatar">SW</div>
+                            <div class="user-info">
+                                <div class="username">Sari Wulandari</div>
+                                <div class="user-major">Desain Komunikasi Visual - ITB</div>
+                                <div class="user-badge">Active Member</div>
+                            </div>
+                            <div class="discussion-meta">5 jam lalu</div>
+                        </div>
+                        <div class="discussion-title">MacBook vs ThinkPad untuk kuliah DKV</div>
+                        <div class="discussion-preview">Lagi bingung pilih laptop untuk kuliah DKV. Budget 15-20 juta, butuh yang kuat untuk Adobe Creative Suite. MacBook Air M2 atau ThinkPad X1 Carbon ya?</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Recommendation</span>
+                            <span class="tag">Design</span>
+                            <span class="tag">MacBook</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 67 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 298 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+
+                    <div class="discussion-card" onclick="openDiscussion(4)">
+                        <div class="discussion-header">
+                            <div class="user-avatar">RH</div>
+                            <div class="user-info">
+                                <div class="username">Rizki Hidayat</div>
+                                <div class="user-major">Sistem Informasi - UGM</div>
+                            </div>
+                            <div class="discussion-meta">1 hari lalu</div>
+                        </div>
+                        <div class="discussion-title">[SOLVED] Cara install dual boot Windows 11 + Linux</div>
+                        <div class="discussion-preview">Tutorial lengkap install dual boot Windows 11 dan Ubuntu 22.04 LTS. Sudah tested di laptop ASUS dan Lenovo. Safe dan mudah diikuti untuk pemula!</div>
+                        <div class="discussion-tags">
+                            <span class="tag">Tutorial</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Windows</span>
+                        </div>
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> 43 Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 387 Likes</div>
+                            <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <!-- Top Contributors dengan Fitur Interaktif -->
+                    <div class="section-title">
+                        <i class="fas fa-crown"></i>
+                        Top Contributors
+                        <button class="btn-view-all" onclick="showAllContributors()">Lihat Semua</button>
+                    </div>
+                    
+                    <div class="contributor-list">
+                        <div class="contributor-card" onclick="openContributorProfile(1)">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">JN</div>
+                                <div class="contributor-badge">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Joko Nugroho</div>
+                                <div class="contributor-title">Expert Member</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 234 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 1.2k Likes</span>
+                                </div>
+                                <div class="contributor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-text">4.7/5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contributor-card" onclick="openContributorProfile(2)">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">DA</div>
+                                <div class="contributor-badge helper">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Dina Ayu</div>
+                                <div class="contributor-title">Super Helper</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 187 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 956 Likes</span>
+                                </div>
+                                <div class="contributor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">5.0/5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contributor-card" onclick="openContributorProfile(3)">
+                            <div class="contributor-avatar">
+                                <div class="user-avatar large">BP</div>
+                                <div class="contributor-badge tech">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Budi Pratama</div>
+                                <div class="contributor-title">Tech Specialist</div>
+                                <div class="contributor-stats">
+                                    <span><i class="fas fa-comments"></i> 156 Posts</span>
+                                    <span><i class="fas fa-heart"></i> 743 Likes</span>
+                                </div>
+                                <div class="contributor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">4.2/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Komunitas dengan Fitur Interaktif -->
+                    <div class="section-title" style="margin-top: 30px;">
+                        <i class="fas fa-calendar-alt"></i>
+                        Event Komunitas
+                    </div>
+
+                    <div class="event-list">
+                        <div class="event-card upcoming">
+                            <div class="event-date">
+                                <div class="day">28</div>
+                                <div class="month">SEP</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Workshop: Laptop Maintenance 101</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-clock"></i> 19:00 - 21:00</span>
+                                    <span><i class="fas fa-video"></i> Online via Zoom</span>
+                                </div>
+                                <div class="event-participants">
+                                    <i class="fas fa-users"></i> 43/50 peserta
+                                </div>
+                                <div class="event-description">
+                                    Pelajari cara merawat laptop dengan benar untuk memperpanjang usia pakai dan menjaga performa optimal.
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-small" onclick="registerEvent(1)">Daftar</button>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">
+                                <div class="day">05</div>
+                                <div class="month">OKT</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">Meetup: Gaming Laptop Showcase</div>
+                                <div class="event-details">
+                                    <span><i class="fas fa-clock"></i> 14:00 - 17:00</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Jakarta Tech Hub</span>
+                                </div>
+                                <div class="event-participants">
+                                    <i class="fas fa-users"></i> 12/30 peserta
+                                </div>
+                                <div class="event-description">
+                                    Demo langsung berbagai laptop gaming terbaru dari brand ternama dengan sesi Q&A bersama expert.
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-small" onclick="showEventDetails(2)">Info</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <div class="action-card" onclick="openModal('post')">
+                            <i class="fas fa-edit"></i>
+                            <span>Buat Diskusi</span>
+                        </div>
+                        <div class="action-card" onclick="openChatModal()">
+                            <i class="fas fa-comments"></i>
+                            <span>Chat Komunitas</span>
+                        </div>
+                        <div class="action-card" onclick="showResources()">
+                            <i class="fas fa-book"></i>
+                            <span>Resources</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Guidelines -->
+            <div class="why-join-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i>
+                    Aturan Komunitas
+                </h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                        <div class="benefit-text">
+                            <h3>Saling Menghormati</h3>
+                            <p>Bersikap sopan dan menghormati pendapat setiap member komunitas</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-search"></i></div>
+                        <div class="benefit-text">
+                            <h3>Search Before Ask</h3>
+                            <p>Cari dulu sebelum bertanya untuk menghindari duplikasi diskusi</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-ban"></i></div>
+                        <div class="benefit-text">
+                            <h3>No Spam & Self-Promotion</h3>
+                            <p>Dilarang spam dan promosi berlebihan tanpa izin moderator</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div class="benefit-text">
+                            <h3>Help Others</h3>
+                            <p>Bantu sesama member jika kamu tahu solusinya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" onclick="openChatModal()">
+        <i class="fas fa-comment-dots"></i>
+        <span class="chat-notification">3</span>
+    </div>
+
+    <!-- Modals -->
+    <!-- Modal Gabung Komunitas -->
+    <div id="join-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <span class="close" onclick="closeModal('join')">&times;</span>
+            <h2><i class="fas fa-users"></i> Gabung Komunitas</h2>
+            <form id="join-form">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" class="form-input" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" placeholder="Masukkan email" required>
+                </div>
+                <div class="form-group">
+                    <label>Universitas</label>
+                    <input type="text" class="form-input" placeholder="Nama universitas" required>
+                </div>
+                <div class="form-group">
+                    <label>Jurusan</label>
+                    <input type="text" class="form-input" placeholder="Jurusan kuliah" required>
+                </div>
+                <div class="form-group">
+                    <label>Minat Topik</label>
+                    <select class="form-select" multiple>
+                        <option value="gaming">Gaming</option>
+                        <option value="programming">Programming</option>
+                        <option value="design">Design</option>
+                        <option value="troubleshooting">Troubleshooting</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-paper-plane"></i> Daftar Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Buat Diskusi -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close" onclick="closeModal('post')">&times;</span>
+            <h2><i class="fas fa-edit"></i> Buat Diskusi Baru</h2>
+            <form id="post-form">
+                <div class="form-group">
+                    <label>Judul Diskusi</label>
+                    <input type="text" class="form-input" placeholder="Masukkan judul yang jelas dan deskriptif" required>
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select class="form-select" required>
+                        <option value="">Pilih kategori</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="programming">Programming</option>
+                        <option value="design">Design</option>
+                        <option value="troubleshooting">Troubleshooting</option>
+                        <option value="recommendation">Rekomendasi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Konten Diskusi</label>
+                    <textarea class="form-textarea" rows="6" placeholder="Jelaskan pertanyaan atau topik diskusi Anda secara detail..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Tags (pisahkan dengan koma)</label>
+                    <input type="text" class="form-input" placeholder="contoh: gaming, budget, rekomendasi">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-paper-plane"></i> Posting Diskusi
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Chat Komunitas -->
+    <div id="chat-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px; height: 600px; display: flex; flex-direction: column;">
+            <span class="close" onclick="closeModal('chat')">&times;</span>
+            
+            <!-- Header Chat -->
+            <div class="chat-header">
+                <h3><i class="fas fa-comments"></i> Chat Komunitas</h3>
+                <div class="online-members">
+                    <div class="online-title">
+                        <i class="fas fa-circle" style="color: #48bb78; font-size: 8px;"></i>
+                        Online Sekarang
+                    </div>
+                    <div class="members-list">
+                        <div class="member-avatar" title="Joko Nugroho">JN</div>
+                        <div class="member-avatar" title="Sari Wulandari">SW</div>
+                        <div class="member-avatar" title="Budi Pratama">BP</div>
+                        <div class="member-avatar" title="+2 more">+2</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will be loaded here -->
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Ketik pesan..." onkeypress="handleChatInput(event)">
+                    <button class="chat-send-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Detail Diskusi yang Diperbarui -->
+    <div id="discussion-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+            <span class="close" onclick="closeModal('discussion')">&times;</span>
+            <div id="discussion-content">
+                <!-- Content akan di-load secara dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Profil Contributor -->
+    <div id="contributor-modal" class="modal">
+        <div class="modal-content" style="max-width: 700px; max-height: 90vh; overflow-y: auto;">
+            <span class="close" onclick="closeModal('contributor')">&times;</span>
+            <div id="contributor-content">
+                <!-- Content akan di-load secara dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail Event -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close" onclick="closeModal('event')">&times;</span>
+            <div id="event-content">
+                <!-- Content akan di-load secara dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal All Contributors -->
+    <div id="all-contributors-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+            <span class="close" onclick="closeModal('all-contributors')">&times;</span>
+            <h2 style="margin-bottom: 20px;">
+                <i class="fas fa-crown"></i>
+                Semua Top Contributors
+            </h2>
+            <div id="all-contributors-content" class="all-contributors-grid">
+                <!-- Content akan di-load secara dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load header & footer
+        fetch("extension.html")
+            .then(res => res.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                document.getElementById("header-placeholder").innerHTML =
+                    doc.getElementById("main-header").innerHTML;
+                document.getElementById("footer-placeholder").innerHTML =
+                    doc.getElementById("main-footer").innerHTML;
+                
+                // Set active navigation setelah header dimuat
+                setTimeout(() => {
+                    setActiveNavbar();
+                }, 100);
+            });
+
+        // Fungsi untuk set active navbar
+        function setActiveNavbar() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            console.log('Current page:', currentPage);
+            
+            // Set active untuk desktop nav
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const itemPage = item.getAttribute('data-page');
+                console.log('Checking:', itemPage, 'vs', currentPage);
+                if (itemPage === currentPage) {
+                    item.classList.add('active');
+                    console.log('✅ Activated:', item.textContent);
+                }
+            });
+
+            // Set active untuk bottom nav
+            const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-page') === currentPage) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Fungsi untuk show section
+        function showSection(section) {
+            const pageMap = {
+                'beranda': 'index.html',
+                'artikel': 'artikel.html', 
+                'komunitas': 'komunitas.html',
+                'teknisi': 'teknisi.html',
+                'reseller': 'reseller.html'
+            };
+            
+            const targetPage = pageMap[section];
+            
+            if (targetPage && targetPage !== window.location.pathname.split('/').pop()) {
+                window.location.href = targetPage;
+            }
+        }
+
+        // Fungsi untuk bottom nav
+        function setActiveBottomNav(element) {
+            const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Modal functions
+        function openModal(modalType) {
+            if (modalType === 'chat') {
+                openChatModal();
+            } else {
+                document.getElementById(`${modalType}-modal`).style.display = 'block';
+            }
+        }
+
+        function closeModal(modalType) {
+            document.getElementById(`${modalType}-modal`).style.display = 'none';
+        }
+
+        // ==================== CHAT FUNCTIONALITY ====================
+
+        // Data member komunitas untuk simulasi
+        const communityMembers = [
+            { id: 1, name: "Joko Nugroho", avatar: "JN", role: "Expert Member", online: true, specialty: "Gaming Laptops" },
+            { id: 2, name: "Sari Wulandari", avatar: "SW", role: "Active Member", online: true, specialty: "Design Software" },
+            { id: 3, name: "Budi Pratama", avatar: "BP", role: "Tech Specialist", online: true, specialty: "Hardware & Troubleshooting" },
+            { id: 4, name: "Dina Ayu", avatar: "DA", role: "Super Helper", online: false, specialty: "Software & Optimization" },
+            { id: 5, name: "Ahmad Rizky", avatar: "AR", role: "Member", online: false, specialty: "Programming & Development" }
+        ];
+
+        // Kata kunci dan respons otomatis
+        const autoResponses = {
+            "laptop lambat": {
+                message: "Coba cek task manager untuk melihat aplikasi apa yang menggunakan resource tinggi. Juga pastikan tidak ada program yang berjalan di background.",
+                member: communityMembers[3], // Dina Ayu
+                followUp: true
+            },
+            "gaming": {
+                message: "Untuk laptop gaming, pastikan thermal paste diganti secara berkala dan gunakan cooling pad untuk menjaga suhu optimal saat bermain game berat.",
+                member: communityMembers[0], // Joko Nugroho
+                followUp: true
+            },
+            "baterai": {
+                message: "Jika baterai laptop cepat habis, coba turunkan brightness screen dan matikan WiFi/Bluetooth ketika tidak digunakan. Juga hindari charging terus menerus di atas 80%.",
+                member: communityMembers[3], // Dina Ayu
+                followUp: true
+            },
+            "rekomendasi": {
+                message: "Untuk rekomendasi laptop, bisa baca diskusi trending tentang 'Laptop Gaming 2024' yang sudah saya buat. Ada perbandingan lengkap untuk berbagai budget.",
+                member: communityMembers[0], // Joko Nugroho
+                followUp: true
+            },
+            "thermal": {
+                message: "Masalah overheating biasanya disebabkan oleh thermal paste yang sudah kering atau kipas yang tersumbat debu. Bisa dibersihkan sendiri atau bawa ke teknisi.",
+                member: communityMembers[2], // Budi Pratama
+                followUp: true
+            },
+            "ssd": {
+                message: "Upgrade ke SSD adalah salah satu cara terbaik untuk meningkatkan performa laptop lama. Perbedaan kecepatannya sangat signifikan dibanding HDD.",
+                member: communityMembers[2], // Budi Pratama
+                followUp: true
+            },
+            "windows": {
+                message: "Untuk masalah Windows, coba jalankan System File Checker dengan command 'sfc /scannow' di Command Prompt sebagai administrator.",
+                member: communityMembers[3], // Dina Ayu
+                followUp: true
+            },
+            "linux": {
+                message: "Kalau mau coba dual boot Windows-Linux, Ubuntu atau Linux Mint adalah pilihan yang ramah untuk pemula. Saya sudah buat tutorial lengkapnya di forum.",
+                member: communityMembers[4], // Ahmad Rizky
+                followUp: true
+            },
+            "software": {
+                message: "Untuk software desain seperti Adobe, pastikan spesifikasi laptop memenuhi requirements. RAM 16GB disarankan untuk kerja yang smooth.",
+                member: communityMembers[1], // Sari Wulandari
+                followUp: true
+            },
+            "budget": {
+                message: "Dengan budget 10-15 juta, bisa pertimbangkan ASUS TUF Gaming atau Lenovo IdeaPad Gaming. Keduanya punya value for money yang bagus.",
+                member: communityMembers[0], // Joko Nugroho
+                followUp: true
+            },
+            "freeze": {
+                message: "Laptop freeze bisa disebabkan banyak hal. Coba cek temperatur dengan HWMonitor, dan pastikan RAM tidak penuh saat multitasking.",
+                member: communityMembers[2], // Budi Pratama
+                followUp: true
+            },
+            "macbook": {
+                message: "Untuk desain, MacBook memang punya color accuracy yang bagus. Tapi pertimbangkan juga budget dan kompatibilitas software yang dibutuhkan.",
+                member: communityMembers[1], // Sari Wulandari
+                followUp: true
+            },
+            "help": {
+                message: "Ada yang bisa saya bantu? Coba jelaskan masalah laptop yang kamu alami, atau tanya tentang rekomendasi laptop untuk kebutuhan spesifik.",
+                member: communityMembers[0], // Joko Nugroho
+                followUp: false
+            }
+        };
+
+        // Pesan awal saat chat dibuka
+        const initialMessages = [
+            {
+                member: communityMembers[0],
+                message: "Halo! Selamat datang di chat komunitas SAMLAPTOP. Ada yang bisa saya bantu?",
+                time: "Baru saja"
+            },
+            {
+                member: communityMembers[1],
+                message: "Jangan ragu untuk bertanya tentang masalah laptop atau butuh rekomendasi! Kami siap membantu.",
+                time: "Baru saja"
+            }
+        ];
+
+        // Variabel untuk melacak status chat
+        let chatHistory = [];
+        let lastRespondent = null;
+
+        // Fungsi untuk memuat pesan awal
+        function loadInitialMessages() {
+            const messagesContainer = document.getElementById('chat-messages');
+            messagesContainer.innerHTML = '';
+            chatHistory = [];
+            
+            initialMessages.forEach(msg => {
+                addMessageToChat(msg.member, msg.message, msg.time);
+                chatHistory.push({
+                    member: msg.member,
+                    message: msg.message,
+                    isUser: false
+                });
+            });
+        }
+
+        // Fungsi untuk mengirim pesan
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            
+            if (input.value.trim() !== '') {
+                // Tambahkan pesan pengguna
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'chat-message user-message';
+                userMessageDiv.innerHTML = `
+                    <div class="chat-user">
+                        <div class="user-avatar small" style="background: #48bb78;">KU</div>
+                        <div class="chat-user-info">
+                            <div class="chat-user-name">Kamu</div>
+                            <div class="chat-user-role">Member</div>
+                        </div>
+                    </div>
+                    <div class="chat-text">${input.value}</div>
+                    <div class="chat-time">Baru saja</div>
+                `;
+                
+                messages.appendChild(userMessageDiv);
+                
+                // Simpan pesan untuk diproses
+                const userMessage = input.value.toLowerCase();
+                chatHistory.push({
+                    member: null,
+                    message: input.value,
+                    isUser: true
+                });
+                
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+                
+                // Proses respons otomatis
+                processAutoResponse(userMessage);
+            }
+        }
+
+        // Fungsi untuk menangani input keyboard (Enter untuk kirim)
+        function handleChatInput(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Fungsi untuk memproses respons otomatis
+        function processAutoResponse(userMessage) {
+            // Cari respons otomatis berdasarkan kata kunci
+            let foundResponse = null;
+            for (const [keyword, response] of Object.entries(autoResponses)) {
+                if (userMessage.includes(keyword)) {
+                    foundResponse = response;
+                    break;
+                }
+            }
+            
+            // Jika tidak ada respons spesifik, pilih member acak untuk merespons
+            if (!foundResponse) {
+                const onlineMembers = communityMembers.filter(m => m.online && m.id !== lastRespondent?.id);
+                const randomMember = onlineMembers[Math.floor(Math.random() * onlineMembers.length)];
+                const genericResponses = [
+                    "Bisa jelaskan lebih detail masalahnya?",
+                    "Pernah coba restart laptop?",
+                    "Spesifikasi laptopnya seperti apa?",
+                    "Sudah berapa lama mengalami masalah ini?",
+                    "Ada error message tertentu yang muncul?",
+                    "Bisa ceritakan lebih lanjut tentang masalah yang kamu alami?",
+                    "Laptop merk dan model apa yang kamu gunakan?"
+                ];
+                const randomResponse = genericResponses[Math.floor(Math.random() * genericResponses.length)];
+                
+                foundResponse = {
+                    message: randomResponse,
+                    member: randomMember,
+                    followUp: false
+                };
+            }
+            
+            // Tampilkan typing indicator
+            showTypingIndicator(foundResponse.member);
+            
+            // Tampilkan respons setelah delay
+            setTimeout(() => {
+                removeTypingIndicator();
+                addMessageToChat(foundResponse.member, foundResponse.message, "Baru saja");
+                chatHistory.push({
+                    member: foundResponse.member,
+                    message: foundResponse.message,
+                    isUser: false
+                });
+                
+                lastRespondent = foundResponse.member;
+                
+                // Jika ada follow-up, tambahkan respons dari member lain
+                if (foundResponse.followUp && Math.random() > 0.5) {
+                    setTimeout(() => {
+                        const otherOnlineMembers = communityMembers.filter(m => 
+                            m.online && m.id !== foundResponse.member.id && m.id !== lastRespondent?.id
+                        );
+                        
+                        if (otherOnlineMembers.length > 0) {
+                            const otherMember = otherOnlineMembers[Math.floor(Math.random() * otherOnlineMembers.length)];
+                            showTypingIndicator(otherMember);
+                            
+                            setTimeout(() => {
+                                removeTypingIndicator();
+                                const supportMessages = [
+                                    "Setuju dengan saran di atas.",
+                                    "Saya juga mengalami masalah serupa dan solusi itu berhasil.",
+                                    "Bisa tambahkan, pastikan driver sudah update ke versi terbaru.",
+                                    "Kalau masih belum berhasil, coba cara alternatif...",
+                                    "Pengalaman saya, itu memang solusi yang efektif.",
+                                    "Jangan lupa backup data penting sebelum mencoba solusi tersebut."
+                                ];
+                                const supportMessage = supportMessages[Math.floor(Math.random() * supportMessages.length)];
+                                
+                                addMessageToChat(otherMember, supportMessage, "Baru saja");
+                                chatHistory.push({
+                                    member: otherMember,
+                                    message: supportMessage,
+                                    isUser: false
+                                });
+                                
+                                lastRespondent = otherMember;
+                            }, 1500 + Math.random() * 2000);
+                        }
+                    }, 1000);
+                }
+                
+                // Kadang-kadang tambahkan respons ketiga
+                if (Math.random() > 0.7) {
+                    setTimeout(() => {
+                        const availableMembers = communityMembers.filter(m => 
+                            m.online && m.id !== lastRespondent?.id
+                        );
+                        
+                        if (availableMembers.length > 0) {
+                            const thirdMember = availableMembers[Math.floor(Math.random() * availableMembers.length)];
+                            showTypingIndicator(thirdMember);
+                            
+                            setTimeout(() => {
+                                removeTypingIndicator();
+                                const thirdMessages = [
+                                    "Kalau butuh bantuan lebih lanjut, bisa buat thread di forum ya!",
+                                    "Jangan sungkan untuk share hasilnya nanti.",
+                                    "Semoga masalahnya cepat teratasi!",
+                                    "Komunitas kita punya banyak resources yang membantu.",
+                                    "Kalau masih bingung, saya bisa bantu jelaskan lebih detail."
+                                ];
+                                const thirdMessage = thirdMessages[Math.floor(Math.random() * thirdMessages.length)];
+                                
+                                addMessageToChat(thirdMember, thirdMessage, "Baru saja");
+                                chatHistory.push({
+                                    member: thirdMember,
+                                    message: thirdMessage,
+                                    isUser: false
+                                });
+                            }, 1000 + Math.random() * 2000);
+                        }
+                    }, 2000);
+                }
+            }, 1500 + Math.random() * 2000); // Delay acak antara 1.5-3.5 detik
+        }
+
+        // Fungsi untuk menambahkan pesan ke chat
+        function addMessageToChat(member, message, time) {
+            const messages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message';
+            messageDiv.innerHTML = `
+                <div class="chat-user">
+                    <div class="user-avatar small">${member.avatar}</div>
+                    <div class="chat-user-info">
+                        <div class="chat-user-name">${member.name}</div>
+                        <div class="chat-user-role">${member.role}</div>
+                    </div>
+                </div>
+                <div class="chat-text">${message}</div>
+                <div class="chat-time">${time}</div>
+            `;
+            
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Fungsi untuk menampilkan typing indicator
+        function showTypingIndicator(member) {
+            const messages = document.getElementById('chat-messages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="user-avatar small">${member.avatar}</div>
+                <div class="typing-content">
+                    <div class="chat-user-name">${member.name}</div>
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            
+            messages.appendChild(typingDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Fungsi untuk menghapus typing indicator
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Fungsi untuk membuka modal chat
+        function openChatModal() {
+            loadInitialMessages();
+            document.getElementById('chat-modal').style.display = 'block';
+            
+            // Fokus ke input chat
+            setTimeout(() => {
+                document.getElementById('chat-input').focus();
+            }, 300);
+        }
+
+        // ==================== TOPICS FUNCTIONALITY ====================
+
+        const topicsData = [
+            { id: 1, name: "Gaming", count: 234, category: "gaming", recentActivity: "2 jam lalu" },
+            { id: 2, name: "Programming", count: 189, category: "programming", recentActivity: "1 jam lalu" },
+            { id: 3, name: "Design", count: 156, category: "design", recentActivity: "5 jam lalu" },
+            { id: 4, name: "Troubleshooting", count: 298, category: "troubleshooting", recentActivity: "30 menit lalu" },
+            { id: 5, name: "Buying Guide", count: 134, category: "recommendation", recentActivity: "3 jam lalu" },
+            { id: 6, name: "Performance", count: 167, category: "troubleshooting", recentActivity: "1 jam lalu" },
+            { id: 7, name: "Battery Issues", count: 89, category: "troubleshooting", recentActivity: "2 jam lalu" },
+            { id: 8, name: "Software", count: 145, category: "programming", recentActivity: "4 jam lalu" }
+        ];
+
+        function loadTopics() {
+            const container = document.getElementById('topics-container');
+            container.innerHTML = '';
+
+            topicsData.forEach(topic => {
+                const topicElement = document.createElement('div');
+                topicElement.className = `tag-item ${topic.count > 200 ? 'popular' : ''}`;
+                topicElement.setAttribute('data-category', topic.category);
+                topicElement.setAttribute('data-count', topic.count);
+                topicElement.setAttribute('data-activity', topic.recentActivity);
+                topicElement.innerHTML = `
+                    <i class="fas fa-${getTopicIcon(topic.name)}"></i> 
+                    ${topic.name} (${topic.count})
+                    <span class="topic-activity">${topic.recentActivity}</span>
+                `;
+                topicElement.onclick = () => filterDiscussionsByTopic(topic.name);
+                container.appendChild(topicElement);
+            });
+        }
+
+        function getTopicIcon(topicName) {
+            const icons = {
+                'Gaming': 'gamepad',
+                'Programming': 'code',
+                'Design': 'palette',
+                'Troubleshooting': 'tools',
+                'Performance': 'cog',
+                'Battery': 'battery-half',
+                'Software': 'desktop',
+                'Buying Guide': 'shopping-cart'
+            };
+            return icons[topicName] || 'tag';
+        }
+
+        function sortTopics() {
+            const sortBy = document.getElementById('topic-sort').value;
+            const container = document.getElementById('topics-container');
+            const topics = Array.from(container.children);
+
+            topics.sort((a, b) => {
+                switch (sortBy) {
+                    case 'popular':
+                        return parseInt(b.getAttribute('data-count')) - parseInt(a.getAttribute('data-count'));
+                    case 'recent':
+                        return new Date(b.getAttribute('data-activity')) - new Date(a.getAttribute('data-activity'));
+                    case 'name':
+                        return a.textContent.localeCompare(b.textContent);
+                    default:
+                        return 0;
+                }
+            });
+
+            // Clear and re-append sorted topics
+            topics.forEach(topic => container.appendChild(topic));
+        }
+
+        function filterTopics() {
+            const category = document.getElementById('topic-category').value;
+            const topics = document.querySelectorAll('.tag-item');
+
+            topics.forEach(topic => {
+                if (category === 'all' || topic.getAttribute('data-category') === category) {
+                    topic.style.display = 'flex';
+                } else {
+                    topic.style.display = 'none';
+                }
+            });
+        }
+
+        function filterDiscussionsByTopic(topic) {
+            // Implementasi filter diskusi berdasarkan topic
+            showNotification(`Menampilkan diskusi dengan topik: ${topic}`, 'info');
+            // Di sini bisa diimplementasikan filtering diskusi yang sesuai
+        }
+
+        // ==================== DISCUSSION FUNCTIONALITY ====================
+
+        // Discussion functionality
+        function openDiscussion(id) {
+            // Cek apakah ini diskusi baru (ID berupa timestamp)
+            if (newDiscussions.some(disc => disc.id === id)) {
+                const discussion = newDiscussions.find(disc => disc.id === id);
+                if (discussion) {
+                    showNewDiscussionDetail(discussion);
+                    return;
+                }
+            }
+            
+            // Jika bukan diskusi baru, tampilkan diskusi default
+            const discussions = {
+                1: {
+                    title: "Laptop Gaming 2024: Rekomendasi Terbaik Budget 10-20 Juta",
+                    author: "Joko Nugroho",
+                    avatar: "JN",
+                    major: "Teknik Informatika - ITB",
+                    date: "2 hari lalu",
+                    content: `
+                        <p>Setelah riset selama 2 bulan dan testing berbagai laptop gaming, ini dia rekomendasi terbaik untuk mahasiswa dengan budget 10-20 juta. Lengkap dengan perbandingan performa, thermals, dan value for money.</p>
+                        
+                        <h3>Rekomendasi Utama:</h3>
+                        <ul>
+                            <li><strong>ASUS TUF Gaming F15</strong> - Performa terbaik untuk gaming berat</li>
+                            <li><strong>Lenovo Legion 5</strong> - Cooling system yang sangat baik</li>
+                            <li><strong>Acer Nitro 5</strong> - Value for money terbaik</li>
+                        </ul>
+                        
+                        <h3>Tips Memilih:</h3>
+                        <ol>
+                            <li>Prioritaskan GPU (RTX 3050 minimal)</li>
+                            <li>Perhatikan cooling system</li>
+                            <li>Battery life untuk mobilitas</li>
+                        </ol>
+                        
+                        <p>Diskusi terbuka untuk pertanyaan dan pengalaman!</p>
+                    `,
+                    tags: ["Gaming", "Review", "Budget"],
+                    comments: [
+                        {
+                            author: "Budi Santoso",
+                            avatar: "BS",
+                            date: "1 hari lalu",
+                            content: "Terima kasih rekomendasinya! Saya sedang pertimbangkan Legion 5, ada yang punya pengalaman dengan thermal-nya?"
+                        },
+                        {
+                            author: "Sari Wulandari",
+                            avatar: "SW",
+                            date: "20 jam lalu",
+                            content: "Saya pakai Acer Nitro 5 sudah 1 tahun, thermal cukup baik untuk gaming 3-4 jam. Hanya saja baterai agak boros."
+                        }
+                    ]
+                },
+                2: {
+                    title: "Help! Laptop sering freeze saat multitasking",
+                    author: "Ahmad Rizky",
+                    avatar: "AR",
+                    major: "Teknik Informatika - UI",
+                    date: "3 jam lalu",
+                    content: `
+                        <p>Laptop saya ASUS VivoBook sering freeze kalau buka banyak aplikasi sekaligus (Chrome + VS Code + Figma). RAM 8GB, apakah perlu upgrade atau ada solusi lain?</p>
+                        
+                        <h3>Spesifikasi:</h3>
+                        <ul>
+                            <li>ASUS VivoBook S15</li>
+                            <li>Intel i5-1135G7</li>
+                            <li>RAM 8GB DDR4</li>
+                            <li>SSD 512GB</li>
+                            <li>Windows 11</li>
+                        </ul>
+                        
+                        <p>Sudah coba clean install Windows dan update driver, tapi masih sama. Ada yang punya solusi?</p>
+                    `,
+                    tags: ["Troubleshooting", "Performance"],
+                    comments: [
+                        {
+                            author: "Joko Nugroho",
+                            avatar: "JN",
+                            date: "2 jam lalu",
+                            content: "Coba cek task manager saat freeze, lihat apa yang menggunakan resource tinggi. Kemungkinan thermal throttling atau background process."
+                        }
+                    ]
+                }
+            };
+            
+            const discussion = discussions[id];
+            if (discussion) {
+                document.getElementById('discussion-content').innerHTML = `
+                    <div class="discussion-detail">
+                        <div class="discussion-header">
+                            <div class="user-avatar">${discussion.avatar}</div>
+                            <div class="user-info">
+                                <div class="username">${discussion.author}</div>
+                                <div class="user-major">${discussion.major}</div>
+                            </div>
+                            <div class="discussion-meta">${discussion.date}</div>
+                        </div>
+                        
+                        <h2 class="discussion-title">${discussion.title}</h2>
+                        
+                        <div class="discussion-content">
+                            ${discussion.content}
+                        </div>
+                        
+                        <div class="discussion-tags">
+                            ${discussion.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        
+                        <div class="discussion-stats">
+                            <div class="stat-item"><i class="fas fa-comment"></i> ${discussion.comments.length} Balasan</div>
+                            <div class="stat-item"><i class="fas fa-heart"></i> 456 Likes</div>
+                            <div class="stat-item"><i class="fas fa-eye"></i> 12.3k Views</div>
+                        </div>
+                        
+                        <div class="reaction-buttons">
+                            <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-thumbs-up"></i> Suka</button>
+                            <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-heart"></i> Suka</button>
+                            <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-lightbulb"></i> Membantu</button>
+                        </div>
+                        
+                        <div class="comments-section">
+                            <h3>Komentar (${discussion.comments.length})</h3>
+                            
+                            ${discussion.comments.map(comment => `
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <div class="user-avatar small">${comment.avatar}</div>
+                                        <div class="comment-info">
+                                            <div class="comment-author">${comment.author}</div>
+                                            <div class="comment-date">${comment.date}</div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content">${comment.content}</div>
+                                    <div class="comment-actions">
+                                        <button class="comment-action"><i class="fas fa-thumbs-up"></i></button>
+                                        <button class="comment-action"><i class="fas fa-reply"></i></button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="comment-form">
+                                <textarea class="form-textarea" placeholder="Tulis komentar Anda..."></textarea>
+                                <button class="btn btn-primary" style="margin-top: 10px;">Kirim Komentar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                openModal('discussion');
+            }
+        }
+
+        function showNewDiscussionDetail(discussion) {
+    document.getElementById('discussion-content').innerHTML = `
+        <div class="discussion-detail">
+            <div class="discussion-header">
+                <div class="user-avatar" style="background: #48bb78;">${discussion.avatar}</div>
+                <div class="user-info">
+                    <div class="username">${discussion.author}</div>
+                    <div class="user-major">${discussion.major}</div>
+                    <div class="user-badge">New Member</div>
+                </div>
+                <div class="discussion-meta">${discussion.date}</div>
+            </div>
+            
+            <h2 class="discussion-title">
+                <i class="fas fa-plus-circle" style="color: #48bb78;"></i>
+                ${discussion.title}
+            </h2>
+            
+            <div class="discussion-content">
+                <p>${discussion.content}</p>
+                
+                <div class="discussion-tips">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Tips:</strong> Diskusi Anda masih baru. Beri waktu beberapa jam untuk mendapatkan respons dari komunitas.
+                </div>
+            </div>
+            
+            <div class="discussion-tags">
+                ${discussion.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                <span class="tag new-tag">Baru</span>
+            </div>
+            
+            <div class="discussion-stats">
+                <div class="stat-item"><i class="fas fa-comment"></i> ${discussion.stats.replies} Balasan</div>
+                <div class="stat-item"><i class="fas fa-heart"></i> ${discussion.stats.likes} Likes</div>
+                <div class="stat-item"><i class="fas fa-eye"></i> ${discussion.stats.views} Views</div>
+            </div>
+            
+            <div class="reaction-buttons">
+                <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-thumbs-up"></i> Suka</button>
+                <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-heart"></i> Suka</button>
+                <button class="reaction-btn" onclick="toggleReaction(this)"><i class="fas fa-lightbulb"></i> Membantu</button>
+            </div>
+            
+            <div class="comments-section">
+                <h3>Komentar (${discussion.comments.length})</h3>
+                
+                ${discussion.comments.length === 0 ? `
+                    <div class="no-comments">
+                        <i class="fas fa-comments" style="font-size: 48px; color: #e2e8f0; margin-bottom: 15px;"></i>
+                        <p style="color: #718096; text-align: center;">Belum ada komentar. Jadilah yang pertama memberikan respons!</p>
+                    </div>
+                ` : discussion.comments.map(comment => `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="user-avatar small">${comment.avatar}</div>
+                            <div class="comment-info">
+                                <div class="comment-author">${comment.author}</div>
+                                <div class="comment-date">${comment.date}</div>
+                            </div>
+                        </div>
+                        <div class="comment-content">${comment.content}</div>
+                        <div class="comment-actions">
+                            <button class="comment-action"><i class="fas fa-thumbs-up"></i></button>
+                            <button class="comment-action"><i class="fas fa-reply"></i></button>
+                        </div>
+                    </div>
+                `).join('')}
+                
+                <div class="comment-form">
+                    <textarea class="form-textarea" placeholder="Tulis komentar Anda..."></textarea>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="addCommentToDiscussion(${discussion.id})">Kirim Komentar</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    openModal('discussion');
+}
+
+function addCommentToDiscussion(discussionId) {
+    const textarea = document.querySelector('.comment-form textarea');
+    const comment = textarea.value.trim();
+    
+    if (!comment) {
+        showNotification('Harap tulis komentar terlebih dahulu!', 'error');
+        return;
+    }
+    
+    // Tambahkan komentar ke diskusi
+    const discussion = newDiscussions.find(disc => disc.id === discussionId);
+    if (discussion) {
+        discussion.comments.push({
+            author: "Anda",
+            avatar: "KU",
+            date: "Baru saja",
+            content: comment
+        });
+        
+        // Update statistik
+        discussion.stats.replies++;
+        
+        showNotification('Komentar berhasil ditambahkan!', 'success');
+        textarea.value = '';
+        
+        // Refresh tampilan diskusi
+        showNewDiscussionDetail(discussion);
+    }
+}
+
+        // ==================== CONTRIBUTOR PROFILE FUNCTIONALITY ====================
+
+        const contributorsData = {
+            1: {
+                name: "Joko Nugroho",
+                avatar: "JN",
+                role: "Expert Member",
+                major: "Teknik Informatika - ITB",
+                joinDate: "Bergabung 2 tahun lalu",
+                stats: {
+                    posts: 234,
+                    likes: 1200,
+                    solutions: 89,
+                    reputation: 4.7
+                },
+                bio: "Spesialis laptop gaming dan hardware. Senang berbagi pengalaman testing berbagai laptop dan memberikan rekomendasi terbaik untuk kebutuhan gaming dan produktivitas.",
+                specialties: ["Gaming Laptops", "Hardware Review", "Performance Optimization"],
+                achievements: ["Top Contributor 2023", "Most Helpful Member", "Expert Reviewer"],
+                reviews: [
+                    {
+                        author: "Sari Wulandari",
+                        avatar: "SW",
+                        date: "1 minggu lalu",
+                        content: "Joko sangat helpful! Rekomendasinya tepat untuk kebutuhan DKV saya.",
+                        rating: 5
+                    },
+                    {
+                        author: "Rizki Hidayat", 
+                        avatar: "RH",
+                        date: "2 minggu lalu",
+                        content: "Review laptop gaming-nya detail banget. Bantu saya milih laptop yang pas untuk budget.",
+                        rating: 5
+                    }
+                ]
+            },
+            2: {
+                name: "Dina Ayu",
+                avatar: "DA", 
+                role: "Super Helper",
+                major: "Sistem Informasi - UGM",
+                joinDate: "Bergabung 1.5 tahun lalu",
+                stats: {
+                    posts: 187,
+                    likes: 956,
+                    solutions: 67,
+                    reputation: 5.0
+                },
+                bio: "Fokus pada software optimization dan troubleshooting. Senang membantu member yang mengalami masalah software dan memberikan solusi praktis.",
+                specialties: ["Software Troubleshooting", "Windows Optimization", "Driver Issues"],
+                achievements: ["Problem Solver Award", "Community Helper", "Rapid Responder"],
+                reviews: [
+                    {
+                        author: "Ahmad Rizky",
+                        avatar: "AR",
+                        date: "3 hari lalu",
+                        content: "Dina bantu solve masalah laptop freeze saya dalam waktu singkat! Recommended banget.",
+                        rating: 5
+                    }
+                ]
+            }
+        };
+
+        function openContributorProfile(id) {
+            const contributor = contributorsData[id];
+            if (contributor) {
+                document.getElementById('contributor-content').innerHTML = `
+                    <div class="contributor-profile">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <div class="user-avatar xlarge">${contributor.avatar}</div>
+                                <div class="online-status online"></div>
+                            </div>
+                            <div class="profile-info">
+                                <h2>${contributor.name}</h2>
+                                <div class="profile-role">${contributor.role}</div>
+                                <div class="profile-major">${contributor.major}</div>
+                                <div class="profile-join-date">${contributor.joinDate}</div>
+                                <div class="profile-rating">
+                                    <div class="stars">
+                                        ${generateStars(contributor.stats.reputation)}
+                                    </div>
+                                    <span class="rating-value">${contributor.stats.reputation}/5</span>
+                                </div>
+                            </div>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <div class="stat-number">${contributor.stats.posts}</div>
+                                    <div class="stat-label">Posts</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">${contributor.stats.likes}</div>
+                                    <div class="stat-label">Likes</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">${contributor.stats.solutions}</div>
+                                    <div class="stat-label">Solutions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-bio">
+                            <h3><i class="fas fa-user"></i> Tentang</h3>
+                            <p>${contributor.bio}</p>
+                        </div>
+
+                        <div class="profile-specialties">
+                            <h3><i class="fas fa-star"></i> Spesialisasi</h3>
+                            <div class="specialties-list">
+                                ${contributor.specialties.map(spec => `
+                                    <span class="specialty-tag">${spec}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="profile-achievements">
+                            <h3><i class="fas fa-trophy"></i> Prestasi</h3>
+                            <div class="achievements-list">
+                                ${contributor.achievements.map(ach => `
+                                    <div class="achievement-item">
+                                        <i class="fas fa-award"></i>
+                                        <span>${ach}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="profile-reviews">
+                            <div class="reviews-header">
+                                <h3><i class="fas fa-comment"></i> Testimoni Member</h3>
+                                <button class="btn btn-primary btn-small" onclick="openReviewForm(${id})">
+                                    <i class="fas fa-plus"></i> Beri Testimoni
+                                </button>
+                            </div>
+                            <div class="reviews-list">
+                                ${contributor.reviews.map(review => `
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <div class="user-avatar small">${review.avatar}</div>
+                                            <div class="review-info">
+                                                <div class="review-author">${review.author}</div>
+                                                <div class="review-date">${review.date}</div>
+                                            </div>
+                                            <div class="review-rating">
+                                                ${generateStars(review.rating)}
+                                            </div>
+                                        </div>
+                                        <div class="review-content">
+                                            ${review.content}
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="review-action" onclick="likeReview(this)">
+                                                <i class="fas fa-thumbs-up"></i> Helpful
+                                            </button>
+                                            <button class="review-action" onclick="replyToReview(this)">
+                                                <i class="fas fa-reply"></i> Balas
+                                            </button>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" onclick="sendMessageToContributor(${id})">
+                                <i class="fas fa-envelope"></i> Kirim Pesan
+                            </button>
+                            <button class="btn btn-secondary" onclick="followContributor(${id})">
+                                <i class="fas fa-plus"></i> Follow
+                            </button>
+                            <div class="emoji-reactions">
+                                <span class="emoji-btn" onclick="addEmojiReaction(${id}, '👍')">👍</span>
+                                <span class="emoji-btn" onclick="addEmojiReaction(${id}, '❤️')">❤️</span>
+                                <span class="emoji-btn" onclick="addEmojiReaction(${id}, '🔥')">🔥</span>
+                                <span class="emoji-btn" onclick="addEmojiReaction(${id}, '👏')">👏</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                openModal('contributor');
+            }
+        }
+
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        function showAllContributors() {
+            const container = document.getElementById('all-contributors-content');
+            container.innerHTML = '';
+            
+            Object.entries(contributorsData).forEach(([id, contributor]) => {
+                const contributorElement = document.createElement('div');
+                contributorElement.className = 'contributor-card-large';
+                contributorElement.innerHTML = `
+                    <div class="contributor-avatar">
+                        <div class="user-avatar large">${contributor.avatar}</div>
+                        <div class="contributor-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="contributor-info">
+                        <div class="contributor-name">${contributor.name}</div>
+                        <div class="contributor-title">${contributor.role}</div>
+                        <div class="contributor-major">${contributor.major}</div>
+                        <div class="contributor-stats">
+                            <span><i class="fas fa-comments"></i> ${contributor.stats.posts} Posts</span>
+                            <span><i class="fas fa-heart"></i> ${contributor.stats.likes} Likes</span>
+                        </div>
+                        <div class="contributor-rating">
+                            ${generateStars(contributor.stats.reputation)}
+                            <span class="rating-text">${contributor.stats.reputation}/5</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-small" onclick="openContributorProfile(${id})">
+                        Lihat Profil
+                    </button>
+                `;
+                container.appendChild(contributorElement);
+            });
+            
+            openModal('all-contributors');
+        }
+
+        function toggleReaction(button) {
+            button.classList.toggle('active');
+        }
+
+        // ==================== EVENT FUNCTIONALITY ====================
+
+        function registerEvent(eventId) {
+            showNotification('Berhasil mendaftar event! Kami akan mengirim reminder via email.', 'success');
+            // Update participant count
+            const participantElement = document.querySelector('.event-card.upcoming .event-participants');
+            if (participantElement) {
+                const currentText = participantElement.textContent;
+                const currentCount = parseInt(currentText.match(/\d+/)[0]);
+                const maxCount = parseInt(currentText.match(/\d+/)[1]);
+                if (currentCount < maxCount) {
+                    participantElement.innerHTML = `<i class="fas fa-users"></i> ${currentCount + 1}/${maxCount} peserta`;
+                }
+            }
+        }
+
+        function showEventDetails(eventId) {
+            const events = {
+                1: {
+                    title: "Workshop: Laptop Maintenance 101",
+                    date: "28 September 2024",
+                    time: "19:00 - 21:00 WIB",
+                    location: "Online via Zoom",
+                    speaker: "Joko Nugroho (Expert Member)",
+                    description: "Pelajari cara merawat laptop dengan benar untuk memperpanjang usia pakai dan menjaga performa optimal.",
+                    agenda: [
+                        "19:00 - 19:15: Pembukaan dan perkenalan",
+                        "19:15 - 20:00: Basic laptop maintenance",
+                        "20:00 - 20:45: Advanced cleaning techniques", 
+                        "20:45 - 21:00: Q&A session"
+                    ],
+                    requirements: ["Laptop (opsional)", "Notebook untuk catatan"],
+                    participants: "43/50"
+                },
+                2: {
+                    title: "Meetup: Gaming Laptop Showcase",
+                    date: "5 Oktober 2024", 
+                    time: "14:00 - 17:00 WIB",
+                    location: "Jakarta Tech Hub",
+                    speaker: "Tim Expert SAMLAPTOP",
+                    description: "Demo langsung berbagai laptop gaming terbaru dari brand ternama dengan sesi Q&A bersama expert.",
+                    agenda: [
+                        "14:00 - 14:30: Registrasi dan networking",
+                        "14:30 - 15:30: Product showcase session",
+                        "15:30 - 16:30: Hands-on testing",
+                        "16:30 - 17:00: Q&A dan penutupan"
+                    ],
+                    requirements: ["Registrasi wajib", "ID card untuk check-in"],
+                    participants: "12/30"
+                }
+            };
+
+            const event = events[eventId];
+            if (event) {
+                document.getElementById('event-content').innerHTML = `
+                    <h2 style="margin-bottom: 15px;">${event.title}</h2>
+                    
+                    <div class="event-detail-info">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <strong>Tanggal</strong>
+                                <div>${event.date}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Waktu</strong>
+                                <div>${event.time}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Lokasi</strong>
+                                <div>${event.location}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <strong>Pembicara</strong>
+                                <div>${event.speaker}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-description">
+                        <h3>Deskripsi Event</h3>
+                        <p>${event.description}</p>
+                    </div>
+
+                    <div class="event-agenda">
+                        <h3>Agenda</h3>
+                        <div class="agenda-list">
+                            ${event.agenda.map(item => `
+                                <div class="agenda-item">${item}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="event-requirements">
+                        <h3>Yang Perlu Dibawa</h3>
+                        <ul>
+                            ${event.requirements.map(req => `
+                                <li>${req}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="event-participation">
+                        <div class="participants-count">
+                            <i class="fas fa-users"></i>
+                            <span>${event.participants} peserta terdaftar</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-primary" onclick="registerEvent(${eventId}); closeModal('event')">
+                                Daftar Sekarang
+                            </button>
+                            <button class="btn btn-secondary" onclick="addToCalendar(${eventId})">
+                                <i class="fas fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                openModal('event');
+            }
+        }
+
+        // ==================== FUNCTION TO ADD NEW DISCUSSION ====================
+
+        // Array untuk menyimpan diskusi baru
+        let newDiscussions = [];
+
+        function addNewDiscussion(formData) {
+            // Generate ID unik untuk diskusi baru
+            const newId = Date.now();
+            
+            // Buat objek diskusi baru
+            const newDiscussion = {
+                id: newId,
+                title: formData.title,
+                category: formData.category,
+                content: formData.content,
+                tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : [],
+                author: "You", // Default author
+                avatar: "KU",
+                major: "Member Baru",
+                date: "Baru saja",
+                comments: [],
+                stats: {
+                    replies: 0,
+                    likes: 0,
+                    views: 0
+                }
+            };
+            
+            // Tambahkan ke array diskusi baru
+            newDiscussions.unshift(newDiscussion);
+            
+            // Tampilkan diskusi baru di daftar
+            displayNewDiscussion(newDiscussion);
+            
+            return newDiscussion;
+        }
+
+        function displayNewDiscussion(discussion) {
+            const discussionContainer = document.querySelector('.content-section:first-child');
+            const trendingSection = document.querySelector('.section-title:last-child');
+            
+            // Buat elemen diskusi baru
+            const discussionElement = document.createElement('div');
+            discussionElement.className = 'discussion-card new-discussion';
+            discussionElement.setAttribute('onclick', `openDiscussion(${discussion.id})`);
+            discussionElement.innerHTML = `
+                <div class="discussion-header">
+                    <div class="user-avatar" style="background: #48bb78;">${discussion.avatar}</div>
+                    <div class="user-info">
+                        <div class="username">${discussion.author}</div>
+                        <div class="user-major">${discussion.major}</div>
+                        <div class="user-badge">New Member</div>
+                    </div>
+                    <div class="discussion-meta">${discussion.date}</div>
+                </div>
+                <div class="discussion-title">
+                    <i class="fas fa-plus-circle" style="color: #48bb78;"></i>
+                    ${discussion.title}
+                </div>
+                <div class="discussion-preview">
+                    ${discussion.content.substring(0, 150)}...
+                </div>
+                <div class="discussion-tags">
+                    ${discussion.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    <span class="tag new-tag">Baru</span>
+                </div>
+                <div class="discussion-stats">
+                    <div class="stat-item"><i class="fas fa-comment"></i> ${discussion.stats.replies} Balasan</div>
+                    <div class="stat-item"><i class="fas fa-heart"></i> ${discussion.stats.likes} Likes</div>
+                    <div class="stat-item"><i class="fas fa-eye"></i> ${discussion.stats.views} Views</div>
+                    <div class="stat-item"><i class="fas fa-book-open"></i> Baca</div>
+                </div>
+            `;
+            
+            // Sisipkan diskusi baru sebelum section "Diskusi Trending"
+            discussionContainer.insertBefore(discussionElement, trendingSection);
+            
+            // Tambahkan animasi
+            discussionElement.style.opacity = '0';
+            discussionElement.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                discussionElement.style.transition = 'all 0.5s ease';
+                discussionElement.style.opacity = '1';
+                discussionElement.style.transform = 'translateY(0)';
+            }, 100);
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+
+        function toggleReaction(button, type) {
+            button.classList.toggle('active');
+            const countElement = button.querySelector('.reaction-count');
+            if (countElement) {
+                let count = parseInt(countElement.textContent);
+                if (button.classList.contains('active')) {
+                    count++;
+                } else {
+                    count--;
+                }
+                countElement.textContent = count;
+            }
+            showNotification(`Reaction ${type} ${button.classList.contains('active') ? 'ditambahkan' : 'dihapus'}!`, 'success');
+        }
+
+        function likeComment(button) {
+            button.classList.toggle('active');
+            showNotification('Komentar disukai!', 'success');
+        }
+
+        function submitComment() {
+            showNotification('Komentar berhasil dikirim!', 'success');
+            closeModal('discussion');
+        }
+
+        function addEmojiReaction(contributorId, emoji) {
+            showNotification(`Reaction ${emoji} ditambahkan ke profil!`, 'success');
+        }
+
+        function sendMessageToContributor(contributorId) {
+            showNotification(`Membuka chat dengan ${contributorsData[contributorId].name}`, 'info');
+            openChatModal();
+        }
+
+        function followContributor(contributorId) {
+            showNotification(`Mengikuti ${contributorsData[contributorId].name}`, 'success');
+        }
+
+        function addToCalendar(eventId) {
+            showNotification('Event berhasil ditambahkan ke calendar!', 'success');
+        }
+
+        function showResources() {
+            showNotification('Membuka halaman resources...', 'info');
+        }
+
+        function openReviewForm(contributorId) {
+            showNotification(`Membuka form review untuk ${contributorsData[contributorId].name}`, 'info');
+        }
+
+        function likeReview(button) {
+            button.classList.toggle('active');
+            showNotification('Review ditandai helpful!', 'success');
+        }
+
+        function replyToReview(button) {
+            showNotification('Membuka form balasan review...', 'info');
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            // Add styles for notification
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#48bb78' : type === 'error' ? '#f56565' : '#4299e1'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTopics();
+            
+            // Handle form submissions
+            const joinForm = document.getElementById('join-form');
+            if (joinForm) {
+                joinForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    showNotification('Berhasil mendaftar komunitas! Selamat bergabung!', 'success');
+                    closeModal('join');
+                });
+            }
+
+            const postForm = document.getElementById('post-form');
+            if (postForm) {
+                postForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Ambil data dari form
+                    const formData = {
+                        title: postForm.querySelector('input[type="text"]').value,
+                        category: postForm.querySelector('select').value,
+                        content: postForm.querySelector('textarea').value,
+                        tags: postForm.querySelector('input[placeholder*="contoh: gaming"]').value
+                    };
+                    
+                    // Validasi form
+                    if (!formData.title || !formData.category || !formData.content) {
+                        showNotification('Harap isi semua field yang wajib!', 'error');
+                        return;
+                    }
+                    
+                    // Tambahkan diskusi baru
+                    addNewDiscussion(formData);
+                    
+                    // Tampilkan notifikasi
+                    showNotification('Diskusi berhasil diposting!', 'success');
+                    
+                    // Reset form dan tutup modal
+                    postForm.reset();
+                    closeModal('post');
+                });
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
